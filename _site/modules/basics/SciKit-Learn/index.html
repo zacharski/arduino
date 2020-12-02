@@ -1,0 +1,550 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming |  scikit Learn</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown active first ">
+						<a href="/arduino/modules/basics/Intro-To-Basic-ML/"
+						   class="dropdown-item">
+							basics
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/buttons/Intro-to-Boosting/"
+						   class="dropdown-item">
+							buttons
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/deep%20learning/Deep-Learning-Intro/"
+						   class="dropdown-item">
+							deep learning
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/bias/Bias/"
+						   class="dropdown-item">
+							bias
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/basics/Intro-To-Basic-ML/">
+					Intro To Basic Ml
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/basics/Blink/">
+					Blink
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/basics/Colab-and-Numpy/">
+					Colab And Numpy
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/basics/Pandas/">
+					Pandas
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a
+						href="/arduino/modules/basics/SciKit-Learn/">
+					 scikit Learn
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/basics/Decision-Trees/">
+					 decision Trees
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/basics/WOrking-With-Data/">
+					Working With Data
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/buttons/Intro-to-Boosting/"> buttons
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="introduction-to-scikit-learn-using-knn">Introduction to SciKit Learn using kNN</h2>
+
+<h3 id="introduction-to-classification">Introduction to classification</h3>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/B0i8yBkkM00" frameborder="0" allowfullscreen=""></iframe>
+
+<p>In this video we continue our exploration of writing queries involving a single table.</p>
+
+<h3 id="intro-to-scikit-learn">Intro to SciKit Learn</h3>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/B8NJI1ACqQU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>The dataset we are going to use is on how the U.S. Congress voted on different bills and we want to see if we can predict what party they belong to (democrat or republican) based on those votes.</p>
+
+<p>FIrst, let’s load in the data</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pandas as pd
+from pandas import DataFrame, Series
+
+</code></pre></div></div>
+
+<p>In the data file there are no column names so we need to add them</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>column_names = ['party', 'handicapped_infants', 'water', 'budget',
+                'physician_fee_freeze', 'el_salvador_aid',
+                'religious_groups_in_schools', 'anti_satellite_test_ban',
+                'aid_to_nicaraguan_contras', 'mx_missile', 'immigration',
+                'synfuels_corporation_cutback', 'education_spending',
+                'superfund_right_to_sue', 'crime', 'duty_free_exports',
+                'south_africa_exports']
+len(column_names)
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>17
+</code></pre></div></div>
+
+<p>and now we can actually load in the data and pass in those column names.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>votes = pd.read_csv('https://raw.githubusercontent.com/zacharski/ml-class/master/data/house_votes_2.csv', names= column_names )
+</code></pre></div></div>
+
+<p>Let’s take a look at the data…</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>votes
+</code></pre></div></div>
+
+<p>You should see a sample of the dataset.</p>
+
+<h3 id="how-to-load-in-a-zip-file">How to load in a zip file</h3>
+
+<p>Suppose the data wasn’t in a csv file, but was contained in a zip file. How do we load in the data?</p>
+
+<p>First, let’s get the zip file to our Google Colab machine by using the Linux command <code class="highlighter-rouge">wget</code>. We can execute an arbitrary Linux command by starting the code cell with a bang <code class="highlighter-rouge">!</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>!wget https://raw.githubusercontent.com/zacharski/ml-class/master/data/house_votes.zip
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--2020-08-04 15:36:09--  https://raw.githubusercontent.com/zacharski/ml-class/master/data/house_votes.zip
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1115 (1.1K) [application/zip]
+Saving to: ‘house_votes.zip’
+
+house_votes.zip     100%[===================&gt;]   1.09K  --.-KB/s    in 0s
+
+2020-08-04 15:36:10 (29.4 MB/s) - ‘house_votes.zip’ saved [1115/1115]
+</code></pre></div></div>
+
+<p>Now let’s unzip the file using the Linux command <code class="highlighter-rouge">unzip</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>!unzip house_votes.zip
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Archive:  house_votes.zip
+  inflating: house_votes_2.csv
+</code></pre></div></div>
+
+<p>And see what is in our current directory</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>!ls
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>house_votes_2.csv  house_votes.zip  sample_data
+</code></pre></div></div>
+
+<p>Now we can load that local file into pandas.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+votes2 = pd.read_csv('house_votes_2.csv', names= column_name)
+
+</code></pre></div></div>
+
+<p>That was a bit of an aside, but it is a useful thing to know.</p>
+
+<h3 id="divide-the-dataset">divide the dataset</h3>
+
+<p>Okay, we have <code class="highlighter-rouge">votes</code> the DataFrame with the house vote data. We separate that so 80% goes into a training set and 20% goes into the testing set.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.model_selection import train_test_split
+votes_train, votes_test = train_test_split(votes, test_size = 0.2)
+votes_train
+</code></pre></div></div>
+
+<h2 id="getting-labels-and-features">Getting labels and features</h2>
+
+<p>Next we want to divide the labels – what we want to predict, from the features – what we are going to use to make the prediction</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fColumns = list(votes.columns)
+fColumns.remove('party')
+votes_train_features = votes_train[fColumns]
+votes_test_features = votes_test[fColumns]
+votes_train_labels = votes_train[['party']]
+votes_test_labels = votes_test[['party']]
+votes_test_labels
+</code></pre></div></div>
+
+<h1 id="build-a-euclidean-knn-classifier-with-k3">build a Euclidean kNN classifier with k=3</h1>
+
+<p>Finally, we are going to build our kNN classifier. We will use Euclidean distance and a k of 3.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.neighbors import KNeighborsClassifier
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.get_params()
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'algorithm': 'auto',
+ 'leaf_size': 30,
+ 'metric': 'minkowski',
+ 'metric_params': None,
+ 'n_jobs': None,
+ 'n_neighbors': 3,
+ 'p': 2,
+ 'weights': 'uniform'}
+</code></pre></div></div>
+
+<h1 id="train-the-classifier-using-fit">Train the classifier using fit</h1>
+
+<p>We will train the classifier on our training dataset</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>knn.fit(votes_train_features, votes_train_labels)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/lib/python3.6/dist-packages/ipykernel_launcher.py:1: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  """Entry point for launching an IPython kernel.
+
+
+
+
+
+KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+                     metric_params=None, n_jobs=None, n_neighbors=3, p=2,
+                     weights='uniform')
+</code></pre></div></div>
+
+<h1 id="now-use-predict-to-get-the-predictions">now use predict to get the predictions</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>predictions = knn.predict(votes_test_features)
+predictions
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array(['democrat', 'democrat', 'republican', 'republican', 'republican',
+       'democrat', 'democrat', 'democrat', 'democrat', 'republican',
+       'democrat', 'republican', 'democrat', 'republican', 'republican',
+       'republican', 'republican', 'republican', 'republican',
+       'republican', 'republican', 'democrat', 'republican', 'democrat',
+       'democrat', 'republican', 'democrat', 'democrat', 'democrat',
+       'democrat', 'republican', 'republican', 'republican', 'republican',
+       'democrat', 'democrat', 'democrat', 'democrat', 'democrat',
+       'republican', 'democrat', 'republican', 'republican', 'republican',
+       'democrat', 'republican', 'republican'], dtype=object)
+</code></pre></div></div>
+
+<h1 id="nice-to-know-the-accuracy">Nice to know the accuracy</h1>
+
+<p>we can use accuracy_score</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.metrics import accuracy_score
+accuracy_score(votes_test_labels, predictions)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.9787234042553191
+</code></pre></div></div>
+
+<h2 id="try-to-improve-accuracy">try to improve accuracy</h2>
+
+<h3 id="p-or-power--lets-make-it-manhattan">p or power – let’s make it Manhattan</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>knn = KNeighborsClassifier(n_neighbors=3, p = 1)
+knn.fit(votes_train_features, votes_train_labels)
+predictions = knn.predict(votes_test_features)
+accuracy_score(votes_test_labels, predictions)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.9787234042553191
+</code></pre></div></div>
+
+<h2 id="how-is-our-prediction-just-using-one-votes-how-about-immigration">how is our prediction just using one votes. How about immigration?</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(votes_train[['immigration']], votes_train_labels)
+predictions = knn.predict(votes_test[['immigration']])
+accuracy_score(votes_test_labels, predictions)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.48936170212765956
+</code></pre></div></div>
+
+<p>Our prediction on whether someone is a Republican or Democrat based on how they voted on an immigration bill was not very accurate.</p>
+
+<h3 id="what-about-how-they-voted-for-aid-to-nicaraguan-contras">What about how they voted for aid to Nicaraguan Contras?</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(votes_train[['aid_to_bicaraguan_contras']], votes_train_labels)
+predictions = knn.predict(votes_test[['aid_to_bicaraguan_contras']])
+accuracy_score(votes_test_labels, predictions)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.851063829787234
+</code></pre></div></div>
+
+<p>That accuracy is pretty high.</p>
+
+<h2 id="finally-k5">finally, k=5</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>knn = KNeighborsClassifier(n_neighbors=5, p = 2)
+knn.fit(votes_train_features, votes_train_labels)
+predictions = knn.predict(votes_test_features)
+accuracy_score(votes_test_labels, predictions)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.9787234042553191
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/basics/Pandas/">
+								Pandas </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/basics/Decision-Trees/">  decision Trees
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

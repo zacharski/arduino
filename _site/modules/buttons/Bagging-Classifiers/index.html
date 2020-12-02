@@ -1,0 +1,640 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Bagging Classifiers</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown  first ">
+						<a href="/arduino/modules/basics/Intro-To-Basic-ML/"
+						   class="dropdown-item">
+							basics
+						</a>
+					</li>
+				
+					
+					<li class="dropdown active  ">
+						<a href="/arduino/modules/buttons/Intro-to-Boosting/"
+						   class="dropdown-item">
+							buttons
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/deep%20learning/Deep-Learning-Intro/"
+						   class="dropdown-item">
+							deep learning
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/bias/Bias/"
+						   class="dropdown-item">
+							bias
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+		<div class="pagination-section">
+			<div class="title">
+				Previous module:
+			</div>
+			<a rel="prev" class="prev" href="/arduino/modules/basics/Intro-To-Basic-ML/">
+				basics </a>
+		</div>
+		<hr />
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/buttons/Intro-to-Boosting/">
+					Intro To Boosting
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/buttons/Bias-and-Variance/">
+					Bias And Variance
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a
+						href="/arduino/modules/buttons/Bagging-Classifiers/">
+					Bagging Classifiers
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/buttons/XGBoost/">
+					Xgboost
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/deep%20learning/Deep-Learning-Intro/"> deep learning
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h1 id="bagging-pasting-and-patches">Bagging, Pasting, and Patches</h1>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cr9uSrg5u4I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>The basic template for using nearly any bagging method is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.ensemble import BaggingClassifier
+clf = tree.DecisionTreeClassifier(criterion='entropy', max_depth=5)
+ensemble = BaggingClassifier(clf, n_estimators=50, n_jobs-1)
+</code></pre></div></div>
+
+<p>Of course the values of those hyperparameters change, but that is the basic idea. The hyperparameters that create the different flavors of bagging algorithms are …</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">algorithm</th>
+      <th style="text-align: left">max_samples</th>
+      <th style="text-align: left">bootstrap</th>
+      <th style="text-align: left">max_features</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">bagging</td>
+      <td style="text-align: left"><code class="highlighter-rouge">max_samples=num</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">bootstrap=True</code> (default)</td>
+      <td style="text-align: left"><code class="highlighter-rouge">max_features=1.0</code> (default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">pasting</td>
+      <td style="text-align: left"><code class="highlighter-rouge">max_samples=num</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">bootstrap=False</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">max_features=1.0</code> (default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">random subspaces</td>
+      <td style="text-align: left"><code class="highlighter-rouge">max_samples=1.0</code> (default)</td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left"><code class="highlighter-rouge">max_features=num</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">random patches</td>
+      <td style="text-align: left"><code class="highlighter-rouge">max_samples=num</code></td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left"><code class="highlighter-rouge">max_features=num</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Here are definitions of those column hyperparameters (this from the documentation)</p>
+
+<h4 id="max_samples-int-or-float-default10">max_samples int or float, default=1.0</h4>
+
+<p>The number of samples to draw from X to train each base estimator (with replacement by default, see bootstrap for more details).</p>
+
+<ul>
+  <li>
+    <p>If int, then draw max_samples samples.</p>
+  </li>
+  <li>
+    <p>If float, then draw max_samples * X.shape[0] samples.</p>
+  </li>
+</ul>
+
+<h4 id="max_features-int-or-float-default10">max_features int or float, default=1.0</h4>
+
+<p>The number of features to draw from X to train each base estimator ( without replacement by default, see bootstrap_features for more details).</p>
+
+<ul>
+  <li>If int, then draw max_features features.</li>
+  <li>If float, then draw max_features * X.shape[1] features.</li>
+</ul>
+
+<h4 id="bootstrap-bool-defaulttrue">bootstrap bool, default=True</h4>
+
+<p>Whether samples are drawn with replacement. If False, sampling without replacement is performed.</p>
+
+<h4 id="bootstrap_features-bool-defaultfalse">bootstrap_features, bool, default=False</h4>
+
+<p>Whether features are drawn with replacement.</p>
+
+<h2 id="clothing">Clothing</h2>
+
+<p>The dataset we will use to explore bagging consists of small 28x28 grayscale image icons of different articles of clothing. There are 60,000 images in the training set and 10,000 in the test set</p>
+
+<p><img src="https://raw.githubusercontent.com/zacharski/ml-class/master/labs/pics/clothes-sprite.png" alt="" /></p>
+
+<p><img src="https://raw.githubusercontent.com/zacharski/ml-class/master/labs/pics/clothing.gif" alt="" /></p>
+
+<p>Each image has an associated label from a list of 10:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Label</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>T-shirt/top</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Trouser</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Pullover</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Dress</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Coat</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Sandal</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Shirt</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Sneaker</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Bag</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Ankle boot</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If the alogrithm randomly guessed, it would only be 10% accurate.</p>
+
+<h4 id="the-features">The features</h4>
+
+<p>28x28 = 784 features – pixels - gray scale.</p>
+
+<p>60,000 rows x 784 features</p>
+
+<h4 id="the-files">The files</h4>
+
+<ul>
+  <li>Training set: <a href="http://zacharski.org/files/courses/cs419/clothes_train.csv">clothes_train.csv</a></li>
+  <li>Test set: <a href="http://zacharski.org/files/courses/cs419/clothing_test.csv">clothing_test.csv</a> Note:</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pandas as pd
+clothes = pd.read_csv('http://zacharski.org/files/courses/cs419/clothes_train.csv')
+clothesTest = pd.read_csv('http://zacharski.org/files/courses/cs419/clothing_test.csv')
+clothesY = clothes['label']
+clothesX = clothes.drop('label', axis=1)
+clothesX
+</code></pre></div></div>
+
+<p>And now some code to display a few sample images</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from matplotlib import pyplot as plt
+import numpy as np
+
+def viewImage(x):
+    x1 = np.array(x)
+    x2 = x1.reshape([28,28]).astype(np.uint8)
+    plt.figure(figsize=(2,2))
+    plt.imshow(x2, interpolation='nearest', cmap='gray')
+    plt.show()
+
+viewImage(clothesX.iloc[1])
+viewImage(clothesX.iloc[1001])
+viewImage(clothesX.iloc[599])
+
+
+</code></pre></div></div>
+
+<p><img src="/machine-learning/img/baggingDemo_2_0.png" alt="png" /></p>
+
+<p><img src="/machine-learning/img/baggingDemo_2_1.png" alt="png" /></p>
+
+<p><img src="/machine-learning/img/baggingDemo_2_2.png" alt="png" /></p>
+
+<h3 id="converting-the-0-255-integer-values-to-floats-between-0-and-1">Converting the 0-255 integer values to floats between 0 and 1.</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clothesXF = clothesX / 255
+</code></pre></div></div>
+
+<h3 id="divide-into-training-and-testing">Divide into training and testing</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.model_selection import train_test_split
+clothes_train_features, clothes_test_features, clothes_train_labels, clothes_test_labels = train_test_split(clothesXF, clothesY, test_size = 0.2, random_state=40)
+clothes_train_features
+</code></pre></div></div>
+
+<h3 id="test-a-simple-decision-tree-classifier">Test a simple Decision Tree Classifier</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn import tree
+clf = tree.DecisionTreeClassifier(criterion='entropy')
+clf.fit(clothes_train_features, clothes_train_labels)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DecisionTreeClassifier(ccp_alpha=0.0, class_weight=None, criterion='entropy',
+                       max_depth=None, max_features=None, max_leaf_nodes=None,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=1, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, presort='deprecated',
+                       random_state=None, splitter='best')
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.metrics import accuracy_score
+
+basePredictions = clf.predict(clothes_test_features)
+accuracy_score(clothes_test_labels, basePredictions)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.7979166666666667
+</code></pre></div></div>
+
+<h3 id="bagging-classifier">Bagging Classifier</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clf  = tree.DecisionTreeClassifier(criterion='entropy', max_depth=20)
+from sklearn.ensemble import BaggingClassifier
+
+bagging_clf = BaggingClassifier(clf, n_estimators=50, max_samples=.75,
+                                bootstrap=True, n_jobs=-1)
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bagging_clf.fit(clothes_train_features, clothes_train_labels)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BaggingClassifier(base_estimator=DecisionTreeClassifier(ccp_alpha=0.0,
+                                                        class_weight=None,
+                                                        criterion='entropy',
+                                                        max_depth=20,
+                                                        max_features=None,
+                                                        max_leaf_nodes=None,
+                                                        min_impurity_decrease=0.0,
+                                                        min_impurity_split=None,
+                                                        min_samples_leaf=1,
+                                                        min_samples_split=2,
+                                                        min_weight_fraction_leaf=0.0,
+                                                        presort='deprecated',
+                                                        random_state=None,
+                                                        splitter='best'),
+                  bootstrap=True, bootstrap_features=False, max_features=1.0,
+                  max_samples=0.75, n_estimators=50, n_jobs=-1, oob_score=False,
+                  random_state=None, verbose=0, warm_start=False)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bagPredictions = bagging_clf.predict(clothes_test_features)
+accuracy_score(clothes_test_labels, bagPredictions)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.8739166666666667
+</code></pre></div></div>
+
+<p>That is a significant improvement over just a single decision tree classifier</p>
+
+<h4 id="pasting">Pasting</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pasting_clf = BaggingClassifier(clf, n_estimators=25, max_samples=.04,
+                                bootstrap=False, n_jobs=-1)
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pasting_clf.fit(clothes_train_features, clothes_train_labels)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BaggingClassifier(base_estimator=DecisionTreeClassifier(ccp_alpha=0.0,
+                                                        class_weight=None,
+                                                        criterion='entropy',
+                                                        max_depth=20,
+                                                        max_features=None,
+                                                        max_leaf_nodes=None,
+                                                        min_impurity_decrease=0.0,
+                                                        min_impurity_split=None,
+                                                        min_samples_leaf=1,
+                                                        min_samples_split=2,
+                                                        min_weight_fraction_leaf=0.0,
+                                                        presort='deprecated',
+                                                        random_state=None,
+                                                        splitter='best'),
+                  bootstrap=False, bootstrap_features=False, max_features=1.0,
+                  max_samples=0.04, n_estimators=25, n_jobs=-1, oob_score=False,
+                  random_state=None, verbose=0, warm_start=False)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pastingPredictions = pasting_clf.predict(clothes_test_features)
+accuracy_score(clothes_test_labels, pastingPredictions)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.83408333333
+</code></pre></div></div>
+
+<h4 id="random-patches">Random patches</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>patch_clf = BaggingClassifier(clf, n_estimators=25, max_samples=.6,
+                                max_features=0.6, bootstrap_features=True
+                                bootstrap=True, n_jobs=-1)
+
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%time patch_clf.fit(clothes_train_features, clothes_train_labels)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CPU times: user 147 ms, sys: 346 ms, total: 493 ms
+Wall time: 3min 39s
+BaggingClassifier(base_estimator=DecisionTreeClassifier(ccp_alpha=0.0,
+                                                        class_weight=None,
+                                                        criterion='entropy',
+                                                        max_depth=20,
+                                                        max_features=None,
+                                                        max_leaf_nodes=None,
+                                                        min_impurity_decrease=0.0,
+                                                        min_impurity_split=None,
+                                                        min_samples_leaf=1,
+                                                        min_samples_split=2,
+                                                        min_weight_fraction_leaf=0.0,
+                                                        presort='deprecated',
+                                                        random_state=None,
+                                                        splitter='best'),
+                  bootstrap=True, bootstrap_features=True, max_features=0.6,
+                  max_samples=0.6, n_estimators=25, n_jobs=-1, oob_score=False,
+                  random_state=None, verbose=0, warm_start=False)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>patchPredictions = patch_clf.predict(clothes_test_features)
+accuracy_score(clothes_test_labels, patchPredictions)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.87033333
+</code></pre></div></div>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/buttons/Bias-and-Variance/">
+								Bias And Variance </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/buttons/XGBoost/"> Xgboost
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

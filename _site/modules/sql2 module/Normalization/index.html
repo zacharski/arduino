@@ -1,0 +1,1048 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Normalization</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown  first ">
+						<a href="/arduino/modules/basics/Intro-To-Basic-ML/"
+						   class="dropdown-item">
+							basics
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/buttons/Intro-to-Boosting/"
+						   class="dropdown-item">
+							buttons
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/deep%20learning/Deep-Learning-Intro/"
+						   class="dropdown-item">
+							deep learning
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/bias/Bias/"
+						   class="dropdown-item">
+							bias
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/sql2%20module/Sql2-Intro/">
+					Sql2 Intro
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a
+						href="/arduino/modules/sql2%20module/Normalization/">
+					Normalization
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/sql2%20module/Transactions/">
+					Transactions
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/sql2%20module/Concluding-Comments/">
+					Concluding Comments
+				</a>
+			</li>
+		
+	</ul>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="normalization">Normalization</h2>
+
+<h3 id="an-introduction-to-second-and-third-normal-form">An Introduction to Second and Third Normal Form</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/60qH6lQtd50" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="practice-designing-and-querying-multiple-table-databases">Practice Designing and Querying Multiple Table Databases</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fYMK-DyJIuU" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="first-normal-form">First Normal Form:</h3>
+
+<ol>
+  <li>each row contains atomic values</li>
+  <li>each row has a unique identifier - primary key</li>
+</ol>
+
+<p>For example, this table</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">band</th>
+      <th style="text-align: center">members</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Coldplay</td>
+      <td style="text-align: center">Chris Martin, Jonny Buckland, Guy Berryman</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Chainsmokers</td>
+      <td style="text-align: center">Andrew Taggart, Alex Pall</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Fall Out Boy</td>
+      <td style="text-align: center">Patrick Stump, Joe Trohman, Pete Wentz</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>does not contain atomic values because the members column has multiple values of the same type (Chris Martin and Jonny Buckland are the same type of thing and there are multiple of those in a cell )</p>
+
+<p>This next table is also not atomic because multiple columns represent the same sort of thing (member1, member2, member3).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">band</th>
+      <th style="text-align: center">member1</th>
+      <th style="text-align: center">member2</th>
+      <th style="text-align: center">member3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Coldplay</td>
+      <td style="text-align: center">Chris Martin</td>
+      <td style="text-align: center">Jonny Buckland</td>
+      <td style="text-align: center">Guy Berryman</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Chainsmokers</td>
+      <td style="text-align: center">Andrew Taggart</td>
+      <td style="text-align: center">Alex Pall</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Fall Out Boy</td>
+      <td style="text-align: center">Patrick Stump</td>
+      <td style="text-align: center">Joe Trohman</td>
+      <td style="text-align: center">Pete Wentz</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The following table meets both criteria of First Normal Form (1NF) because all the values are atomic and each row has a unique key. The username is unique and in the table we represent the primary key with PK:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">username  (PK)</th>
+      <th style="text-align: center">firstname</th>
+      <th style="text-align: center">lastname</th>
+      <th style="text-align: center">password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">daiho</td>
+      <td style="text-align: center">Jill</td>
+      <td style="text-align: center">Miller</td>
+      <td style="text-align: center">123456</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">mitsugo</td>
+      <td style="text-align: center">Ann</td>
+      <td style="text-align: center">Mulkern</td>
+      <td style="text-align: center">password</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">awe</td>
+      <td style="text-align: center">Adam</td>
+      <td style="text-align: center">Waite</td>
+      <td style="text-align: center">qwerty</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">lingual</td>
+      <td style="text-align: center">Ann</td>
+      <td style="text-align: center">Miller</td>
+      <td style="text-align: center">password</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Synthetic Primary Key is a key that is not part of the original Data. So the <code class="highlighter-rouge">username</code> column in the table above was not a synthetic primary key but the <code class="highlighter-rouge">id</code> column in the following table is:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">id (PK)</th>
+      <th style="text-align: center">city</th>
+      <th style="text-align: center">state</th>
+      <th style="text-align: center">ST</th>
+      <th style="text-align: center">population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">Santa Fe</td>
+      <td style="text-align: center">New Mexico</td>
+      <td style="text-align: center">NM</td>
+      <td style="text-align: center">67947</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">Santa Fe</td>
+      <td style="text-align: center">Texas</td>
+      <td style="text-align: center">TX</td>
+      <td style="text-align: center">12222</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">Springfield</td>
+      <td style="text-align: center">Massaschusetts</td>
+      <td style="text-align: center">MA</td>
+      <td style="text-align: center">15360</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">Springfield</td>
+      <td style="text-align: center">Illinois</td>
+      <td style="text-align: center">IL</td>
+      <td style="text-align: center">11706</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Alternatively we can make a two column primary key. So, for example, the city and state columns combined may be unique:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">city (PK)</th>
+      <th style="text-align: center">state (PK)</th>
+      <th style="text-align: center">ST</th>
+      <th style="text-align: center">population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Santa Fe</td>
+      <td style="text-align: center">New Mexico</td>
+      <td style="text-align: center">NM</td>
+      <td style="text-align: center">67947</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Santa Fe</td>
+      <td style="text-align: center">Texas</td>
+      <td style="text-align: center">TX</td>
+      <td style="text-align: center">12222</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Springfield</td>
+      <td style="text-align: center">Massaschusetts</td>
+      <td style="text-align: center">MA</td>
+      <td style="text-align: center">15360</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Springfield</td>
+      <td style="text-align: center">Illinois</td>
+      <td style="text-align: center">IL</td>
+      <td style="text-align: center">11706</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This is called a <strong>Composite key</strong> (a key made up of more than one column.)</p>
+
+<h5 id="functional-dependency">Functional Dependency</h5>
+
+<p>The value of one column depends on another column.</p>
+
+<h5 id="partial-functional-dependency">Partial Functional Dependency</h5>
+<p>Some non-key column is dependent is dependent on some but not all of the columns of the composite key.</p>
+
+<h5 id="transitive-functional-dependency">Transitive Functional Dependency</h5>
+<p>A non-key column is related to another non-key column</p>
+
+<p>So in the above table repeated here:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">city (PK)</th>
+      <th style="text-align: center">state (PK)</th>
+      <th style="text-align: center">ST</th>
+      <th style="text-align: center">population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Santa Fe</td>
+      <td style="text-align: center">New Mexico</td>
+      <td style="text-align: center">NM</td>
+      <td style="text-align: center">67947</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Santa Fe</td>
+      <td style="text-align: center">Texas</td>
+      <td style="text-align: center">TX</td>
+      <td style="text-align: center">12222</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Springfield</td>
+      <td style="text-align: center">Massaschusetts</td>
+      <td style="text-align: center">MA</td>
+      <td style="text-align: center">15360</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Springfield</td>
+      <td style="text-align: center">Illinois</td>
+      <td style="text-align: center">IL</td>
+      <td style="text-align: center">11706</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We have a functional dependency between the <code class="highlighter-rouge">ST</code> column and the <code class="highlighter-rouge">state</code> column. If we change the value in the <code class="highlighter-rouge">state</code> column we would need to change the value in the <code class="highlighter-rouge">ST</code> column.  It is a <strong>partial functional dependency</strong> by definition (some non-key column is dependent is dependent on some but not all of the columns of the composite key).</p>
+
+<h3 id="second-normal-form">Second Normal Form</h3>
+<ol>
+  <li>The table needs to be in 1NF</li>
+  <li>The table cannot have any partial functional dependencies.</li>
+</ol>
+
+<h3 id="third-normal-form">Third Normal Form</h3>
+<ol>
+  <li>The table needs to be in 2NF</li>
+  <li>The table has no transitive functional dependencies</li>
+</ol>
+
+<p>Suppose we have a university class schedule:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">crn (PK)</th>
+      <th style="text-align: center">course</th>
+      <th style="text-align: center">title</th>
+      <th style="text-align: center">section</th>
+      <th style="text-align: center">credits</th>
+      <th style="text-align: center">days</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">10405</td>
+      <td style="text-align: center">cpsc110</td>
+      <td style="text-align: center">Introduction to computer science</td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">MWF</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10406</td>
+      <td style="text-align: center">cpsc110</td>
+      <td style="text-align: center">Introduction to computer science</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">TTh</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13091</td>
+      <td style="text-align: center">musp301</td>
+      <td style="text-align: center">Intermediate Piano</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">TBD</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13092</td>
+      <td style="text-align: center">musp301</td>
+      <td style="text-align: center">Intermediate Piano</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">TBD</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>If a table is in 1NF and has a one column primary key it is in 2NF</strong>. This table is in 2NF but not 3NF. The title column is dependent on the course column and this is a transitive functional dependency.</p>
+
+<p>The solution is to divide the table into two tables:</p>
+
+<p><strong>SECTIONS TABLE</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">crn (PK)</th>
+      <th style="text-align: center">course</th>
+      <th style="text-align: center">section</th>
+      <th style="text-align: center">days</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">10405</td>
+      <td style="text-align: center">cpsc110</td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">MWF</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">10406</td>
+      <td style="text-align: center">cpsc110</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">TTh</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13091</td>
+      <td style="text-align: center">musp301</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">TBD</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">13092</td>
+      <td style="text-align: center">musp301</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">TBD</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>COURSES</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">course (PK)</th>
+      <th style="text-align: center">title</th>
+      <th style="text-align: center">section</th>
+      <th style="text-align: center">days</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">cpsc110</td>
+      <td style="text-align: center">Introduction to computer science</td>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">MWF</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">cpsc110</td>
+      <td style="text-align: center">Introduction to computer science</td>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">TTh</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">musp301</td>
+      <td style="text-align: center">Intermediate Piano</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">TBD</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">musp301</td>
+      <td style="text-align: center">Intermediate Piano</td>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">TBD</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In the sections table, the course column is a foreign key.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE TABLE courses 
+	(course TEXT PRIMARY KEY,
+	 title TEXT,
+	 credits, NUMERIC,
+	 si CHAR(1));
+	 
+CREATE TABLE sections 
+	(crn NUMERIC PRIMARY KEY,
+	 course TEXT REFERENCES courses (course),
+	 section NUMERIC,
+	 days TEXT);
+</code></pre></div></div>
+
+<p>Suppose we want to find the course (cpsc110) and title (Introduction to Computer Science) that meet on TTh:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT courses.course, courses.title FROM courses 
+JOIN sections ON courses.course = sections.course 
+WHERE sections.days = 'TTh';
+</code></pre></div></div>
+
+<h3 id="video-2">VIDEO 2</h3>
+
+<p>This table is in 1NF but not 2NF.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">band</th>
+      <th style="text-align: center">member</th>
+      <th style="text-align: center">member real name</th>
+      <th style="text-align: center">band formed</th>
+      <th style="text-align: center">birthplace</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Imagine Dragons</td>
+      <td style="text-align: center">Dan Reynolds</td>
+      <td style="text-align: center">Daniel Reynolds</td>
+      <td style="text-align: center">2008</td>
+      <td style="text-align: center">Las Vegas, NV</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Imagine Dragons</td>
+      <td style="text-align: center">Wing Sermon</td>
+      <td style="text-align: center">Daniel Wayne Sermon</td>
+      <td style="text-align: center">2008</td>
+      <td style="text-align: center">American Fork, UT</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Imagine Dragons</td>
+      <td style="text-align: center">. Daniel Platzman</td>
+      <td style="text-align: center">Daniel Platzman</td>
+      <td style="text-align: center">2008</td>
+      <td style="text-align: center">Atlanta, GA</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Imagine Dragons</td>
+      <td style="text-align: center">Ben McKee</td>
+      <td style="text-align: center">Benjamin Arthur McKee</td>
+      <td style="text-align: center">2008</td>
+      <td style="text-align: center">Forestville, CA</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Egyptian</td>
+      <td style="text-align: center">Dan Reynolds</td>
+      <td style="text-align: center">Daniel Reynolds</td>
+      <td style="text-align: center">2010</td>
+      <td style="text-align: center">Las Vegas, NV</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Egyptian</td>
+      <td style="text-align: center">Aja Volkman</td>
+      <td style="text-align: center">Aja Volkman-Reynolds</td>
+      <td style="text-align: center">2010</td>
+      <td style="text-align: center">Eugene, OR</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A quick discussion of different types of relations</p>
+
+<ul>
+  <li><strong>1:1</strong>. (ex, a course like cpsc110 to a course title <em>Intro to cs</em> ) Can be represented in 1 table.</li>
+  <li><strong>1: Many</strong>. (ex, a publisher to a book) This requires at least 2 tables.</li>
+  <li><strong>Many : Many</strong> (ex, bands to band members – bands have multiple band members, and a member can be in multiple bands) This requires a junction table. 3 tables</li>
+</ul>
+
+<p>Consider</p>
+
+<h5 id="bands">bands</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">band-id (PK)</th>
+      <th style="text-align: center">name</th>
+      <th style="text-align: center">genre</th>
+      <th style="text-align: center">yr_formed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">Imagine Dragons</td>
+      <td style="text-align: center">alternative rock</td>
+      <td style="text-align: center">2008</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">Egyptian</td>
+      <td style="text-align: center">alternative rock</td>
+      <td style="text-align: center">2010</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">Baby Metal</td>
+      <td style="text-align: center">heavy metal</td>
+      <td style="text-align: center">2010</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">Sakura Gakuin</td>
+      <td style="text-align: center">J-Pop</td>
+      <td style="text-align: center">2010</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">Earth, Wind &amp; Fire</td>
+      <td style="text-align: center">funk</td>
+      <td style="text-align: center">1969</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="musicians">musicians</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">musician_id (PK)</th>
+      <th style="text-align: center">member</th>
+      <th style="text-align: center">member_real_name</th>
+      <th style="text-align: center">birthplace</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">Dan Reynolds</td>
+      <td style="text-align: center">Daniel Reynolds</td>
+      <td style="text-align: center">Las Vegas, NV</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">Wing Sermon</td>
+      <td style="text-align: center">Daniel Wayne Sermon</td>
+      <td style="text-align: center">American Fork, UT</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">Daniel Platzman</td>
+      <td style="text-align: center">Daniel Platzman</td>
+      <td style="text-align: center">Altlanta, FA</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">Ben McKee</td>
+      <td style="text-align: center">Benjamin Arthur McKee</td>
+      <td style="text-align: center">Forestville, CA</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">Aja Volkman</td>
+      <td style="text-align: center">Aja Volkman-Reynolds</td>
+      <td style="text-align: center">Eugene, OR</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We connect this table with a junction table:</p>
+
+<h5 id="band_members">band_members</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">band_id (PK)</th>
+      <th style="text-align: center">musician_id (PK)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">6</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We can represent this as follows:</p>
+
+<p>DROP DATABASE bands;</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE DATABASE bands;
+\c bands;
+
+CREATE TABLE band
+(
+  band_id integer PRIMARY KEY,
+  name text,
+  genre text,
+  formed integer
+);
+
+INSERT INTO band (band_id, name, genre, formed) VALUES (1, 'Baby Metal', 'heavy metal', 2010), 
+                                         (2, 'Imagine Dragons', 'alternative rock', 2008), 
+                                         (3, 'Sakura Gakuin', 'J-pop', 2010), 
+                                         (4, 'Egyptian', 'alternative rock', 2010),
+                                         (5, 'Earth Wind &amp; Fire', 'funk', 1969);
+
+CREATE TABLE musician
+(
+  musician_id integer PRIMARY KEY,
+  stagename text,
+  realname text,
+  origin text,
+  birthdate DATE
+);
+
+INSERT INTO musician (musician_id, stagename, realname, origin, birthdate) VALUES 
+    (1, 'Su-Metal', 'Suzuka Nakamoto', 'Hiroshima Prefecture, Japan', '1997-12-20'), 
+    (2, 'MoaMetal', 'Moa Kikuchi', '  Kanagawa Prefecture, Japan', '1999-7-4'),
+    (3, 'YuiMetal', 'Yui Mizuno', 'Aichi Prefecture, Japan', '1999-06-20'), 
+    (4, 'Aiko Yamaide', 'Aiko Yamaide', 'Kagoshima Prefecture, Japan', '2002-12-01'),
+    (5, 'Mariri Sugimoto', 'Mariri Sugimoto', 'Hiroshima Prefecture, Japan', '2000-08-04'), 
+    (6, 'Hana Taguchi', 'Hana Taguchi', 'Nagano Prefecture, Japan', '1999-7-4'),
+    (7, 'Dan Reynolds', 'Daniel Reynolds', 'Las Vegas, Nevada, United States', '1987-07-14'), 
+    (8, 'Wing', 'Daniel Wayne Sermon', '  American Fork, Utah, United States', NULL),
+    (9, 'Aja Volkman-Reynolds', 'Aja Volkman-Reynolds', 'Eugene, OR', '1987-01-01'),
+    (10, 'Daniel Platzman', 'Daniel Platzman', '  Atlanta, Georgia, United States', '1986-09-28'),
+    (11, 'Ben McKee', 'Benjamin Arthur McKee', 'Forestville, California, United States', '1985-04-07');
+
+create table bandmember (
+  band_id integer REFERENCES band(band_id),
+  member_id integer REFERENCES musician(musician_id),
+  PRIMARY KEY (band_id, member_id));
+ 
+INSERT INTO bandmember VALUES (1, 1), (1, 2), (1, 3), 
+     (2, 7), (2, 8), (2, 10), (2, 11),
+     (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6),
+     (4, 7), (4, 9);
+
+create table instrument (
+  id integer PRIMARY KEY,
+  name text,
+  family text
+  
+  );
+
+insert into instrument (id, name, family) VALUES (1, 'vocals', 'voice'), 
+   (2, 'screams', 'voice'), (3, 'dance', 'dance'),
+   (4, 'koto', 'string'), (5, 'electric guitar', 'string'), (6, 'drums', 'percussion'), (7, 'bass', 'string'), (8, 'keyboards', 'keyboards');
+
+create table plays (
+  member_id integer REFERENCES musician(musician_id),
+  instrument_id integer REFERENCES instrument(id),
+  PRIMARY KEY (member_id, instrument_id));
+ 
+insert into plays VALUES (1, 1), (1, 3), (2, 2), (2, 3), (3, 2), (3,3), 
+   (7, 1), (7, 8), (8, 5), (9, 1), (9,8), (10, 6), (10,1), (11, 7); 
+</code></pre></div></div>
+
+<h5 id="queries">Queries</h5>
+
+<h6 id="finding-all-the-band-members-of-imagine-dragons">finding all the band members of Imagine Dragons</h6>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT musician.stagename FROM musician 
+JOIN bandmember ON 
+musician.musician_id = bandmember.member_id 
+JOIN band ON 
+bandmember.band_id = band.band_id 
+WHERE band.name = 'Imagine Dragons';
+
+stagename    
+-----------------
+ 	Dan Reynolds
+ 	Wing
+ 	Daniel Platzman
+ 	Ben McKee
+(4 rows)
+</code></pre></div></div>
+
+<h5 id="what-instruments-does-benmckee">What instruments does BenMcKee</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT instrument.name FROM instrument 
+JOIN plays ON 
+instrument.id = plays.instrument_id 
+JOIN musician  ON 
+musician.musician_id = plays.member_id 
+WHERE musician.stagename = 'Ben McKee';
+</code></pre></div></div>
+
+<h3 id="queries-that-require-multiple-copies-of-a-table">Queries that require multiple copies of a table</h3>
+
+<p>Suppose as part of the bands database we have a table specifying who is friends with whom.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE TABLE friends (
+person INTEGER REFERENCES musician(musician_id),
+friends_with INTEGER REFERENCES musician(musician_id));
+
+ INSERT INTO friends (person, friends_with) VALUES
+  (7, 8),
+  (7, 9),
+  (9, 11);   
+</code></pre></div></div>
+
+<p>For example, the first insert represents that Dan Reynolds is friends with Wing. Let’s consider how we would write a query to find out who is Dan Reynolds friends with. At first we might think to write:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT musician.stagename FROM musician 
+JOIN friends ON musician.musician_id = friends.person 
+WHERE musician.stagename = 'Dan Reynolds';
+</code></pre></div></div>
+
+<p>You will see that this doesn’t work as all it returns is <code class="highlighter-rouge">Dan Reynolds</code></p>
+
+<p>For this query we actually need two copies of the musicians table– one to find the musician_id of Dan Reynolds. Once we find out his id is 7, look at the friends table and discover he is friends with id 8, we need another table to lookup the stagename for id 8. We implement it as follows:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT m1.stagename FROM musician as m1 
+JOIN friends ON m1.musician_id = friends.friends_with 
+JOIN musician as m2 ON friends.person = m2.musician_id 
+WHERE m2.stagename = 'Dan Reynolds';
+
+       stagename       
+ ----------------------
+  Wing
+  Aja Volkman-Reynolds
+ (2 rows)
+</code></pre></div></div>
+
+<p>Suppose we want to know who is in bands with Dan Reynolds. For that the query is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT m1.stagename FROM musician as m1 
+  JOIN bandmember AS b1 ON m1.musician_id = b1.member_id 
+  JOIN bandmember as b2 ON b1.band_id = b2.band_id 
+  JOIN musician AS m2 ON m2.musician_id = b2.member_id 
+  WHERE m1.stagename &lt;&gt; 'Dan Reynolds' 
+  AND m2.stagename = 'Dan Reynolds';
+</code></pre></div></div>
+
+<blockquote>
+  <p>Question: why do we have <code class="highlighter-rouge">m1.stagename &lt;&gt; 'Dan Reynolds'</code> ?</p>
+</blockquote>
+
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/sql2%20module/Sql2-Intro/">
+								Sql2 Intro </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/sql2%20module/Transactions/"> Transactions
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

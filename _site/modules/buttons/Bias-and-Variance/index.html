@@ -1,0 +1,373 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Bias And Variance</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown  first ">
+						<a href="/arduino/modules/basics/Intro-To-Basic-ML/"
+						   class="dropdown-item">
+							basics
+						</a>
+					</li>
+				
+					
+					<li class="dropdown active  ">
+						<a href="/arduino/modules/buttons/Intro-to-Boosting/"
+						   class="dropdown-item">
+							buttons
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/deep%20learning/Deep-Learning-Intro/"
+						   class="dropdown-item">
+							deep learning
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/bias/Bias/"
+						   class="dropdown-item">
+							bias
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+		<div class="pagination-section">
+			<div class="title">
+				Previous module:
+			</div>
+			<a rel="prev" class="prev" href="/arduino/modules/basics/Intro-To-Basic-ML/">
+				basics </a>
+		</div>
+		<hr />
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/buttons/Intro-to-Boosting/">
+					Intro To Boosting
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a
+						href="/arduino/modules/buttons/Bias-and-Variance/">
+					Bias And Variance
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/buttons/Bagging-Classifiers/">
+					Bagging Classifiers
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/buttons/XGBoost/">
+					Xgboost
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/deep%20learning/Deep-Learning-Intro/"> deep learning
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="bias-and-variance">Bias and Variance</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WOhhJ2-uQqY" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="in-this-video-we-learn-about-bias-and-variance">In this video we learn about bias and variance</h3>
+
+<p>It is easiest to explain bias and variance by starting with a visual representation. Suppose this is our dataset and we are trying to classify whether something is a star or not based on 2 features. Here is our training data:</p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.003.jpeg" alt="" /></p>
+
+<h3 id="bias---how-well-the-model-fits-the-training-data">Bias - how well the model fits the training data</h3>
+
+<p>And suppose we are trying to build the simplest model possible–a straight line:</p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.004.jpeg" alt="" /></p>
+
+<p>This model doesn’t fit the training data very well and we say it is <strong>underfitting</strong> the training data. This means that even with training, the classifier makes lots of errors on the training data. If this is the case we say the model has <strong>high bias</strong></p>
+
+<h3 id="variance">Variance</h3>
+
+<p>Suppose instead we decide to build a complex model–perhaps a decision tree or a deep neural network.  The squiggly line below represents this model:</p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.005.jpeg" alt="" /></p>
+
+<p>In this case we say the model overfits the training data and has high variance. It is perfect in classifying the training data but will be poor at classifying the validation data.</p>
+
+<p>A model that is <em>just right</em> might look like</p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.006.jpeg" alt="" /></p>
+
+<p>In 2 dimensional problems it is easy to visualize what we mean by bias and variance but how do we detect it in more complex problems?</p>
+
+<h2 id="training-error-and-validation-error">Training error and Validation error</h2>
+
+<p>Suppose we have a dataset of pictures of cats and dogs and we are trying to classify whether it is a picture of a cat or not:</p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.008.jpeg" alt="" /></p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.009.jpeg" alt="" /></p>
+
+<p>For people, this is a super easy task and we would be close to 0% error rate. This <em>what we expect people to do</em> we call <strong>optimal error</strong> or <strong>Bayes error</strong>. Bayes error is the lowest possible error rate we can expect from any classifier.</p>
+
+<p>Suppose we build a classifier and it has 1% error on the training data and 15% error on the validation data. This suggests we overfit the training data and we call this <strong>high variance</strong>.</p>
+
+<p>Say we build another classifier and this time it has 15% error on the training data and 16% on the validation data.  This classifier really did poorly on the training set, we say it underfit the training data and this is called <strong>high bias</strong></p>
+
+<p>We build yet another classifier. This time there was 15% error on the training data and 30% error on the validation data.  It didn’t do well on the training data so the model and it did even worse on the validation data so this model has both <strong>high bias</strong> and <strong>high variance</strong>.</p>
+
+<h3 id="a-new-problem---woman-or-not-a-woman">A new problem - woman or not a woman</h3>
+
+<p>Consider building a classifier that recognizes people in far away nature pictures as either being a woman or not. For example</p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.019.jpeg" alt="" /></p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.020.jpeg" alt="" /></p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.021.jpeg" alt="" /></p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.022.jpeg" alt="" /></p>
+
+<p>As you can see this is a lot harder even for people. In the cat/ not a cat example, if people did it, we expected near 0% Bayes Error. With this problem maybe people would have 15% Bayes Error.</p>
+
+<p>With the cat example when we had a classifier with 15% error on the training data, we  said the model was High Bias. With the 15% error on the woman example, the model is good–matching the best we could expect for this problem.</p>
+
+<h3 id="decision-trees">Decision Trees</h3>
+
+<p>Do you think decision trees have high or low bias? What about high or low variance?</p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.033.jpeg" alt="" /></p>
+
+<p>If we don’t specify a max_depth, decision trees have low bias (they fit the training data nearly perfectly) but have high variance. To reduce the variance we would limit the depth of the tree.</p>
+
+<p>When we take that idea to the extreme we have what is called decision tree stumps</p>
+
+<p><img src="http://zacharski.org/files/courses/cs419/bias/bias.036.jpeg" alt="" /></p>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/buttons/Intro-to-Boosting/">
+								Intro To Boosting </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/buttons/Bagging-Classifiers/"> Bagging Classifiers
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

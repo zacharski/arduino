@@ -1,0 +1,334 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Modules</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown  first ">
+						<a href="/arduino/modules/basics/Intro-To-Basic-ML/"
+						   class="dropdown-item">
+							basics
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/buttons/Intro-to-Boosting/"
+						   class="dropdown-item">
+							buttons
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/deep%20learning/Deep-Learning-Intro/"
+						   class="dropdown-item">
+							deep learning
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/bias/Bias/"
+						   class="dropdown-item">
+							bias
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/tutorial/start/">
+					About Course in a Box
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/tutorial/setup/">
+					Create your course
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a
+						href="/arduino/modules/tutorial/modules/">
+					Modules
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/tutorial/sections/">
+					Sections
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/tutorial/sql/">
+					SQL Basics
+				</a>
+			</li>
+		
+	</ul>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h1 id="modules">Modules</h1>
+
+<p>Course in Box use a 2 level content structure, at the top are <strong>modules</strong>. The modules for Course in a Box are <strong>tutorial</strong>, <strong>resources</strong> and <strong>references</strong> and can be seen at the very top of this page.</p>
+
+<p>Inside every module, we’ll put the actual content inside sections, but more on that later.</p>
+
+<h2 id="lets-make-some-modules">Let’s Make Some Modules!</h2>
+
+<p>Now it’s time to start building your course!</p>
+
+<p>In your GitHub repository, there is a folder called <code class="highlighter-rouge">modules</code>: <a href="https://github.com/your-github-username/course-in-a-box/blob/gh-pages/modules/">https://github.com/your-github-username/course-in-a-box/blob/gh-pages/modules/</a>.</p>
+
+<p>This folder contains a folder for each of the modules in your course. Since you copied this course, you should see <code class="highlighter-rouge">tutorial</code>, <code class="highlighter-rouge">resources</code> and <code class="highlighter-rouge">references</code> there.</p>
+
+<p>The name of the folder corresponds to the URLs for that module. If you look at the URL for this page, you will notice the first part of the URL is ‘modules/tutorial/’ and that is also the name of the <a href="https://github.com/p2pu/course-in-a-box/tree/gh-pages/modules/tutorial/">folder in the GitHub repository</a>.</p>
+
+<p>Inside each of these folders, there should be another folder called <code class="highlighter-rouge">_posts</code>. This is the folder that will hold the actual content for your course. Every module can have multiple sections. Look at the <a href="https://github.com/p2pu/course-in-a-box/tree/gh-pages/modules/tutorial/">tutorial folder</a> for this course and you’ll see <code class="highlighter-rouge">_posts</code>.</p>
+
+<p>Lets create a new module called <strong>introduction</strong>. Go to <a href="https://github.com/your-github-username/course-in-a-box/tree/gh-pages/modules">https://github.com/your-github-username/course-in-a-box/tree/gh-pages/modules</a> and click the “Create new file” button. This will take you to a page with a text box asking you to “name your file”. Let’s create a module called introduction - type <code class="highlighter-rouge">introduction/_posts/2000-01-01-test.md</code> in the “name your file” text box, scroll down and click on the green “Commit new file” button.</p>
+
+<p>You should now see a folder named <code class="highlighter-rouge">introduction</code> inside the <code class="highlighter-rouge">modules</code> folder. The <code class="highlighter-rouge">introduction</code> folder should contain a folder called <code class="highlighter-rouge">_posts</code> and the <code class="highlighter-rouge">_posts</code> folder should contain a file called <code class="highlighter-rouge">2000-01-01-test.md</code>. That last file is a section of your module, but more on that in the next section.</p>
+
+<p>Once you are done with this tutorial, you should add all the modules that you wish to use. You can also create your modules by renaming the modules that are already there.</p>
+
+<h2 id="add-the-modules-to-your-course">Add the modules to your course</h2>
+
+<p>If you view your course you will notice that the introduction module we created is not showing up on your course site.</p>
+
+<p>For modules to show up in the top navigation, you need to update the list modules in <a href="https://github.com/your-github-username/course-in-a-box/blob/gh-pages/_data/course.yml">https://github.com/your-github-username/course-in-a-box/blob/gh-pages/_data/course.yml</a></p>
+
+<p>Change the line containing</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">modules</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">tutorial</span><span class="pi">,</span> <span class="nv">resources</span><span class="pi">,</span> <span class="nv">references</span><span class="pi">]</span></code></pre></figure>
+
+<p>to</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">modules</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">introduction</span><span class="pi">,</span> <span class="nv">tutorial</span><span class="pi">,</span> <span class="nv">resources</span><span class="pi">,</span> <span class="nv">reference</span><span class="pi">]</span></code></pre></figure>
+
+<p>After a while, the new module should now show at the top of your course site: <a href="https://your-github-username.github.io/course-in-a-box/">https://your-github-username.github.io/course-in-a-box/</a></p>
+
+<h2 id="extra-resources">Extra resources</h2>
+
+<p>The video below shows all the steps for adding a module called ‘variables’ to a course.</p>
+
+<video src="/arduino/img/add-module.webm" width="640" height="360" controls=""></video>
+
+<p>You are now ready to get to the meat and potatoes of building your course, the sections containing the content!</p>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/tutorial/setup/">
+								Create your course </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/tutorial/sections/"> Sections
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

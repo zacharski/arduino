@@ -1,0 +1,777 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Pandas</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown active first ">
+						<a href="/arduino/modules/basics/Intro-To-Basic-ML/"
+						   class="dropdown-item">
+							basics
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/buttons/Intro-to-Boosting/"
+						   class="dropdown-item">
+							buttons
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/deep%20learning/Deep-Learning-Intro/"
+						   class="dropdown-item">
+							deep learning
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/bias/Bias/"
+						   class="dropdown-item">
+							bias
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/basics/Intro-To-Basic-ML/">
+					Intro To Basic Ml
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/basics/Blink/">
+					Blink
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/basics/Colab-and-Numpy/">
+					Colab And Numpy
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a
+						href="/arduino/modules/basics/Pandas/">
+					Pandas
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/basics/SciKit-Learn/">
+					 scikit Learn
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/basics/Decision-Trees/">
+					 decision Trees
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/basics/WOrking-With-Data/">
+					Working With Data
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/buttons/Intro-to-Boosting/"> buttons
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="introduction-to-pandas">Introduction to Pandas</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mOYLpOkDoro" frameborder="0" allowfullscreen=""></iframe>
+
+<p>In this video we learn about Pandas.  The Pandas Library is built on top of Numpy and is designed to make working with data fast and easy. Like Numpy, the library includes data structures and functions to manipulate that data.</p>
+
+<h3 id="pandas-import-conventions">Pandas Import Conventions</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from pandas import Series, Dataframe
+import pandas as pd
+</code></pre></div></div>
+<h3 id="pandas-data-structures">Pandas Data Structures</h3>
+<p>There are two main data structures in Pandas: Series and DataFrame</p>
+
+<h4 id="series">Series</h4>
+<p>A Series is a one-dimensional array-like object containing an array of data (of any
+NumPy data type) and an associated array of data labels, called its
+index</p>
+
+<p>The simplest
+Series is formed from only an array of data:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s1 = Series([1,2, 3, 4, 5])
+s1
+</code></pre></div></div>
+
+<p>The result is:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0    1
+1    2
+2    3
+3    4
+4    5
+dtype: int64
+</code></pre></div></div>
+
+<p>The left column is the index and the right the values at those particular index values. If you don’t specify an index one is autogenerated that starts at 0 and goes to the length of the Series.</p>
+
+<p>You can extract the index and the values with:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s1.index
+</code></pre></div></div>
+
+<p>which results in</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RangeIndex(start=0, stop=5, step=1)
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s1.values
+</code></pre></div></div>
+
+<p>which results in</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([1, 2, 3, 4, 5])
+</code></pre></div></div>
+
+<h3 id="specifying-your-own-index">Specifying your own index</h3>
+
+<p>You can specify your own index for a Series using the <code class="highlighter-rouge">index</code> parameter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s2 = Series([1380, 1205, 102, 36, 1100], index=['Faith', 'Addie', 'Peyton', 'Erin', 'Margaret'])
+s2
+</code></pre></div></div>
+
+<p>which results in:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Faith       1380
+Addie       1205
+Peyton       102
+Erin          36
+Margaret    1100
+dtype: int64
+</code></pre></div></div>
+
+<p>Again, the column on the left is the index and the one on the right the values.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s2.index
+</code></pre></div></div>
+
+<p>results in:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Index(['Faith', 'Addie', 'Peyton', 'Erin', 'Margaret'], dtype='object')
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s2.values
+</code></pre></div></div>
+
+<p>results in</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>array([1380, 1205,  102,   36, 1100])
+</code></pre></div></div>
+
+<h3 id="boolean-operations-preserve-the-index">Boolean operations preserve the index</h3>
+
+<p>Recall that <code class="highlighter-rouge">s1</code> is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0    1
+1    2
+2    3
+3    4
+4    5
+dtype: int64
+</code></pre></div></div>
+
+<p>So</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s1[s1 % 2 == 0]
+</code></pre></div></div>
+
+<p>results in:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1    2
+3    4
+dtype: int64
+</code></pre></div></div>
+
+<p>where the index values 1 and 3 are preserved.  Also</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s2[s2 &gt; 1000]
+</code></pre></div></div>
+
+<p>results in:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Faith       1380
+Addie       1205
+Margaret    1100
+dtype: int64
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s2 * 2
+</code></pre></div></div>
+<p>results in:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Faith       2760
+Addie       2410
+Peyton       204
+Erin          72
+Margaret    2200
+dtype: int64
+</code></pre></div></div>
+
+<h3 id="series-have-some-similarities-to-python-dictionaries">Series have some similarities to Python dictionaries</h3>
+
+<p>So, for example,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'Faith' in s2
+</code></pre></div></div>
+<p>results in <code class="highlighter-rouge">True</code> and</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'Dylan' in s2
+</code></pre></div></div>
+
+<p>results in <code class="highlighter-rouge">False</code>.</p>
+
+<h2 id="dataframe---a-spreadsheet-like-structure">DataFrame - a spreadsheet like structure</h2>
+
+<ul>
+  <li>ordered collection of columns</li>
+  <li>row index and column index</li>
+</ul>
+
+<h3 id="one-way-to-construct-a-dataframe-is-from-a-python-dictionary">One way to construct a DataFrame is from a Python dictionary:</h3>
+<p>First, let’s create a Python dictionary:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data1  = { 'state': ['New Mexico', 'Arizona', 'Utah', 'Colorado' ], 'population': [2.01, 7.28, 3.21, 5.76], 'poverty':[.197, .140, .110, .115]}
+data1
+</code></pre></div></div>
+
+<p>which returns:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'population': [2.01, 7.28, 3.21, 5.76],
+ 'poverty': [0.197, 0.14, 0.11, 0.115],
+ 'state': ['New Mexico', 'Arizona', 'Utah', 'Colorado']}
+</code></pre></div></div>
+
+<p>Now we can construct a DataFrame:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>states = DataFrame(data1)
+states
+</code></pre></div></div>
+
+<p>which outputs</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	state       population	poverty
+0	New Mexico  2.01        0.197
+1	Arizona	    7.28        0.140
+2	Utah	    3.21        0.110
+3	Colorado    5.76        0.115
+</code></pre></div></div>
+
+<p>Since we didn’t specify an index, one is autogenerated for us as shown in the left column - 0, 1, 2, 3. If we want to specify one we can use the <code class="highlighter-rouge">index</code> parameter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>states = DataFrame(data1, index=['NM', 'AZ', 'UT', 'CO'])
+states
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	state       population	poverty
+NM	New Mexico  2.01        0.197
+AZ	Arizona	    7.28        0.140
+UT	Utah	    3.21        0.110
+CO	Colorado    5.76        0.115
+</code></pre></div></div>
+
+<h3 id="extracting-one-or-more-columns">Extracting one or more columns:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>states['population']
+</code></pre></div></div>
+
+<p>outputs</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NM    2.01
+AZ    7.28
+UT    3.21
+CO    5.76
+Name: population, dtype: float64
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>states[['population', 'poverty']]
+</code></pre></div></div>
+
+<p>outputs</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     population  poverty
+NM         2.01    0.197
+AZ         7.28    0.140
+UT         3.21    0.110
+CO         5.76    0.115
+</code></pre></div></div>
+
+<h3 id="extracting-rows">Extracting rows</h3>
+
+<p>One common way to extract a row is to use <code class="highlighter-rouge">loc</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>states.loc['NM']
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>state         New Mexico
+population          2.01
+poverty            0.197
+Name: NM, dtype: object
+</code></pre></div></div>
+
+<p>and by using conditionals</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>states[states['population'] &lt; 5]
+</code></pre></div></div>
+
+<p>results in</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         state   population  poverty
+NM	New Mexico         2.01    0.197
+UT	      Utah         3.21    0.110
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>states[(states['population'] &lt; 5) &amp; (states['poverty'] &lt; .15)]
+</code></pre></div></div>
+<p>results in</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         state   population  poverty
+UT	      Utah         3.21    0.110
+</code></pre></div></div>
+
+<h2 id="executing-arbitrary-operating-system-commands">Executing Arbitrary Operating System Commands</h2>
+
+<p>We can execute operating systems commands in a Jupyter Notebook by preceding the command with a bang (an exclamation point). For example,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls 
+pwd
+</code></pre></div></div>
+
+<p>both work as expected. And</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl https://raw.githubusercontent.com/zacharski/ml-class/master/data/athletesMissingValue.csv
+</code></pre></div></div>
+
+<p>produces:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name,Sport,Height,Weight
+Asuka Teramoto,Gymnastics,54,66
+Brittainey Raven,Basketball,,162
+Chen Nan,Basketball,78,204
+Gabby Douglas,Gymnastics,49,90
+Helalia Johannes,Track,65,99
+Irina Miketenko,Track,,106
+Jennifer Lacy,Basketball,75,175
+</code></pre></div></div>
+
+<p>Note that this is a CSV (comma separated values) file. In this case the file starts with the names of the columns:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name,Sport,Height,Weight
+</code></pre></div></div>
+<p>Again, commas separate the columns.</p>
+
+<h3 id="creating-a-dataframe-from-a-csv-file">Creating a DataFrame from a CSV file</h3>
+
+<p>To create a DataFrame from a CSV file we use <code class="highlighter-rouge">read_csv</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes = pd.read_csv('https://raw.githubusercontent.com/zacharski/ml-class/master/data/athletesMissingValue.csv')
+athletes
+</code></pre></div></div>
+
+<p>results in the DataFrame:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>               Name        Sport   Height  Weight
+0    Asuka Teramoto   Gymnastics     54.0      66
+1  Brittainey Raven   Basketball      NaN     162
+2          Chen Nan   Basketball     78.0     204
+3     Gabby Douglas   Gymnastics     49.0      90
+4  Helalia Johannes        Track     65.0      99
+5   Irina Miketenko        Track      NaN     106
+6     Jennifer Lacy   Basketball     75.0     175
+7      Kara Goucher        Track     67.0     123
+</code></pre></div></div>
+
+<p>Again, notice that since we didn’t specify an index one was autogenerated for us (0, 1, 2 …).</p>
+
+<h4 id="missing-data">Missing Data</h4>
+<p>In the above example we see <code class="highlighter-rouge">NaN</code> which stands for <em>not a number</em> and is a sentinel value that represents missing data. For example, in the original file we had the line:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Brittainey Raven,Basketball,,162
+</code></pre></div></div>
+
+<p>which indicates there is no value in the height column. When this is read into a DataFrame that row is converted to:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1  Brittainey Raven   Basketball      NaN     162
+</code></pre></div></div>
+
+<h3 id="creating-an-index">Creating an index.</h3>
+
+<p>We can specify a column of the original data to be the index by using the <code class="highlighter-rouge">index_col</code> parameter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes2 = pd.read_csv('https://raw.githubusercontent.com/zacharski/ml-class/master/data/athletesMissingValue.csv', index_col='Name')
+athletes2
+</code></pre></div></div>
+
+<p>results in</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                           Sport   Height  Weight
+			   Name
+     Asuka Teramoto   Gymnastics     54.0      66
+   Brittainey Raven   Basketball      NaN     162
+           Chen Nan   Basketball     78.0     204
+      Gabby Douglas   Gymnastics     49.0      90
+   Helalia Johannes        Track     65.0      99
+    Irina Miketenko        Track      NaN     106
+      Jennifer Lacy   Basketball     75.0     175
+       Kara Goucher        Track     67.0     123
+</code></pre></div></div>
+
+<p>We use <code class="highlighter-rouge">index_col</code> when we read in the file. Alternatively, we can do so after the fact with <code class="highlighter-rouge">set_index</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes.set_index('Name', inplace=True)
+athletes
+</code></pre></div></div>
+
+<h2 id="dataframe-basic-statistics">DataFrame Basic Statistics</h2>
+
+<p>In machine learning tasks, it is a good idea to get a sense of the data before forging ahead with the ML part of the project. We can use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes.describe()
+</code></pre></div></div>
+
+<p>which results in</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           Height       Weight
+count   25.000000    28.000000
+mean    65.200000   121.428571
+std      7.416198    40.274455
+min     49.000000    66.000000
+25%     61.000000    97.000000
+50%     65.000000   106.000000
+75%     70.000000   156.750000
+max     78.000000   204.000000
+</code></pre></div></div>
+
+<p>You can get statistics separately:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes.mean()
+</code></pre></div></div>
+
+<p>prints:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Height     65.200000
+Weight    121.428571
+dtype: float64
+</code></pre></div></div>
+
+<p>and combined with a conditional:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes[athletes['Sport'] == 'Basketball'].mean()
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Height     73.250000
+Weight    174.222222
+dtype: float64
+</code></pre></div></div>
+
+<p>The average basketball player is 8 inches taller than the average in our dataset.</p>
+
+<p>Other functions include:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes.max()
+athletes.min()
+</code></pre></div></div>
+
+<p>Of course we can combine these with arithmetic operators:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes[['Height', 'Weight']] - athletes.mean()
+</code></pre></div></div>
+
+<p>results in:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	             Height       Weight
+Name		
+Asuka Teramoto    -11.2   -55.428571
+Brittainey Raven    NaN    40.571429
+Chen Nan           12.8    82.571429
+Gabby Douglas     -16.2   -31.428571
+Helalia Johannes   -0.2   -22.428571
+Irina Miketenko     NaN   -15.428571
+</code></pre></div></div>
+
+<p>So Asuka Teramoto is 11 inches shorter than average and 55 pounds lighter.</p>
+
+<p>We can do the same calculation with:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes[['Height', 'Weight']].sub(athletes.mean())
+</code></pre></div></div>
+
+<h3 id="sorting">Sorting</h3>
+
+<p>We can sort a DataFrame either by the index or by one or more of the columns.</p>
+
+<h4 id="sort-by-index">sort by index</h4>
+<p>To sort by the index do:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes.sort_index()
+</code></pre></div></div>
+
+<p>This will sort the DataFrame alphabetically by the name of the athlete (<em>Asuka</em> coming before <em>Chen</em>). To sort in reverse we can do:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes.sort_index(ascending=False)
+</code></pre></div></div>
+<p>which would put <em>Chen</em> before <em>Asuka</em>.</p>
+
+<h4 id="sort-by-one-or-more-columns">Sort by one or more columns</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes.sort_values('Height')
+</code></pre></div></div>
+
+<p>which will sort by height, shortest person first. To get the tallest person first:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes.sort_values('Height', ascending=False)
+</code></pre></div></div>
+
+<p>and to sort first by Height and then by Weight:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>athletes.sort_values(['Height', 'Weight'], ascending=False)
+</code></pre></div></div>
+
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/basics/Colab-and-Numpy/">
+								Colab And Numpy </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/basics/SciKit-Learn/">  scikit Learn
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

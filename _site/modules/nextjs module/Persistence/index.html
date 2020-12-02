@@ -1,0 +1,412 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Persistence</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown  first ">
+						<a href="/arduino/modules/basics/Intro-To-Basic-ML/"
+						   class="dropdown-item">
+							basics
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/buttons/Intro-to-Boosting/"
+						   class="dropdown-item">
+							buttons
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/deep%20learning/Deep-Learning-Intro/"
+						   class="dropdown-item">
+							deep learning
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/bias/Bias/"
+						   class="dropdown-item">
+							bias
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/nextjs%20module/Intro/">
+					Intro
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/nextjs%20module/Learn-Nextjs/">
+					Learn Nextjs
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/nextjs%20module/Interactive-Next/">
+					Interactive Next
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/nextjs%20module/Complete-Web-App/">
+					Complete Web App
+				</a>
+			</li>
+		
+			<li class="active  last">
+				<a
+						href="/arduino/modules/nextjs%20module/Persistence/">
+					Persistence
+				</a>
+			</li>
+		
+	</ul>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="persistance">Persistance</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SC8b1bbB07U" frameborder="0" allowfullscreen=""></iframe>
+
+<h3 id="stateless-protocol">Stateless Protocol</h3>
+<p>In a stateless protocol no information is retained on the server between requests. In effect, there is no memory between requests. For example, by default if we have a login post request, a user can log in, but the server doesn’t remember that the person logged in.</p>
+
+<h3 id="sessions">Sessions</h3>
+<p>The concept of a session either on the server or client allows us to maintain state or memory. There are many good methods to use for both sessions and authentication. in the first video we will look at a very simple solution that may not be the best option for most applications but offers a good introduction to this topic.</p>
+
+<h3 id="cookies">Cookies</h3>
+<p>Cookies let you store user information in web pages. They are data stored in small text files in a user’s browser and were designed to solve the problem of remembering information about users. For example, when a user visits a web page we can store their username in a cookie. The next time the user visits the page it can remember the name.</p>
+
+<p>Cookies are stored in key, value format.</p>
+
+<h3 id="js-cookie-library">js-cookie library</h3>
+
+<p>We are going to use the js-cookie node module on the client side. The main functions are</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set(key, value);
+jsCookie.set("screenname", this.state.name); // example
+
+get(key);
+jsCookie.get("screenname");                  // example
+
+remove(key);
+jsCookie.remove("screenname");               // example
+</code></pre></div></div>
+
+<h2 id="example">EXAMPLE</h2>
+
+<h3 id="login-page">login page</h3>
+
+<p>Suppose we have a login page that has a render method:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>render() {
+  const that = this;
+  jsCookie.remove("screenname");
+  return (
+    &lt;Layout
+      style=
+    &gt;
+      &lt;h2&gt;Login&lt;/h2&gt;
+      Username:
+      &lt;input
+        type="text"
+        className="text-style"
+        value={this.state.username}
+        onChange={this.handleUserUpdate.bind(this)}
+      /&gt;
+      &lt;br /&gt; &lt;br /&gt;
+      Password:
+      &lt;input
+        type="password"
+        className="text-style"
+        value={this.state.password}
+        onChange={this.handlePasswordUpdate.bind(this)}
+      /&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;div onClick={this.handleSearch.bind(that)} className="button-style"&gt;
+        Submit
+      &lt;/div&gt;
+      &lt;br /&gt; &lt;br /&gt;
+</code></pre></div></div>
+
+<p>You can see that we have an input field of type text for the username and an input field of type password for the password field. For both we have an onChange handler that stores the associated values in this.state. When a user clicks on submit, the handleSearch method executes:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import jsCookie from "js-cookie";
+
+async handleSearch(evt) {
+  const loggedInUser = await getLogin({
+    username: this.state.username,
+    password: this.state.password
+  });
+  this.setState({ loggedInUser });
+  if (loggedInUser.status == "success") {
+
+    jsCookie.set("screenname", loggedInUser.screenname);
+    Router.replace("/search");
+  }
+}
+</code></pre></div></div>
+
+<p>You can see that after we get the information back from the server, we save the screenname in a cookie and then go to the search page.</p>
+
+<h3 id="the-headerjs-file">the Header.js file</h3>
+
+<p>The next file we edited was</p>
+
+<h3 id="headerjs">Header.js</h3>
+
+<p>We added the cookie to the header file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export default function Header() {
+  return (
+    &lt;div&gt;
+      &lt;Link href="/"&gt;
+        &lt;a style={linkStyle}&gt;Home&lt;/a&gt;
+      &lt;/Link&gt;
+      &lt;Link href="/search"&gt;
+        &lt;a style={linkStyle}&gt;Find A Campground&lt;/a&gt;
+      &lt;/Link&gt;{ jsCookie.get("screenname") ? 
+&lt;Link href="/logout"&gt;
+        &lt;a style={linkStyle}&gt;Logout&lt;/a&gt;
+      &lt;/Link&gt; 
+
+       :
+      &lt;Link href="/login"&gt;
+        &lt;a style={linkStyle}&gt;Login/Register&lt;/a&gt;
+      &lt;/Link&gt; }
+      {jsCookie.get("screenname")}
+    &lt;/div&gt;
+  );
+}
+</code></pre></div></div>
+
+<p>Here you can see we use the cookie to display the screen name of the user <code class="highlighter-rouge">{jsCookie.get("screenname")}</code>. And we have a conditional that either displays Login or Logout: <code class="highlighter-rouge">{ jsCookie.get("screenname") ? ...</code></p>
+
+<h3 id="logout">Logout</h3>
+<p>Finally we added a logout page that included:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  constructor(props) {
+    super(props);
+    jsCookie.remove('screenname');
+  }
+
+  
+  componentDidMount(){
+     Router.replace("/search");
+  }
+</code></pre></div></div>
+
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/nextjs%20module/Complete-Web-App/">
+								Complete Web App </a>
+						</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>
