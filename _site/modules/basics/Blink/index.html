@@ -122,29 +122,29 @@
 		
 			<li class="  ">
 				<a
-						href="/arduino/modules/basics/Colab-and-Numpy/">
-					Colab And Numpy
+						href="/arduino/modules/basics/Variables/">
+					Variables
 				</a>
 			</li>
 		
 			<li class="  ">
 				<a
-						href="/arduino/modules/basics/Pandas/">
-					Pandas
+						href="/arduino/modules/basics/video/">
+					Video
 				</a>
 			</li>
 		
 			<li class="  ">
 				<a
-						href="/arduino/modules/basics/SciKit-Learn/">
-					 scikit Learn
+						href="/arduino/modules/basics/buttons/">
+					 buttons
 				</a>
 			</li>
 		
 			<li class="  ">
 				<a
-						href="/arduino/modules/basics/Decision-Trees/">
-					 decision Trees
+						href="/arduino/modules/basics/Potentiometers/">
+					 potentiometers
 				</a>
 			</li>
 		
@@ -177,73 +177,108 @@
 
 <p>We are all familiar with LED lights. They are all around us from household lights, flashlights, and indicator lights in a variety of electronic devices. In their most basic form they look like this:</p>
 
-<p><img src="/img/learning-banner.jpg" alt="" /></p>
+<p><img src="/arduino/img/redled.png" alt="" /></p>
 
-<p>blah
-LEDs (light-emitting diodes) are small, powerful lights that are used in many different applications. To start off our experiments with the ESP8266, we will work on blinking an LED using a digital output. This experiment will also walk you through coding uploading your first sketch with the Arduino IDE.</p>
+<p>LED is short for light-emitting diode and as with any electric light it produces light when electrical current flows through it. The Wikipedia article on them says “Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons” which sounds way cool (although I will admit I have no idea what an electron hole is).</p>
 
-<p>Parts Needed
-You will need the following parts:</p>
+<p>In this experiment we are going to</p>
+
+<ul>
+  <li>build a device that connects a single LED to the Arduino UNO.</li>
+  <li>get our laptops set up so we can write programs throughout the course</li>
+  <li>write our first program and upload it to the Arduino.</li>
+  <li>after our success with getting a light to blink, we will work on a number of remixes.</li>
+</ul>
+
+<h4 id="parts-needed">Parts Needed</h4>
+
+<p>You will need the following parts:</p>
 
 <ul>
   <li>1x LED (Choose any color)</li>
-  <li>1x 560Ω Resistor</li>
-  <li>2x Jumper Wires
-<img src="pics/combo.png" alt="" /></li>
+  <li>1x 330Ω Resistor (the Ω is the symbol for ohm)</li>
+  <li>
+    <p>2x Jumper Wires (any color)</p>
+
+    <p><img src="/arduino/img/combo2.png" alt="" /></p>
+  </li>
 </ul>
+
+<p>You will need a few more resistors and LEDs for the remixes later in the experiment.</p>
 
 <h2 id="hardware-hookup">Hardware Hookup</h2>
 
-<p>Ready to party? Components like resistors need to have their legs bent into 90° angles in order to correctly fit the breadboard sockets. You can also cut the legs shorter to make them easier to work with on the breadboard.
-<img src="https://cdn.sparkfun.com/assets/learn_tutorials/2/7/5/resistor_bent_legs_drawing.png" alt="" /></p>
+<h3 id="resistors">Resistors</h3>
 
-<p>Pay close attention to the LED. The negative side of the LED is the short leg, marked with a flat edge.</p>
+<p>As the parts list shows, you need a 330 ohm resistor. If you are lucky your resistors will initially be on a paper tape indicating the ohm value:</p>
 
-<p><img src="https://cdn.sparkfun.com/assets/learn_tutorials/2/7/5/LED_drawing_01.png" alt="" /></p>
+<p><img src="/arduino/img/resistors.png" alt="" /></p>
 
-<p>Each experiment will have a Fritzing hook-up diagram. Connect the components to the breadboard and Photon RedBoard by following the Fritzing diagram below:</p>
+<p>If you are very lucky your resistors will be loose and you will need to determine the value based on the colored bands. We will learn more about this later but if you look at the following image of the LED you will notice there are colored bands around the resistor.</p>
 
-<p><img src="pics/experiment1small_bb.png" alt="" /></p>
+<p><img src="/arduino/img/resist33.png" alt="" /></p>
 
-<p>Having a hard time seeing the circuit? Right click on the Fritzing diagram to see a bigger image and select “Open Image in New Tab”</p>
+<p>The metalic color band should be on the right, and we read the colors from left to right. So in the above example, we have 5 bands and they are orange, orange, black, black, gold. As we will learn, that represents a 330Ω resistor. It is also common for resistors to have only 4 bands. In that scheme, a 330Ω resistor would be represented by orange, orange, brown, and some metalic color. Again, for you resistor geeks out there, we will get into more of the details later.</p>
 
-<p>All jumper wires work the same. They are used to connect two points together. All the experiments will show the wires with different colored insulations for clarity, but using different combinations of colors is completely acceptable.</p>
+<p>As you can see resistors come with beautifully straight wires, which are called legs. In order to fit the legs into the breadboard holes or sockets we have to bend those legs. We have the option to be sloppy and just sort of curve the wires around until they fit into the socket. The preferred, elegant, professional, way is to bend the legs into 90° angles in order to correctly fit the breadboard sockets.</p>
 
-<p>Be sure to the polarity on the LED is correct. The longer lead should be connected to pin 2. You will need to slightly bend the longer leg so that both are the same length when placed int he breadboard.</p>
+<p><img src="/arduino/img/resistorBend.png" alt="" /></p>
+
+<p>If you look online you will see tools that will help you bend the resistor legs perfectly. We don’t need that level of precision. Just do the best you can and get as close to 90° as possible without creating any stress in your life.</p>
+
+<p><strong>Resistors don’t have a right or wrong direction.</strong></p>
+
+<h3 id="the-led">The LED</h3>
+
+<p>Pay close attention to the LED. They do have a right and wrong direction. The negative side of the LED is the short leg, marked with a flat edge.</p>
+
+<p><img src="/arduino/img/ledDiagram.png" alt="" /></p>
+
+<h4 id="this-is-important">This is important</h4>
+
+<p>Remember, the short leg of the LED is negative and the longer leg positive!</p>
+
+<h3 id="jumper-wires">Jumper wires</h3>
+
+<p>In a circuit, we are connecting components together. For example, we might want to connect the resistor to the LED and those components to the Arduino UNO. When we want to experiment with circuits, rather than permanently connect components, we use a breadboard in combination with jumper wires. Jumper wires are just wires with pin connectors on each end that can easily be placed in a breadboard socket and are used to connect two points together. It makes no difference what color wire you use. The convention is that black is associated with negative, or ground and that probably would be a good rule to follow. If your circuit has 3 LEDs, a red, green, and blue one it would be good to connect those to the Arduino using a red, green, and blue jumper wire, respectively. This conforms to <strong>Follow the Code</strong>, which we presented previously.</p>
+
+<h3 id="the-circuit-diagram">The circuit diagram</h3>
+
+<p>Each experiment will have an associated diagram, which shows how to connect the components to the breadboard and the Arduino Uno. The diagram for this experiment is below.</p>
+
+<p><img src="/arduino/img/blinkLed_bb.png" alt="" /></p>
+
+<p>Having a hard time seeing the circuit? <a href="/arduino/img/BasicLed_bb.png">click here</a></p>
+
+<p>Wondering why the word <em>fritzing</em> appears on the bottom right of the image? Fritzing is the software I use to draw electronic circuit diagrams, and it puts a <em>fritzing</em> watermark on each image.</p>
+
+<p>Be sure to the polarity on the LED is correct. The short leg of the LED is connected to the resistor which in turn is connected to GND (ground) of the Arduino Uno.</p>
 
 <h2 id="installing-the-software">Installing the software</h2>
 
-<p>There are three things you need to install</p>
+<p>To program our devices we are going to use the Arduino IDE.</p>
+
+<h3 id="integrated-development-environment">Integrated Development Environment</h3>
+
+<p>An IDE, or Integrated Development Environment, is a software program that helps people write computer code and converts that code to a software application. For example, to write an iPhone or Android app, developers use specific IDEs. The Arduino IDE we will use allows us to</p>
 
 <ol>
-  <li>The Arduino IDE</li>
-  <li>The USB driver (SiLabs CP2104 driver)</li>
-  <li>The ESP8266 Board Package</li>
+  <li>write computer code, much like a word processor</li>
+  <li>convert that code to a form understandable to the Arduino Uno</li>
+  <li>upload that converted code to the Uno.</li>
 </ol>
 
-<h3 id="step-1-installing-the-arduino-ide">Step 1. Installing the Arduino IDE.</h3>
+<p>Unfortuntely, the Arduino IDE is about 30 years behind the times. It looks like an application written in the 1990s and doesn’t have the features you would expect a modern program to have. That said, it does reliably work and it is free!</p>
 
-<p>This step is the easiest of the three. The term <strong>IDE</strong> is a standard computer science one meaning <em>Integrated Development Environment</em>. * It’s sort of a specialized text editor that</p>
+<p>The Arduino website offers excellent instructions on how to install the software on your laptop:</p>
 
-<ol>
-  <li>enables you to type in code and save it to a file. Much like Microsoft Word or Mac Pages.</li>
-  <li>converts that code into a form that can be read by the Feather Huzzah board.</li>
-  <li>transfers the converted code to the Huzzah.</li>
-</ol>
+<ul>
+  <li><a href="https://www.arduino.cc/en/Guide/Windows">Windows</a></li>
+  <li><a href="https://www.arduino.cc/en/Guide/MacOSX">Mac OS X</a></li>
+  <li><a href="https://www.arduino.cc/en/Guide/Linux">Linux</a></li>
+</ul>
 
-<p>Download and install the Arduino IDE Software from <a href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a></p>
-
-<p><img src="pics/arduino.png" alt="" /></p>
-
-<p>Now you need to install an Ardiuno IDE add-on that enables us to use our processor boards.</p>
-
-<h3 id="step-2-installing-the-sillabs-driver">Step 2 Installing the SilLabs Driver</h3>
-
-<p>The instructions are <a href="https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/pinouts?view=all#using-arduino-ide">here</a> under the headings <strong>Don’t forget you will also need to install the SiLabs CP2104 Driver</strong>,</p>
-
-<h3 id="step-3-installing-the-esp8266-board-package">Step 3 Installing the ESP8266 Board Package</h3>
-
-<p>Instructions for installing this package are in the section <a href="https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/pinouts?view=all#install-the-esp8266-board-package-6-10"><strong>Install the ESP8266 Board Package</strong></a></p>
+<p>Using those instructions, go ahead and install the Arduino IDE. Note that the installation instructions ask you for a donation but you have the option to select ‘just download’.</p>
 
 <h2 id="write-the-program-to-blink-the-led-light">Write the program to blink the LED light.</h2>
 
@@ -255,31 +290,341 @@ Our First Blink an LED program
 
 // setup runs exactly once
 void setup() {
-   pinMode(2, OUTPUT);     // Initialize the pin 2 as an output pin
+   pinMode(13, OUTPUT);   // Initialize the pin 13 as an output pin
 }
 
 // the loop function runs over and over again forever
 void loop() {
-    digitalWrite(2, HIGH);          // turn on the LED connected to pin 2
-    delay(1000);                    // Wait for a second
-    digitalWrite(2, LOW);           // turn off the LED
-    delay(1000);                     // Wait for one second
+    digitalWrite(13, HIGH);      // turn on the LED
+                                 // connected to pin 13
+    delay(1000);                 // Wait for a second
+    digitalWrite(13, LOW);       // turn off the LED
+    delay(1000);                 // Wait for one second
 }
 </code></pre></div></div>
 
-<p>Next, under the Tools menu under the <strong>Board</strong> submenu select <strong>Adafruit HUZZAH esp8266</strong>.**</p>
+<p><img src="/arduino/img/ide1.png" alt="" /></p>
 
-<p>Then, check your program by clicking on the checkmark icon</p>
+<h3 id="what-does-that-code-mean">What does that code mean?</h3>
 
-<p><img src="pics/check.png" alt="" /></p>
+<p>Before we turn our attention to the code, let’s take a moment to look at the device we constructed. Instead of looking at this picture of my rendition, take a look at yours.</p>
+
+<p><img src="/arduino/img/one_led_img.png" alt="" /></p>
+
+<ol>
+  <li>You should see that the negative (shorter) leg of the LED is connected to the resistor which in turn is connected to ground (GND) of the Arduino.</li>
+  <li>The long leg of the LED (positive) is connected to pin 13 of the Arduino.</li>
+</ol>
+
+<p>Now to the code</p>
+
+<p>Each Arduino programs requires at least two parts.</p>
+
+<ol>
+  <li>the <code class="highlighter-rouge">void setup</code> part, which runs exactly once</li>
+  <li>the <code class="highlighter-rouge">void loop</code> part, which runs repeatedly.</li>
+</ol>
+
+<p>The setup part of the code above looks like this</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    void setup() {
+       pinMode(13, OUTPUT);   // Initialize the pin 13 as an output pin
+    }
+
+</code></pre></div></div>
+
+<p>Informally, in English, you might think of <code class="highlighter-rouge">void setup()</code> as <em>This is how you setup</em> with the steps of setup enclosed in the braces. For example, if we had something like</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   void greenCurryRecipe() {
+       saute onions, ginger and garlic
+       add broccoli and carrots and saute for 5 minutes
+       add coconut milk
+       ...
+   }
+</code></pre></div></div>
+
+<p>we would read it in English as</p>
+
+<p>This is how you greenCurryRecipe:</p>
+
+<ol>
+  <li>saute onions, ginger, and garlic</li>
+  <li>add broccoli and carrots and saute for 5 minutes</li>
+  <li>add coconut milk</li>
+  <li>…</li>
+</ol>
+
+<p>Notice that the list of instructions is bounded by braces {} and we execute the steps one right after the other–i.e., sequentially.</p>
+
+<p>In out Arduino code, setup consists of a single line:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+       pinMode(13, OUTPUT);   // Initialize the pin 13 as an output pin
+
+</code></pre></div></div>
+
+<p>First, anytime the Arduino IDE running on your laptop detects a // it interprets from there to the end of the line as a comment and is not sent to the Arduino Uno board. So <em>// Initialize the pin 13 as an output pin</em> is intended for us as a helpful comment. To the Arduino the following three lines are treated identically:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+       pinMode(13, OUTPUT);   // Initialize the pin 13 as an output pin
+       pinMode(13, OUTPUT);
+       pinMode(13, OUTPUT);   // I think this is right
+
+</code></pre></div></div>
+
+<p>Again, these comments are helpful notes we make for ourselves and anyone else who needs to look at our code and are ignored when the code executes. Immediately above the <code class="highlighter-rouge">void setup</code> in our code is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    /*
+    Our First Blink an LED program
+    */
+
+</code></pre></div></div>
+
+<p>This is another comment. Anything between <code class="highlighter-rouge">/*</code> and <code class="highlighter-rouge">*/</code> is a comment, which allows us to easily write multi-line comments such as</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    /*
+    My First Blink an LED program
+    Emily Rice
+
+    The LED is hooked up to pin 13
+
+    */
+
+</code></pre></div></div>
+
+<p>On to the part of the setup that does execute:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   pinMode(13, OUTPUT);
+</code></pre></div></div>
+
+<p>Recall that your device had your LED connected to pin 13 on the Arduino Uno. The <code class="highlighter-rouge">pinMode</code> line says to set that physical pin to be an output pin. <strong>OUTPUT</strong> pins perform some <strong>action</strong> in the world. In this case, the action is to turn on an LED light connected to pin 13. Another option for pinMode is <strong>INPUT</strong>. An input pin <strong>senses</strong> something about the world: was a button pressed?, did our motion sensor detect someone in the room?, did it sense water in the basement?</p>
+
+<p>Now let’s move to the <code class="highlighter-rouge">void loop</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    // the loop function runs over and over again forever
+    void loop() {
+        digitalWrite(13, HIGH);      // turn on the LED
+                                     // connected to pin 13
+        delay(1000);                 // Wait for a second
+        digitalWrite(13, LOW);       // turn off the LED
+        delay(1000);                 // Wait for one second
+    }
+
+</code></pre></div></div>
+
+<p>The loop consists of four lines. the first is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+        digitalWrite(13, HIGH);      // turn on the LED
+
+</code></pre></div></div>
+
+<p>The part that does execute is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+        digitalWrite(13, HIGH);
+
+</code></pre></div></div>
+
+<p>As the helpful comment says, this turns on the LED connected to pin 13. <code class="highlighter-rouge">HIGH</code> means send 5 volts to whatever is connected to the pin, which in our case turns on the LED. <code class="highlighter-rouge">LOW</code> means send 0 volts to whatever is connected to the pin, which in our case turns off the LED.</p>
+
+<p>The next line is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+        delay(1000);                 // Wait for a second
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">delay</code> simply means to wait and do nothing. Within the parenthesis we say how long to wait in milliseconds (thousands of seconds). So we wait for 1 second.</p>
+
+<p>The next line we turn off the LED and the line after that we wait 1 second. When we send the code to our Uno, the LED will blink one second on and one off.</p>
+
+<p>Hopefully, that takes a bit of the mystery out of the code.</p>
+
+<h3 id="bullet-1-of-10-work-to-code">Bullet 1 of 10: Work to Code</h3>
+
+<p>We have already introduced the 10 bullets of the course that everyone should follow. Part of bullet 1, <strong>work to code</strong>, is that all lines within <code class="highlighter-rouge">void setup</code> and <code class="highlighter-rouge">void loop</code> need to be indented. In the code we wrote,</p>
+
+<p><img src="/arduino/img/ide1e.png" alt="" /></p>
+
+<p>it is easy to see what the instructions are for <code class="highlighter-rouge">loop</code>. All those four lines are indented.
+The following do not meet the requirement of work to code:</p>
+
+<p><img src="/arduino/img/ide1b.png" alt="" /></p>
+
+<p><img src="/arduino/img/ide1d.png" alt="" /></p>
+
+<p><img src="/arduino/img/ide1c.png" alt="" /></p>
+
+<p>All have identical instructions and will work with the Arduino, but they are not as readable to humans. If you come back to your code a few weeks from now, you want to easily understand it. If you want to share your work with others so they can build upon it, you want your code readable.</p>
+
+<p>This is the start of your work to code journey.</p>
+
+<h3 id="bullet-5-of-10-always-be-organized">Bullet 5 of 10: Always be organized</h3>
+
+<p>Take the time to be organized and always be organized. By default, the Arduino IDE saves your code file as “sketch_today’s_date” in the general Arduino folder. If you are looking for the code that controlled the brightness of an LED light that you wrote 2 to 3 weeks ago and your 50 Arduino code files are labeled:</p>
+
+<ul>
+  <li>sketch_dec03b</li>
+  <li>sketch_dec03c</li>
+  <li>sketch_dec04a</li>
+  <li>sketch_dec04b</li>
+  <li>sketch_dec07a</li>
+  <li>sketch_dec07b</li>
+  <li>sketch_dec07c</li>
+  <li>sketch_dec07d</li>
+  <li>sketch_dec08a</li>
+  <li>…</li>
+</ul>
+
+<p>You are going to have a hard time finding the correct file. If sometimes you save your file to the Arduino folder, sometimes to the desktop, and sometimes to the documents folder you are going to have a hard time finding the correct file.</p>
+
+<p><strong>Always be organized</strong> means having a directory for the class that is well-named. Have subdirectories for each set of projects, and give your files helpful names:</p>
+
+<ul>
+  <li>oneLedBlinking</li>
+  <li>twoLedsAlternating</li>
+  <li>twoLedsWaltz</li>
+</ul>
+
+<p><strong>Always be organized</strong> also means having the directory automatically backed up to the cloud. There are a number of easy, free options including:</p>
+
+<ul>
+  <li><a href="https://www.dropbox.com/individual?cid=2c9c534a3d010782975524e5a0d87cf8L">Dropbox</a></li>
+  <li><a href="https://www.icloud.com/">Apple iCloud</a></li>
+  <li><a href="https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage">Microsoft OneDrive Basic</a></li>
+  <li><a href="https://www.google.com/intl/en_in/drive/">Google Drive</a></li>
+</ul>
+
+<p>If your laptop dies, is stolen, catches on fire, or gets run over by a steam roller, having your work automatically backed up will be a relief.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_GxC4kKD9qA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>The backup options are easy to setup and effortless to maintain.</p>
+
+<p><strong>I lost my work</strong> is not an option.</p>
+
+<p>Go ahead and save your program in an organized way.</p>
+
+<h3 id="back-to-coding-">Back to coding …</h3>
+
+<p>Now that we wrote and saved our code it is time to connect the Arduino Uno to our laptop if we haven’t done so already.</p>
+
+<p>Then under the Tools menu under <strong>Board</strong> make sure <strong>Arduino Uno</strong> is selected and under <strong>port</strong> some port with the letters <strong>usb</strong> in them is also selected. If not, use the dropdown lists to select them.</p>
+
+<p><img src="/arduino/img/ideBoard2.png" alt="" /></p>
+
+<p>Once that is done, check your program by clicking on the checkmark icon</p>
+
+<p><img src="/arduino/img/check5.png" alt="" /></p>
 
 <p>The check is optional. It just checks your program for syntax errors. Next you can upload your program to your board by clicking on the arrow icon:</p>
 
-<p><img src="pics/load.png" alt="" /></p>
+<p><img src="/arduino/img/load2.png" alt="" /></p>
 
 <p>You now should have a blinking LED light.</p>
 
+<h4 id="can-you-make-the-led-blink-faster">Can you make the LED blink faster?</h4>
+
+<h2 id="two-leds-blinking">Two LEDs blinking</h2>
+
+<p>Now that we have one LED blinking, let’s get two blinking.</p>
+
+<p>Once we know how to hook up one LED we pretty much know how to hook up several. The short leg of the LED (negative) is connected to a 300Ω resistor which in turn is connected to GND (ground) of the Arduino Uno. The long leg of the LED is connected to one of the Uno’s output pins, say pin 3:</p>
+
+<p><img src="/arduino/img/twoLed_bb.png" alt="" />
+<a href="/arduino/img/BasicTwoLed_bb.png">link to larger image</a></p>
+
+<p>And if we want the LEDs to blink at the same time our code would be…</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/*
+      Two LEDs blinking
+*/
+
+// setup runs exactly once
+void setup() {
+   pinMode(13, OUTPUT);
+   pinMode(3, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+    digitalWrite(13, HIGH);
+    digitalWrite(3, HIGH);
+    delay(1000);
+    digitalWrite(13, LOW);
+    digitalWrite(3, LOW);
+    delay(1000);
+</code></pre></div></div>
+
+<h2 id="the-remixes">The remixes</h2>
+
+<p>Now it is your turn to experiment. Below are some short videos I made. Your task is to</p>
+
+<h4 id="step-1-watch-the-video-and-analyze-the-pattern">Step 1 watch the video and analyze the pattern.</h4>
+
+<h4 id="step-2-instead-of-directly-implementing-the-pattern-in-the-arduino-ide-sketch-out-the-pattern-in-your-notebook-this-is-a-crucial-step-it-allows-your-brain-to-pause-analyze-and-convert-what-you-see-to-something-that-can-be-implemented-for-example-i-might-look-at-a-video-and-sketch-out-in-my-notebook">Step 2. Instead of directly implementing the pattern in the Arduino IDE, sketch out the pattern in your notebook. This is a crucial step. It allows your brain to pause, analyze, and convert what you see to something that can be implemented. For example, I might look at a video and sketch out in my notebook:</h4>
+
+<p><img src="/arduino/img/sampleOne.png" alt="" /></p>
+
+<p>So here I think there are four beats in the pattern. My representation of an LED being on is a line and the representation of off is no line. So in this pattern both LEDs are on for the first beat and off for the second. Then the first led is on for the third beat and off for the fourth.</p>
+
+<p>Then I write some psuedocode to align with that sketch…</p>
+
+<p><img src="/arduino/img/sampleTwo.png" alt="" /></p>
+
+<p>The <em>dW</em> is my shorthand for digitalWrite. Once I sketch the solution in my notebook I start coding. Your sketch can look different from mine. Maybe yours is more English like</p>
+
+<ul>
+  <li>turn on led1</li>
+  <li>turn on led2</li>
+  <li>wait a beat</li>
+  <li>…</li>
+</ul>
+
+<p>There is nothing magical about my sketch notation. What is magical is sketching out a solution in your notebook before coding.</p>
+
+<p>Every year I sit down with a group of instructors of advanced programming courses and the number one complaint is that students immediately start coding before actually thinking about the problem and sketching out a solution. (Maybe I shouldn’t have used used the word <em>complaint</em> since now you are thinking we sit around and gripe about students. Maybe I should have said <em>our number one concern</em> )</p>
+
+<h4 id="step-3-implement-your-code-and-test-it">Step 3. Implement your code and test it</h4>
+
+<p>Using the sketch in your notebook as a guide, implement your solution in code, upload it to the Arduino Uno and see if it works.</p>
+
+<h4 id="step-4-debug">Step 4. Debug.</h4>
+
+<p>When I write a program, I am amazed if it works the first time I try it. Sometimes I have a simple typo <code class="highlighter-rouge">digitlaWrite</code> instead of <code class="highlighter-rouge">digitalWrite</code>. Sometimes it is a simple logic error like typing <code class="highlighter-rouge">digitalWrite(led, LOW)</code> when I meant to turn <strong>on</strong> the led. And sometimes it is a gnarly logical problem. If you expect every program you write to run perfectly the first time you try it, you are going to be disappointed in this class. Expect bugs and mistakes.</p>
+
+<p>It is like this with nearly everything in life.</p>
+
+<p>If you are a beginner guitarist, you are going to make mistakes. If you have a passion for guitar, you will put up with fingers that don’t seem to cooperate and work through your mistakes. If you were forced to learn guitar those mistakes will seem unsurmountable. It is the same with soccer, ballet, skateboarding, yoga, welding.</p>
+
+<h2 id="finally-the-remixes">Finally the remixes.</h2>
+
+<h3 id="the-waltz">The Waltz</h3>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EH9rHDXvt6Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h3 id="double-tap">Double Tap</h3>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/H0dtbEZsdn4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h3 id="slow-n-fast">Slow n Fast</h3>
+
+<p>NOTE: In the video I erroneously call this double tap.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6_fwCith630" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h3 id="cylon">Cylon</h3>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/efc49SNCr8c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
 <p><a name="myfootnote1">1</a>: Tutorials are <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Original page at <a href="https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-for-photon-experiment-guide/experiment-1-hello-world-blink-an-led">Sparkfun Inventor’s Kit for Photon</a>. This slight remix by Ron Zacharski</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
 
 					
 
@@ -304,7 +649,7 @@ void loop() {
 							<div class="title">
 								Next section:
 							</div>
-							<a rel="next" class="next" href="/arduino/modules/basics/Colab-and-Numpy/"> Colab And Numpy
+							<a rel="next" class="next" href="/arduino/modules/basics/Variables/"> Variables
 							</a>
 						</div>
 					
