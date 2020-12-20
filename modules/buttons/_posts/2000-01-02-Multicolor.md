@@ -16,25 +16,104 @@ Here is the non-technical explanation. Suppose you are in a room and your little
 
 ![](/arduino/img/pwm1.png)
 
-It let's use our digital _on_ and _off_ to make something that looks on the surface as non-digital. **This is pretty cool!**
+It lets use our digital _on_ and _off_ to make something that looks on the surface as non-digital--a dimmable light. **This is pretty cool!**
 
-Fortunately, we don't need to write code that quickly turns the LED on and off. We tell our ESP8266 microprocessor how bright the LED should be, and it takes care of the details. Here is the scoop. Instead of using:
+Fortunately, we don't need to write code that quickly turns the LED on and off. We tell our microprocessor how bright the LED should be, and it takes care of the details. Here is the scoop. Instead of using:
 
     digitalWrite(led, HIGH);
 
 we are going to use
 
-    analogWrite(led, 1023);
+    analogWrite(led, 255);
 
-The number 1023 represents how bright we want the LED. 0 means the LED is off, 1023 means the LED is at its brightest, 512 means mid brightness --- you get the idea.
+The number 255 represents how bright we want the LED. 0 means the LED is off, 255 means the LED is at its brightest, 127 means mid brightness --- you get the idea.
 
 ![](/arduino/img/pwm2.gif)
 
-> You may be wondering why 1023? Wouldn't it better to use some normal number like 1000? Here is the scoop. Computers operate on the binary number system. I will not go into too much detail, but powers of 2 are more natural: 2, 4, 8, 16, 32 ... Now the range 0 to 1023 represents 1024 distinct values and 1024 is a power of two-- 2^10 IS 1024. That is probably more than you want to know.
+### Binary
 
-## A sample program to have a mid-brightness LED light. (
+> You may be wondering why 255? Wouldn't it better to use some normal number like 100? Here is the scoop. And here I am going to get a little geeky.
 
-Open up the Arduino IDE (the program you just installed in the step above). Then, under the file menu select **New** and type in the following program
+#### Decimal numbers or base-10
+
+We are all used to the decimal number system or base 10. In the decimal number system that we are used to, each column can have 10 values: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. In the base 10 system each column represents a power of 10. Starting at the rightmost column and moving leftward we have 10 to the power of zero which equals 1.
+
+```
+                              10^0
+                              1
+```
+
+The next column is 10 to the power of 1 which is 10
+
+```
+                    10^1       10^0
+                    10         1
+```
+
+The next column is 10 to the power of 2 (10 squared) or 100, and so on.
+
+```
+          10^4   10^3   10^2    10^1    10^0
+          10000  1000   100     10      1
+```
+
+Consider a Tesla Model 3 costing \$\$37,990:
+
+| 10,000 | 1,000 | 100 | 10  |  1  |
+| :----: | :---: | :-: | :-: | :-: |
+|   3    |   7   |  9  |  9  |  0  |
+
+Here we have
+
+- a 3 in the 10,000s column
+- a 7 in the 1,000s column
+- a 9 in the 100s column
+- a 9 in the 10s column
+- a 0 in the ones column
+
+So, for example, if we were paying for the Tesla in cash we could use
+
+- 3 ten thousand dollar bills
+- 7 thousand dollar bills
+- 9 one hundred dollar bills
+- 9 tens
+- and 0 ones
+
+#### Binary or base 2
+
+Computers operate on the binary number system, or base 2. In base 2, each column can have one of two values 0 or 1 and each column represents a power of 2. The rightmost column is 2 to the power of 0. The column to the left of that is 2 to the power of 1 and so on:
+
+```
+2^7  2^6   2^5   2^4   2^3   2^2   2^1    2^0
+128   64    32    16     8     4     2      1
+```
+
+So if we have a binary number 101, that equals one 4, zero 2s, and 1 one or 5.
+
+A binary number like 101 is three bits (**b**inary dig**it**) meaning that there are three numbers. A number like 11111111 is an eight bit number. Let's convert that number to decimal:
+
+| 128 | 64  | 32  | 16  |  8  |  4  |  2  |  1  |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+|  1  |  1  |  1  |  1  |  1  |  1  |  1  |  1  |
+
+So that is
+
+- 1 128
+- 1 64
+- 1 32
+- and so on
+
+so
+
+```
+128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
+```
+
+The smallest number we can represent with 8 bits is 00000000 which in decimal is 0. The largest is 11111111, which is 255.
+
+This is the long explanation of what analogWrite uses the values 0 to 255---because we are using eight bit numbers for it.
+
+## A sample program to have a mid-brightness LED light.
 
     int led = 2;
 
@@ -46,22 +125,189 @@ Open up the Arduino IDE (the program you just installed in the step above). Then
       analogWrite(led, 512);
     }
 
-## Multi-LED bonuses for the remixes below
+## Multi-LED
 
-1. for each of the remixes below you will get 25% xp more if you use 3 LEDs. For example, if you demo remix 1 with 3 leds you will get 25xp. The good news is that if you wire those three LEDs once, you do not have to do any rewiring of those LEDs for the other remix.
-2. You will get 25% more if you use variables. These includes using variable names that make sense to people.
+Use three LEDs for the following remixes. And remember to use variables.
 
-## Remix 1 Loopy-Lights™ 20xp
+### Remix 1 Loopy-Lights™
 
-Can you write code that cycles the LED(s) from off, low brightness, medium brightness, high brightness).
+Can you write code that cycles the LEDs from off, low brightness, medium brightness, high brightness).
 So constantly off - low - mid - high - off - low - mid - high …
 
-## Remix 2 Potentiometer-brightness 20xp
+### Remix 2 Potentiometer-brightness
 
 Can you write code so that a potentiometer controls the brightness of the LEDs?
 This code is pretty short. You will have 1 or 2 lines inside the setup function and **2 to 3 lines of code inside the loop function**. When the potentiometer if all the way to the left, the led is off, as you turn the potentiometer gradually to the right the led gets gradually brighter.
 
-## Remix 4 a for loopy pulsey light thing 20xp
+## Loops
+
+Remember that we have two required parts to a valid Arduino program
+
+- `void setup()` which runs exactly once
+- `void loop()` which runs over and over and over again.
+
+Suppose we want to write a program that counts down from 100 and prints the number to the serial monitor. That might look like:
+
+```
+ 1    int i = 100;
+ 2
+ 3    void setup() {
+ 4      // initialize serial communication at 9600 bits per second:
+ 5      Serial.begin(9600);
+ 6    }
+ 7
+ 8   void loop() {
+ 9      Serial.println(i);
+10      i = i - 1;
+11      delay(1000);
+12    }
+```
+
+1. So initially `i` equals 100. On line 9 we print the value of i, so it prints 100 to the serial monitor. On line 10 we subtract one from i so now `i` equals 99. On line 11 we wait a second and then we loop again.
+2. On line 9 we print the value of `i` so we print 99. On line 10 we subtract one so now `i` equals 98. and then we loop
+3. On line 9 we print the value of `i` which is 98. On line line we subtract one so now `i` equals 97.
+
+And on and on our program goes, never stopping until we pull the plug.
+
+Adding and subtracting from a variable is very common in programming so there are a number of shorthand notations we can use. For example, we can rewrite line 10 as
+
+```
+i -= 1
+```
+
+That is equivalent to
+
+```
+i = i - 1
+```
+
+If we wanted to set i to
+
+```
+i = i - 10
+```
+
+we could write
+
+```
+i -=10
+```
+
+and if we wanted to add 10:
+
+```
+i +=10
+```
+
+We can use another notation if all we want to do is add or subtract 1:
+
+```
+i--  which is equivalent to i = i - 1
+i++  which is equivalent to i = i + 1
+```
+
+These different notations don't add anything to what the computer can do. Anything you can do with the expression
+
+```
+i++
+```
+
+you can do with the orginal
+
+```
+i = i + 1
+```
+
+This type of notation is called syntactic sugar meaning that it is just an alternative way of expressing something, that is easier to read.
+
+We are going to be using these expressions shortly.
+
+Now back to our loop. As we saw above, the `void loop()` runs forever. In addition, it is quite rare for a computer language to have something equivalent to `void loop()`. Sometimes we want to loop a specific number of times. For example, maybe we want to print:
+
+```
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Blastoff
+```
+
+If we just used
+
+```
+  int i = 10;
+  ...
+  void loop() {
+     Serial.println(i);
+     i = i - 1;
+     delay(1000);
+  }
+```
+
+Our code would print:
+
+```
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+-1
+-2
+-3
+...
+-97591
+...
+```
+
+So here is a case where we want to stop looping after a certain number of times. Nearly every programming language, including that for the Arduino, has an expression called a `for` loop which will do exactly that. Its syntax looks like this:
+
+```
+
+for(int i =0; i< 10; i++){
+   Serial.println(i);
+}
+Serial.println("Done");
+```
+
+Let's disect that.
+
+1. `int i = 0` - sets `i` initially to 0
+2. `i < 10` - we read this _while i less than 10_ 0 is less than 10 so we go inside the loop
+3. then we execute what is inside the for block. in this case `Serial.println(i)`. Since `i` is 0 it prints 0
+4. `i++` - now we will change the value of `i`. `i++` indicates that we add 1 to `i` so now `i` is 1.
+5. `i < 10` - now we get back to _while i is less than 10_ i is now 1 which is less than 10.
+6. then we execute what is inside the for block. `Serial.println(i)` which prints 1.
+7. ....
+8. at some point i = 9
+9. `i < 10` is still true so we print 9
+10. `i++` we add 1 to `i` so now `i` is 10.
+11. `i < 10` now i is 10 and 10 is not smaller than 10 so we skip the for block and execute the instruction after it which is `Serial.println("Done");` and we print `Done`
+
+The general syntax for the `for` loop is
+
+```
+for(set a variable to an initial value;
+    some test - if true execute block;
+    how to change the value of the variable)  {
+        the block to execute.
+    }
+
+```
+
+### Remix 4 a for loopy pulsey light thing
 
 Can you write code so that the lights start dark, gradually increase in brightness and then gradually dim and then repeat?
 
@@ -345,3 +591,11 @@ Follow the [Adafruit Tutorial](https://learn.adafruit.com/adafruit-io-basics-col
 
 <a name="myfootnote1">1</a>: Tutorials are [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Original page at [Sparkfun Inventor's Kit for Photon](https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-for-photon-experiment-guide/experiment-1-hello-world-blink-an-led). This slight remix by Ron Zacharski
 a
+
+```
+
+```
+
+```
+
+```

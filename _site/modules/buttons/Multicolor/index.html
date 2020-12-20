@@ -177,29 +177,149 @@
 
 <p><img src="/arduino/img/pwm1.png" alt="" /></p>
 
-<p>It let’s use our digital <em>on</em> and <em>off</em> to make something that looks on the surface as non-digital. <strong>This is pretty cool!</strong></p>
+<p>It lets use our digital <em>on</em> and <em>off</em> to make something that looks on the surface as non-digital–a dimmable light. <strong>This is pretty cool!</strong></p>
 
-<p>Fortunately, we don’t need to write code that quickly turns the LED on and off. We tell our ESP8266 microprocessor how bright the LED should be, and it takes care of the details. Here is the scoop. Instead of using:</p>
+<p>Fortunately, we don’t need to write code that quickly turns the LED on and off. We tell our microprocessor how bright the LED should be, and it takes care of the details. Here is the scoop. Instead of using:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>digitalWrite(led, HIGH);
 </code></pre></div></div>
 
 <p>we are going to use</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>analogWrite(led, 1023);
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>analogWrite(led, 255);
 </code></pre></div></div>
 
-<p>The number 1023 represents how bright we want the LED. 0 means the LED is off, 1023 means the LED is at its brightest, 512 means mid brightness — you get the idea.</p>
+<p>The number 255 represents how bright we want the LED. 0 means the LED is off, 255 means the LED is at its brightest, 127 means mid brightness — you get the idea.</p>
 
 <p><img src="/arduino/img/pwm2.gif" alt="" /></p>
 
+<h3 id="binary">Binary</h3>
+
 <blockquote>
-  <p>You may be wondering why 1023? Wouldn’t it better to use some normal number like 1000? Here is the scoop. Computers operate on the binary number system. I will not go into too much detail, but powers of 2 are more natural: 2, 4, 8, 16, 32 … Now the range 0 to 1023 represents 1024 distinct values and 1024 is a power of two– 2^10 IS 1024. That is probably more than you want to know.</p>
+  <p>You may be wondering why 255? Wouldn’t it better to use some normal number like 100? Here is the scoop. And here I am going to get a little geeky.</p>
 </blockquote>
 
-<h2 id="a-sample-program-to-have-a-mid-brightness-led-light-">A sample program to have a mid-brightness LED light. (</h2>
+<h4 id="decimal-numbers-or-base-10">Decimal numbers or base-10</h4>
 
-<p>Open up the Arduino IDE (the program you just installed in the step above). Then, under the file menu select <strong>New</strong> and type in the following program</p>
+<p>We are all used to the decimal number system or base 10. In the decimal number system that we are used to, each column can have 10 values: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. In the base 10 system each column represents a power of 10. Starting at the rightmost column and moving leftward we have 10 to the power of zero which equals 1.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                              10^0
+                              1
+</code></pre></div></div>
+
+<p>The next column is 10 to the power of 1 which is 10</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                    10^1       10^0
+                    10         1
+</code></pre></div></div>
+
+<p>The next column is 10 to the power of 2 (10 squared) or 100, and so on.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>          10^4   10^3   10^2    10^1    10^0
+          10000  1000   100     10      1
+</code></pre></div></div>
+
+<p>Consider a Tesla Model 3 costing $$37,990:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">10,000</th>
+      <th style="text-align: center">1,000</th>
+      <th style="text-align: center">100</th>
+      <th style="text-align: center">10</th>
+      <th style="text-align: center">1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">7</td>
+      <td style="text-align: center">9</td>
+      <td style="text-align: center">9</td>
+      <td style="text-align: center">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Here we have</p>
+
+<ul>
+  <li>a 3 in the 10,000s column</li>
+  <li>a 7 in the 1,000s column</li>
+  <li>a 9 in the 100s column</li>
+  <li>a 9 in the 10s column</li>
+  <li>a 0 in the ones column</li>
+</ul>
+
+<p>So, for example, if we were paying for the Tesla in cash we could use</p>
+
+<ul>
+  <li>3 ten thousand dollar bills</li>
+  <li>7 thousand dollar bills</li>
+  <li>9 one hundred dollar bills</li>
+  <li>9 tens</li>
+  <li>and 0 ones</li>
+</ul>
+
+<h4 id="binary-or-base-2">Binary or base 2</h4>
+
+<p>Computers operate on the binary number system, or base 2. In base 2, each column can have one of two values 0 or 1 and each column represents a power of 2. The rightmost column is 2 to the power of 0. The column to the left of that is 2 to the power of 1 and so on:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2^7  2^6   2^5   2^4   2^3   2^2   2^1    2^0
+128   64    32    16     8     4     2      1
+</code></pre></div></div>
+
+<p>So if we have a binary number 101, that equals one 4, zero 2s, and 1 one or 5.</p>
+
+<p>A binary number like 101 is three bits (<strong>b</strong>inary dig<strong>it</strong>) meaning that there are three numbers. A number like 11111111 is an eight bit number. Let’s convert that number to decimal:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">128</th>
+      <th style="text-align: center">64</th>
+      <th style="text-align: center">32</th>
+      <th style="text-align: center">16</th>
+      <th style="text-align: center">8</th>
+      <th style="text-align: center">4</th>
+      <th style="text-align: center">2</th>
+      <th style="text-align: center">1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So that is</p>
+
+<ul>
+  <li>1 128</li>
+  <li>1 64</li>
+  <li>1 32</li>
+  <li>and so on</li>
+</ul>
+
+<p>so</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
+</code></pre></div></div>
+
+<p>The smallest number we can represent with 8 bits is 00000000 which in decimal is 0. The largest is 11111111, which is 255.</p>
+
+<p>This is the long explanation of what analogWrite uses the values 0 to 255—because we are using eight bit numbers for it.</p>
+
+<h2 id="a-sample-program-to-have-a-mid-brightness-led-light">A sample program to have a mid-brightness LED light.</h2>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int led = 2;
 
@@ -212,24 +332,181 @@ void loop() {
 }
 </code></pre></div></div>
 
-<h2 id="multi-led-bonuses-for-the-remixes-below">Multi-LED bonuses for the remixes below</h2>
+<h2 id="multi-led">Multi-LED</h2>
 
-<ol>
-  <li>for each of the remixes below you will get 25% xp more if you use 3 LEDs. For example, if you demo remix 1 with 3 leds you will get 25xp. The good news is that if you wire those three LEDs once, you do not have to do any rewiring of those LEDs for the other remix.</li>
-  <li>You will get 25% more if you use variables. These includes using variable names that make sense to people.</li>
-</ol>
+<p>Use three LEDs for the following remixes. And remember to use variables.</p>
 
-<h2 id="remix-1-loopy-lights-20xp">Remix 1 Loopy-Lights™ 20xp</h2>
+<h3 id="remix-1-loopy-lights">Remix 1 Loopy-Lights™</h3>
 
-<p>Can you write code that cycles the LED(s) from off, low brightness, medium brightness, high brightness).
+<p>Can you write code that cycles the LEDs from off, low brightness, medium brightness, high brightness).
 So constantly off - low - mid - high - off - low - mid - high …</p>
 
-<h2 id="remix-2-potentiometer-brightness-20xp">Remix 2 Potentiometer-brightness 20xp</h2>
+<h3 id="remix-2-potentiometer-brightness">Remix 2 Potentiometer-brightness</h3>
 
 <p>Can you write code so that a potentiometer controls the brightness of the LEDs?
 This code is pretty short. You will have 1 or 2 lines inside the setup function and <strong>2 to 3 lines of code inside the loop function</strong>. When the potentiometer if all the way to the left, the led is off, as you turn the potentiometer gradually to the right the led gets gradually brighter.</p>
 
-<h2 id="remix-4-a-for-loopy-pulsey-light-thing-20xp">Remix 4 a for loopy pulsey light thing 20xp</h2>
+<h2 id="loops">Loops</h2>
+
+<p>Remember that we have two required parts to a valid Arduino program</p>
+
+<ul>
+  <li><code class="highlighter-rouge">void setup()</code> which runs exactly once</li>
+  <li><code class="highlighter-rouge">void loop()</code> which runs over and over and over again.</li>
+</ul>
+
+<p>Suppose we want to write a program that counts down from 100 and prints the number to the serial monitor. That might look like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1    int i = 100;
+ 2
+ 3    void setup() {
+ 4      // initialize serial communication at 9600 bits per second:
+ 5      Serial.begin(9600);
+ 6    }
+ 7
+ 8   void loop() {
+ 9      Serial.println(i);
+10      i = i - 1;
+11      delay(1000);
+12    }
+</code></pre></div></div>
+
+<ol>
+  <li>So initially <code class="highlighter-rouge">i</code> equals 100. On line 9 we print the value of i, so it prints 100 to the serial monitor. On line 10 we subtract one from i so now <code class="highlighter-rouge">i</code> equals 99. On line 11 we wait a second and then we loop again.</li>
+  <li>On line 9 we print the value of <code class="highlighter-rouge">i</code> so we print 99. On line 10 we subtract one so now <code class="highlighter-rouge">i</code> equals 98. and then we loop</li>
+  <li>On line 9 we print the value of <code class="highlighter-rouge">i</code> which is 98. On line line we subtract one so now <code class="highlighter-rouge">i</code> equals 97.</li>
+</ol>
+
+<p>And on and on our program goes, never stopping until we pull the plug.</p>
+
+<p>Adding and subtracting from a variable is very common in programming so there are a number of shorthand notations we can use. For example, we can rewrite line 10 as</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i -= 1
+</code></pre></div></div>
+
+<p>That is equivalent to</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i = i - 1
+</code></pre></div></div>
+
+<p>If we wanted to set i to</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i = i - 10
+</code></pre></div></div>
+
+<p>we could write</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i -=10
+</code></pre></div></div>
+
+<p>and if we wanted to add 10:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i +=10
+</code></pre></div></div>
+
+<p>We can use another notation if all we want to do is add or subtract 1:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i--  which is equivalent to i = i - 1
+i++  which is equivalent to i = i + 1
+</code></pre></div></div>
+
+<p>These different notations don’t add anything to what the computer can do. Anything you can do with the expression</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i++
+</code></pre></div></div>
+
+<p>you can do with the orginal</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i = i + 1
+</code></pre></div></div>
+
+<p>This type of notation is called syntactic sugar meaning that it is just an alternative way of expressing something, that is easier to read.</p>
+
+<p>We are going to be using these expressions shortly.</p>
+
+<p>Now back to our loop. As we saw above, the <code class="highlighter-rouge">void loop()</code> runs forever. In addition, it is quite rare for a computer language to have something equivalent to <code class="highlighter-rouge">void loop()</code>. Sometimes we want to loop a specific number of times. For example, maybe we want to print:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Blastoff
+</code></pre></div></div>
+
+<p>If we just used</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  int i = 10;
+  ...
+  void loop() {
+     Serial.println(i);
+     i = i - 1;
+     delay(1000);
+  }
+</code></pre></div></div>
+
+<p>Our code would print:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+-1
+-2
+-3
+...
+-97591
+...
+</code></pre></div></div>
+
+<p>So here is a case where we want to stop looping after a certain number of times. Nearly every programming language, including that for the Arduino, has an expression called a <code class="highlighter-rouge">for</code> loop which will do exactly that. Its syntax looks like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+for(int i =0; i&lt; 10; i++){
+   Serial.println(i);
+}
+Serial.println("Done");
+</code></pre></div></div>
+
+<p>Let’s disect that.</p>
+
+<ol>
+  <li><code class="highlighter-rouge">int i = 0</code> - sets <code class="highlighter-rouge">i</code> initially to 0</li>
+  <li><code class="highlighter-rouge">i &lt; 10</code> - we read this <em>while i less than 10</em> 0 is less than 10 so we go inside the loop</li>
+  <li>then we execute what is inside the for block. in this case <code class="highlighter-rouge">Serial.println(i)</code>. Since <code class="highlighter-rouge">i</code> is 0 it prints 0</li>
+  <li><code class="highlighter-rouge">i++</code> - now we will change the value of <code class="highlighter-rouge">i</code>. <code class="highlighter-rouge">i++</code> indicates that we add 1 to <code class="highlighter-rouge">i</code> so now <code class="highlighter-rouge">i</code> is 1.</li>
+  <li><code class="highlighter-rouge">i &lt; 10</code> - now we get back to <em>while i is less than 10</em> i is now 1 which is less than 10.</li>
+  <li>then we execute what is inside the for block. <code class="highlighter-rouge">Serial.println(i)</code> which prints 1.</li>
+  <li>….</li>
+  <li>at some point i = 9</li>
+  <li><code class="highlighter-rouge">i &lt; 10</code> is still true so we print 9</li>
+  <li><code class="highlighter-rouge">i++</code> we add 1 to <code class="highlighter-rouge">i</code> so now <code class="highlighter-rouge">i</code> is 10.</li>
+  <li><code class="highlighter-rouge">i &lt; 10</code> now i is 10 and 10 is not smaller than 10 so we skip the for block and execute the instruction after it which is <code class="highlighter-rouge">Serial.println("Done");</code> and we print <code class="highlighter-rouge">Done</code></li>
+</ol>
+
+<p>The general syntax for the <code class="highlighter-rouge">for</code> loop is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for(set a variable to an initial value;
+    some test - if true execute block;
+    how to change the value of the variable)  {
+        the block to execute.
+    }
+
+</code></pre></div></div>
+
+<h3 id="remix-4-a-for-loopy-pulsey-light-thing">Remix 4 a for loopy pulsey light thing</h3>
 
 <p>Can you write code so that the lights start dark, gradually increase in brightness and then gradually dim and then repeat?</p>
 
@@ -531,6 +808,12 @@ void mainColors()
 
 <p><a name="myfootnote1">1</a>: Tutorials are <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Original page at <a href="https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-for-photon-experiment-guide/experiment-1-hello-world-blink-an-led">Sparkfun Inventor’s Kit for Photon</a>. This slight remix by Ron Zacharski
 a</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
 
 					
 
