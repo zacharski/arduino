@@ -1,0 +1,360 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Light Sensor</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown  first ">
+						<a href="/arduino/modules/module%20one/Introduction/"
+						   class="dropdown-item">
+							Module One
+						</a>
+					</li>
+				
+					
+					<li class="dropdown active  ">
+						<a href="/arduino/modules/two/Introduction/"
+						   class="dropdown-item">
+							Two
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/three/Introduction/"
+						   class="dropdown-item">
+							Three
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/four/Bias/"
+						   class="dropdown-item">
+							Four
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/resources/community/"
+						   class="dropdown-item">
+							resources
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+		<div class="pagination-section">
+			<div class="title">
+				Previous module:
+			</div>
+			<a rel="prev" class="prev" href="/arduino/modules/module%20one/Introduction/">
+				Module One </a>
+		</div>
+		<hr />
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/two/Introduction/">
+					Introduction
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/two/Procedures/">
+					Procedures
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/two/Multicolor/">
+					Multicolor
+				</a>
+			</li>
+		
+			<li class="active  last">
+				<a
+						href="/arduino/modules/two/Light-Sensor/">
+					Light Sensor
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/three/Introduction/"> Three
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="experiment-6">Experiment 6:</h2>
+
+<h1 id="the-light-sensor">The Light Sensor</h1>
+
+<p>In experiment 3, you got to use a potentiometer, which varies resistance based on the twisting of a knob. In this circuit, you’ll be using a photoresistor, which changes resistance based on how much light the sensor receives. So it is sort of like a potentiometer controlled by light!
+<img src="/arduino/img/photor.png" alt="" /></p>
+
+<p><strong>If you still have your multicolor LED hooked up:</strong></p>
+
+<p>Very cool. Keep that circuit and just add the photoresistor as shown below. Don’t add another LED.</p>
+
+<h4 id="parts-needed">Parts Needed</h4>
+
+<p>In addition to the parts needed for your RGB LED, or plain LED you will need:</p>
+
+<ul>
+  <li>1x photoresistor (pictured above)</li>
+  <li>1x 10KΩ Resistor (when we talk about this we say “ten K ohm resistor). (brown, black, orange)</li>
+  <li>3x 330 ohm Resistor (orange orange brown)</li>
+  <li>Jumper Wires Galore</li>
+</ul>
+
+<h2 id="hardware-hookup">Hardware Hookup</h2>
+
+<p>Again, if you have your RGB hooked up, leave it and ignore the LED in this diagram.</p>
+
+<p><img src="/arduino/img/photoresistor_bb.png" alt="" /></p>
+
+<p><a href="/arduino/img/photoresistor_bb.png">Link to larger image</a></p>
+
+<h2 id="the-basic-code">The basic code</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        int sensor = A0;
+
+    	void setup() {
+    	  pinMode(sensor, OUTPUT);
+    	  Serial.begin(9600);
+    	}
+
+    	void loop() {
+    	  int lightLevel = analogRead(sensor);
+    	  Serial.println(lightLevel);
+    	  delay(1000);
+    	}
+
+</code></pre></div></div>
+
+<p>This will display integers in the serial monitor denoting the brightness level. The possible range is 0 to 1023. Your numbers will like not reach either end of that range. Cover the photoresistor with your hand to make it totally dark and note the number. Use the flashlight app on your phone, shine it on the photoresistor and note that number. For example, my super bright, shining the flashlight app on the photoresistor was a bit over 800, and my totally dark number was around 20.</p>
+
+<h2 id="remix-1">Remix 1</h2>
+
+<p>Make a device when the LED is off when it is dark out. As the light increases the LED gets brighter. This does not require an <code class="highlighter-rouge">if</code> statement.</p>
+
+<h2 id="remix-2-nightlight">Remix 2: Nightlight</h2>
+
+<p>A device the reverse of the above. When it is bright in the room the LED is off. As the room dims, the LED brightens.</p>
+
+<h2 id="remix-3-a-moody-night-light">Remix 3: A moody night light</h2>
+
+<h3 id="light-sensor--rgb-led-remix-oh-no-more-math">light sensor + rgb led remix (oh no. more math)</h3>
+
+<p>Can you make a device that when it is dark the rgb led is blue; as it gets brighter it turns to indigo; and as it gets bright still, violet.</p>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/two/Multicolor/">
+								Multicolor </a>
+						</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

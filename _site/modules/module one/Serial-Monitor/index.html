@@ -1,0 +1,518 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Serial monitor</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown active first ">
+						<a href="/arduino/modules/module%20one/Introduction/"
+						   class="dropdown-item">
+							Module One
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/two/Introduction/"
+						   class="dropdown-item">
+							Two
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/three/Introduction/"
+						   class="dropdown-item">
+							Three
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/four/Bias/"
+						   class="dropdown-item">
+							Four
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/resources/community/"
+						   class="dropdown-item">
+							resources
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/module%20one/Introduction/">
+					Introduction
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/module%20one/Blink/">
+					Blink
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/module%20one/Variables/">
+					Variables
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/module%20one/video/">
+					Video
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/module%20one/Buttons/">
+					 buttons
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a
+						href="/arduino/modules/module%20one/Serial-Monitor/">
+					Serial monitor
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/module%20one/Potentiometers/">
+					Potentiometers
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/two/Introduction/"> Two
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="finding-errors">Finding Errors</h2>
+
+<h1 id="debugging">Debugging</h1>
+
+<p>Debugging is the process of finding and fixing errors in computer hardware and software.</p>
+
+<h2 id="origin-of-the-term-bug---an-aside">Origin of the term <em>bug</em> - an aside</h2>
+
+<p>Errors in hardware and software are also called bugs. If you look at computer science textbooks or search on the web, you will most likely find that the origin of this term is attributed to U.S. Navy Rear Admiral Grace Hopper.</p>
+
+<p><img src="/arduino/img/hopper.png" alt="" /></p>
+
+<p>Dr. Hopper was a pioneer of computer programming. On September 9, 1947 a computer she was using was malfunctioning and when she went to investigate she found the cause to be a moth that got caught in a component. In the log book she wrote “First actual case of bug being found” and attached the moth with a piece of tape.</p>
+
+<p><img src="/arduino/img/First_Computer_Bug,_1945.jpg" alt="" /></p>
+
+<p>While this event is often cited as the first usage of the term bug, notice that Dr Hopper wouldn’t write “First <strong>actual case</strong> of bug being found” if the term wasn’t already common. In fact, Thomas Edison used the term bug to refer to an error as early as 1878 writing:</p>
+
+<blockquote>
+  <p>It has been just so in all of my inventions. The first step is intuition and comes with a burst, then difficulties arise—this thing gives out and [it is] then that “Bugs”—as such little faults and difficulties are called—show themselves and months of intense watching, study and labor are requisite before commercial success or failure is certainly reached.”</p>
+</blockquote>
+
+<p>That erroneous attribution aside, Dr Hopper played an amazing role in computer science. She developed one of the first successful computer programming language and she was pivotal in developing the first general purpose large-scale computer, the UNIVAC I. Here she is at the console.</p>
+
+<p><img src="/arduino/img/Grace_Hopper_and_UNIVAC.jpg" alt="" /></p>
+
+<p>The UNIVAC I, ground-breaking in its day could process 1,905 operations per second. In contrast, our Arduino Uno can process 16 million operations per second.</p>
+
+<h2 id="how-to-find-your-bugs">How to find your bugs</h2>
+
+<p>You’ve wired a circuit involving buttons and LEDs, wrote and uploaded the software, and it doesn’t work. Where is the error? Did you wire something incorrectly? Do you have a simple error in your code or is the error in your general approach? Unfortunately, the Arduino doesn’t offer much debugging support.</p>
+
+<p>By now you have encountered a number of bugs in your projects and you’ve developed your own methods for debugging. Here I hope just to offer a few more methods and tools you can use.</p>
+
+<h3 id="syntactic-bugs">Syntactic bugs</h3>
+
+<p>When writing a paper we often have typos and, at times, syntactic errors.</p>
+
+<p>Here I’ve written a simple blink an LED program loaded with errors:</p>
+
+<p><img src="/arduino/img/error1.png" alt="" /></p>
+
+<p>When I check the syntax of the program by clicking on the checkmark icon …</p>
+
+<p><img src="/arduino/img/check3.png" alt="" /></p>
+
+<p>I get an error message displayed.</p>
+
+<p><img src="/arduino/img/error2.png" alt="" /></p>
+
+<p>It says <em>‘redled’ was not declared in this scope</em> and sure enough, when I declared the variable in line 1 it was <code class="highlighter-rouge">redLed</code> with a capital L, but on line 4 it was with a lowercase L —<code class="highlighter-rouge">redled</code>.</p>
+
+<p>That error pane can be expanded by dragging the upper edge upward. In the expanded view we can see all our errors.</p>
+
+<p><img src="/arduino/img/error3.png" alt="" /></p>
+
+<p>The next error is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>errors:9:17: error: 'redlde' was not declared in this scope
+</code></pre></div></div>
+
+<p>the 9 after the word <em>errors</em> refers to the line number of the error. On line 9 we can see that I have a typo.</p>
+
+<p>As you can see it is useful to expand the error pane.</p>
+
+<h3 id="the-code-uploads-fine-but-doesnt-work-as-expected">The code uploads fine but doesn’t work as expected.</h3>
+
+<p>Syntactic errors are the most common but also are the easiest to fix. If your code uploads fine but doesn’t work as expected you’ll need to determine whether it is a hardware or software problem. Errors are inevitable and you have a choice. You can either</p>
+
+<ul>
+  <li>view the errors as frustrating roadblocks that are near impossible to fix.</li>
+  <li>or view them as an interesting, fun, puzzle to solve and think “I can do this”</li>
+</ul>
+
+<p>If you spent hours trying to figure out your bug and are just getting more and more frustrated, have someone else look at your circuit and code with fresh eyes.</p>
+
+<p>When the circuit contains multiple components: buttons and LEDs, a light sensor and a buzzer, it is useful to determine which component and its associated code has the error. This is where the serial monitor comes in.</p>
+
+<h2 id="the-serial-monitor">The serial monitor</h2>
+
+<p>The serial monitor has multiple uses outside of debugging but we will focus on its use as a debugging tool.</p>
+
+<p>When we are programming the Arduino Uno we have a cable connecting our laptop to the Uno. That cable allows us to send the code we wrote on our laptop to the Arduino and supplies power to the Arduino. It can also be used to communicate between your laptop and the Arduino. Your laptop and the Arduino can send messages back and forth. This connection is called a serial connection, <em>serial</em> meaning sending one bit of information after another. If we want to send the word <em>hello</em> from the Arduino to our laptop, it first sends the <em>h</em> followed by the <em>e</em>, followed by the <em>l</em> and so on. Serially. In order to do this, one thing the laptop and the Arduino need to agree on is how fast to send the letters and this is called baud rate meaning how many bits per second are we sending. In the Arduino code we set the baud rate with.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Serial.begin(9600);
+</code></pre></div></div>
+
+<p>Here we set the baud rate to be 9,600 bits per second, which amazingly enough, is on the very slow side. If we want to send information to our laptop we use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int msg = 143;
+Serial.println("hello");
+Serial.println(msg);
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">println</code> stands for <em>print line</em>. On our laptop this will print:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello
+143
+</code></pre></div></div>
+
+<p>As you can see <code class="highlighter-rouge">println</code> prints each item on its own line.</p>
+
+<p>Here is a simple program:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void setup(){
+  Serial.begin(9600);
+}
+
+void loop(){
+  Serial.println("Hello");
+  delay(1000);
+  Serial.println("World);
+  delay(1000):
+}
+</code></pre></div></div>
+
+<p>After we upload the code it will be running on the Arduino.</p>
+
+<p>Now we want to see the messages on our laptop. To do that we will open a serial monitor window. As the name suggests, the code will monitor the serial connection and print the messages to the window. We open the window in our Arduino editor by clicking on the magnifying glass icon in the upper right:</p>
+
+<p><img src="/arduino/img/serial.png" alt="" /></p>
+
+<p>It will open up a window showing the messages the Arduino sent:</p>
+
+<p><img src="/arduino/img/serial12.png" alt="" /></p>
+
+<p>By default, the window should be set to 9600 baud as shown in the lower right of the window. If it is not, you can select 9600.</p>
+
+<p>This is all fine but what does it have to do with debugging? Let’s look at a simple example,</p>
+
+<p>Let’s go back to our button code where if we press a button an LED light goes on:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    int led = 13;
+    int pushButton = 3;
+
+    void setup() {
+      pinMode(led, OUTPUT);
+      pinMode(pushButton, INPUT_PULLUP);
+    }
+
+    void loop() {
+
+        // if button is pressed
+        if (digitalRead(pushButton) == LOW){
+            // turn on the LED
+            digitalWrite(led, HIGH);
+        } else {
+            // else
+            // turn off the led
+            digitalWrite(led, LOW);
+        }
+    }
+
+</code></pre></div></div>
+
+<p>We upload the code and it doesn’t work. Is the button side of things incorrect or is it a problem with the LED? We can add <code class="highlighter-rouge">Serial.println</code> to help isolate the error.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    int led = 13;
+    int pushButton = 3;
+
+    void setup() {
+      pinMode(led, OUTPUT);
+      pinMode(pushButton, INPUT_PULLUP);
+      Serial.begin(9600);
+    }
+
+    void loop() {
+
+        // if button is pressed
+        if (digitalRead(pushButton) == LOW){
+            // turn on the LED
+            Serial.println("Button Pressed);
+            digitalWrite(led, HIGH);
+        } else {
+            // else
+            // turn off the led
+            Serial.println("Buton Not Pressed);
+            digitalWrite(led, LOW);
+        }
+    }
+
+</code></pre></div></div>
+
+<p>Now when we press the button and see <em>Button Pressed</em> in the serial monitor, we know the button works correctly and there is a problem on the LED side of things. On the other hand if we see <em>Button Not Pressed</em> when we press the button, we know there is a problem with the button.</p>
+
+<p>This is a very simple example, but as we develop more complex circuits and code with a lot of</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if ...
+...
+else if ...
+...
+else if ...
+...
+else if ...
+...
+else ...
+...
+</code></pre></div></div>
+
+<p>This <code class="highlighter-rouge">Serial.println</code> method becomes more useful. We will see this in the next experiment using potentiometers.</p>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/module%20one/Buttons/">
+								 buttons </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/module%20one/Potentiometers/"> Potentiometers
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

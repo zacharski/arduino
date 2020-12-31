@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://127.0.0.1:4000/arduino/modules/module%20one/Buttons/ -->
+<html lang="en" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface no-generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script async="" src="./Introduction to Arduino Programming _ buttons_files/analytics.js"></script><script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming |  buttons</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="http://127.0.0.1:4000/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="http://127.0.0.1:4000/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="./Introduction to Arduino Programming _ buttons_files/p2pustrap-custom.css">
+	<link rel="stylesheet" href="./Introduction to Arduino Programming _ buttons_files/site.css">
+  
+
+	<link rel="shortcut icon" href="http://127.0.0.1:4000/arduino/img/favicon.ico">
+	<script type="text/javascript" src="./Introduction to Arduino Programming _ buttons_files/modernizr-2.6.2.min.js"></script>
+</head>
+<body class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="http://127.0.0.1:4000/arduino/modules/module%20one/Buttons/#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="http://127.0.0.1:4000/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown active first ">
+						<a href="http://127.0.0.1:4000/arduino/modules/module%20one/Introduction/" class="dropdown-item">
+							Module One
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="http://127.0.0.1:4000/arduino/modules/two/Introduction/" class="dropdown-item">
+							Two
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="http://127.0.0.1:4000/arduino/modules/three/Introduction/" class="dropdown-item">
+							Three
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="http://127.0.0.1:4000/arduino/modules/four/Bias/" class="dropdown-item">
+							Four
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="http://127.0.0.1:4000/arduino/modules/resources/community/" class="dropdown-item">
+							resources
+						</a>
+					</li>
+				
+				
+		</ul></div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+	<ul>
+		
+			<li class=" first ">
+				<a href="http://127.0.0.1:4000/arduino/modules/module%20one/Introduction/">
+					Introduction
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a href="http://127.0.0.1:4000/arduino/modules/module%20one/Blink/">
+					Blink
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a href="http://127.0.0.1:4000/arduino/modules/module%20one/Variables/">
+					Variables
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a href="http://127.0.0.1:4000/arduino/modules/module%20one/video/">
+					Video
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a href="http://127.0.0.1:4000/arduino/modules/module%20one/Buttons/">
+					 buttons
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a href="http://127.0.0.1:4000/arduino/modules/module%20one/Serial-Monitor/">
+					Serial monitor
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a href="http://127.0.0.1:4000/arduino/modules/module%20one/Potentiometers/">
+					Potentiometers
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr>
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="http://127.0.0.1:4000/arduino/modules/two/Introduction/"> Two
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h3 id="experiment-2">Experiment 2:</h3>
+
+<h1 id="with-the-touch-of-a-button1">With the Touch of a Button<sup><a href="http://127.0.0.1:4000/arduino/modules/module%20one/Buttons/#myfootnote1">1</a></sup></h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Hopefully, you’ve gotten skilled with blinking an LED. That may sound simple, but you’ve learned how to</p>
+
+<ul>
+  <li>install the Arduino software on your laptop,</li>
+  <li>connect the Arduino Uno to your laptop so they communicate with either other.</li>
+  <li>construct circuits that use LEDs.</li>
+  <li>write code that can blink LEDs in different patterns.</li>
+</ul>
+
+<p>That is no small feat.</p>
+
+<p>We also learned about input and output devices. <strong>Output devices</strong> are things that perform an action liking blinking an LED light, and <strong>input devices</strong> are things that sense things about the world, like sensing that someone pressed a push button. When we combine both input and output devices in a single circuit, that circuit becomes truly interactive.</p>
+
+<ul>
+  <li>we press a key on a digital musical keyboard (input)and it produces a sound (output).</li>
+  <li>the Arduino senses freezing temperatures in a greenhouse (input) and sounds an alarm (output).</li>
+  <li>we press the letter ‘q’ on our laptop keyboard and see the ‘q’ appear on the screen.</li>
+  <li>we press the trackpad button on a web page link and it takes us to a new page.</li>
+</ul>
+
+<p>Most of those examples, rely on a basic pushbutton which is what we will experiment with here.</p>
+
+<p>Pushbuttons were invented over 100 years ago. One of their first uses was in pocket flashlights by the EverReady company</p>
+
+<p><img src="./Introduction to Arduino Programming _ buttons_files/flashlights.png" alt=""></p>
+
+<p>These look old and dirty because, well, they are old, and they were used. In 1905 these would have been the equivalent of getting an iPhone 12. (I have no clue if that is true but it <strong>sounds</strong> true!). And if you are completely fascinated by the history of the pushbutton check out Rachel Plotnick’s book <a href="https://www.amazon.com/Power-Button-History-Pleasure-Politics/dp/0262038234"><em>Power Button: A history of pleasure, panic, and the politics of pushing</em></a>, which focuses on the history of the pushbutton from 1880 to 1925</p>
+
+<p><img src="./Introduction to Arduino Programming _ buttons_files/powerButton.png" alt=""></p>
+
+<p>Now back to our current topic. In this circuit, we are going to combine the LED, which is used in almost everything, with a pushbutton, which is also used in everything and our computer code will use an <em>if</em> statement, which, as you can predict, is used in almost all computer programs.</p>
+
+<p>The way a push button works with the Arduino Uno is that when the button is pushed, the voltage goes LOW. Your board reads this and reacts accordingly. When the button is not pushed it will read HIGH (there is a longer explanation that we will ignore). The Uno can read that the button is HIGH and will react appropriately.</p>
+
+<h3 id="parts-needed">Parts Needed</h3>
+
+<p>You will need the following parts:</p>
+
+<ul>
+  <li>1x Push Button</li>
+  <li>1x LED</li>
+  <li>1x 330Ω Resistor</li>
+  <li>
+    <p>4x Jumper Wires</p>
+
+    <p><img src="./Introduction to Arduino Programming _ buttons_files/ex2Parts.png" alt=""></p>
+  </li>
+</ul>
+
+<h4 id="push-buttons">Push Buttons</h4>
+
+<p>The button we used is called a momentary switch. As long as you press on the button it will read LOW, and as soon as you release the button it will read HIGH. So the switch is on as long as you press it and it turns off as soon as you release it. Most push buttons in the modern world are momentary switches. The other type of push button is called latching. In latching push buttons when you press a button and release it the button stays pushed in and activated and turns off when you press it again.</p>
+
+<h2 id="hardware-hookup">Hardware Hookup</h2>
+
+<p>We are going to add the push button to the same LED circuit from the first experiment following the Fritzing diagram below.</p>
+
+<p><img src="./Introduction to Arduino Programming _ buttons_files/exp2_bb.png" alt=""></p>
+
+<p><a href="http://127.0.0.1:4000/arduino/img/basicButton_bb.png">link to larger image</a></p>
+
+<h3 id="legs">Legs</h3>
+
+<h4 id="led">LED</h4>
+
+<p>The shorter leg of the LEd should be connected to the resistor and then ground.</p>
+
+<h4 id="buttons">Buttons</h4>
+
+<p>Buttons have an orientation that is correct. The legs of the button protrude out of two sides of the button, while the other two side are bare. The sides with the legs should be on either side of the valley on the breadboard. Buttons have a tendency to fall out of the breadboard holes. To get a secure connect, you can use your finger nail tips to securely seat the button on the breadboard.</p>
+
+<h2 id="the-code">The code</h2>
+
+<p>In our first experiment when we connected an LED to a pin on the Arduino Uno, in our setup code we declared:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pinMode(redLed, OUTPUT);
+</code></pre></div></div>
+
+<p>What do you think the pinMode will be for a button?</p>
+
+<p>If you think INPUT you would be 100% correct …. except there is a wrinkle. For buttons we will use a special kind of input called INPUT_PULLUP</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pinMode(button, INPUT_PULLUP)
+</code></pre></div></div>
+
+<p>That line of code will go into our setup()</p>
+
+<p>With LEDs to turn them on and off we used <code class="highlighter-rouge">digitalWrite</code>. What do you think we will use to see if a button is pressed?</p>
+
+<p>If you think <code class="highlighter-rouge">digitalRead</code> again, you would be 100% correct.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>digitalRead(pushButton);
+</code></pre></div></div>
+
+<h2 id="in-english-psuedocode">In English (psuedocode)</h2>
+
+<p>It’s a good idea to sketch out what we want to do in English before we code (or use your favorite language -
+私たちがやりたいことをスケッチするのは良い考えです)</p>
+
+<p>And what better place to do it then your lab notebook:</p>
+
+<p><img src="./Introduction to Arduino Programming _ buttons_files/journalbutton.png" alt=""></p>
+
+<p>Now we have a pretty good idea of what we want to do. And because we are beginners, let’s copy that idea into our code as comments. So we might have</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    int led = 13;
+    int pushButton = 3;
+
+    void setup() {
+      pinMode(led, OUTPUT);
+      pinMode(pushButton, INPUT_PULLUP);
+    }
+
+    void loop() {
+
+        // if button is pressed
+        // turn on the LED
+        // else
+        // turn off the led
+
+
+    }
+</code></pre></div></div>
+
+<p>We already know how to write the lines to turn the led on and off so let’s add them in:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ...
+
+    void loop() {
+
+        // if button is pressed
+        // turn on the LED
+        digitalWrite(led, HIGH);
+        // else
+        // turn off the led
+        digitalWrite(led, LOW);
+
+
+    }
+
+</code></pre></div></div>
+
+<p>Ok. The state of the button will be LOW if the button is pressed and HIGH if it is not. We can get the current state of the button using</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>digitalRead(pushButton)
+</code></pre></div></div>
+
+<p>and we want to check if it is pressed (LOW):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (digitalRead(pushButton) == LOW)
+
+</code></pre></div></div>
+
+<p>The complete code for the loop() would then be</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ...
+
+    void loop() {
+
+        // if button is pressed
+        if (digitalRead(pushButton) == LOW){
+            // turn on the LED
+            digitalWrite(led, HIGH);
+        } else {
+            // else
+            // turn off the led
+            digitalWrite(led, LOW);
+        }
+    }
+
+</code></pre></div></div>
+
+<p>the general template for an <em>if</em> statement is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (somecondition){
+    statement1
+    statement2
+    statement3
+} else {
+    statement4
+    statement5
+}
+</code></pre></div></div>
+
+<p>So if some condition is true the computer executes statements 1, 2, and 3. If it is false it will execute 4 and 5. The braces {} delimit what statements to execute. In our case of the one LED, we execute just a single statement in the if (turning the LED on) and a single statement in the else (turning it off), but we could have as many statements as we need.</p>
+
+<p>Let’s put this all together in our finished code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    int led = 13;
+    int pushButton = 3;
+
+    void setup() {
+      pinMode(led, OUTPUT);
+      pinMode(pushButton, INPUT_PULLUP);
+    }
+
+    void loop() {
+
+        // if button is pressed
+        if (digitalRead(pushButton) == LOW){
+            // turn on the LED
+            digitalWrite(led, HIGH);
+        } else {
+            // else
+            // turn off the led
+            digitalWrite(led, LOW);
+        }
+    }
+
+</code></pre></div></div>
+
+<h3 id="work-to-code">Work to Code</h3>
+
+<p>Recall that part of bullet 1, <strong>work to code</strong>, is that all lines within <code class="highlighter-rouge">void setup</code> and <code class="highlighter-rouge">void loop</code> need to be indented. A continuation of this practice is that all lines within an <em>if</em> block and an <em>else</em> block are indented as shown above. Again, if you come back to your code a week from now – or are seeking help now– it is easier to read the version above then this version:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    int led = 13;
+    int pushButton = 3;
+    void setup() {
+    pinMode(led, OUTPUT);
+    pinMode(pushButton, INPUT_PULLUP);}
+    void loop() {
+    if (digitalRead(button) == LOW){
+    digitalWrite(led, HIGH);} else {
+    digitalWrite(led, LOW);}
+    }
+
+</code></pre></div></div>
+
+<p>Copy and paste the indented version of our code into the IDE. Then upload.</p>
+
+<h2 id="what-you-should-see">What You Should See</h2>
+
+<p>When you hold down the push button, those warm fuzzy feelings from the first experiment should happen again, and the LED should shine brightly. The LED will be off when the button is released.</p>
+
+<p><img src="./Introduction to Arduino Programming _ buttons_files/button2.jpg" alt=""></p>
+
+<h1 id="more-details">More details</h1>
+
+<p>We have already been using digitalWrite to turn on an LED. When we see an expression containing parentheses like</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    int redLed = 2;
+    ...
+    digitalWrite(redLed, HIGH);
+</code></pre></div></div>
+
+<p>we call the items within the parentheses <strong>arguments</strong>. In this digitalWrite example,</p>
+
+<ul>
+  <li>the first argument tells what pin we are writing to. In this case we are writing to redLed which equals pin 2.</li>
+  <li>the second argument tells what we are writing (or sending). <code class="highlighter-rouge">HIGH</code> means we are setting pin 2 to a positive voltage. <code class="highlighter-rouge">LOW</code> means we are setting it to ground.</li>
+</ul>
+
+<p>Now let’s look at the argument for digitalRead.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    int button = 3;
+    ...
+    digitalRead(button);
+</code></pre></div></div>
+
+<p>If you look at the hardware you constructed you can see that when you press the button pin 3 is connected to ground (<code class="highlighter-rouge">GND</code>). If we do a <code class="highlighter-rouge">digitalRead</code> while pressing the button we will read <code class="highlighter-rouge">LOW</code>. If we do a <code class="highlighter-rouge">digitalRead</code> while not pressing the button we will read <code class="highlighter-rouge">HIGH</code>.</p>
+
+<h2 id="if-statements"><code class="highlighter-rouge">if</code> statements</h2>
+
+<p>Imagine if your friend Clara said <em>I’ll go to the party if Ann goes, else I’ll stay home</em>. Now let me ask you a question. Barring unforeseen circumstances, if we see Ann at the party do we think Clara is there? And a second question. If we know Ann didn’t go, (and again barring unforeseen circumstances) do we think Clara went to the party? I imagine you have zero problems figuring this out.</p>
+
+<p>Let’s now look at the psuedo code we wrote above:</p>
+
+<p><img src="./Introduction to Arduino Programming _ buttons_files/journalbutton.png" alt=""></p>
+
+<p>Just looking at this we know, without any formal computer science training, what happens when we press the button.</p>
+
+<p>Congratulations. You have fantastic intuitions about if-else statements. Now let’s look at this part of the loop part of our code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    void loop() {
+
+        // if button is pressed
+        if (digitalRead(button) == LOW){
+            // turn on the LED
+            digitalWrite(led, HIGH);
+        } else {
+            // else
+            // turn off the led
+            digitalWrite(led, LOW);
+        }
+    }
+
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">==</code> means <em>equal</em> so we can read</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  if (digitalRead(button) == LOW)
+</code></pre></div></div>
+
+<p>as meaning <em>if the value when we read the button is LOW</em> or even a more English-like description: <em>if the button is pressed then</em></p>
+
+<p>The braces (<code class="highlighter-rouge">{}</code>) delimited the block of code that should be executed if the <code class="highlighter-rouge">if</code> statement is true. In this case if the button is pressed we only execute one line:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  digitalWrite(led, HIGH);
+</code></pre></div></div>
+
+<p>If the button is not pressed we only perform the <code class="highlighter-rouge">else</code> block which turns off the led.</p>
+
+<p>Again, the braces (<code class="highlighter-rouge">{}</code>) delimited the block of code that should be executed if the <code class="highlighter-rouge">if</code> statement is true. Suppose we want to turn on the <code class="highlighter-rouge">redLED</code> and <code class="highlighter-rouge">blueLED</code> and turn off the <code class="highlighter-rouge">greenLED</code> if the button is pressed. In that case we would put all three statements inside the braces {}:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  if (digitalRead(button) == LOW){
+    //we pushed the button
+    digitalWrite(redLED, HIGH);   //so turn on the redLED
+    digitalWrite(blueLED, HIGH);  //so turn on the blueLED
+    digitalWrite(greenLED, HIGH); //so turn off the greenLED
+   }
+</code></pre></div></div>
+
+<h3 id="question">question</h3>
+
+<p>What does the following do?</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  if (pushButtonState == LOW) {}
+    digitalWrite(led1, HIGH);
+    digitalWrite(led2, HIGH);
+    digitalWrite(led3, HIGH);
+  }
+  else
+  {
+    digitalWrite(led1, LOW);
+    digitalWrite(led2, LOW);
+    digitalWrite(led3, LOW);
+  }
+</code></pre></div></div>
+
+<p>and what about this one:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  int wait = 500;
+  ...
+  if (pushButtonState == LOW) {}
+    digitalWrite(led, HIGH);
+    delay(wait);
+    digitalWrite(led, LOW);
+    delay(wait);
+  }
+  else
+  {
+    digitalWrite(led, LOW);
+  }
+</code></pre></div></div>
+
+<h2 id="is-it-less-or-fewer">Is it less or fewer?</h2>
+
+<p>Programming languages allow us to do the normal comparisons we might have seen in math classes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>expression</th>
+      <th>name</th>
+      <th>example</th>
+      <th>meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>==</td>
+      <td>Equal</td>
+      <td>age == 21</td>
+      <td>is age equal to 21?</td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>Not Equal</td>
+      <td>age != 21</td>
+      <td>Is the value of age not equal to 21?</td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>Less Than</td>
+      <td>age &lt; 21</td>
+      <td>Is age less than 21?</td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>Greater Than</td>
+      <td>age &gt; 21</td>
+      <td>Is age greater than 21?</td>
+    </tr>
+    <tr>
+      <td>&lt;=</td>
+      <td>Less Than or Equal to</td>
+      <td>age &lt;= 21</td>
+      <td>Is age less than or equal to 21?</td>
+    </tr>
+    <tr>
+      <td>&gt;=</td>
+      <td>Greater Than or Equal To</td>
+      <td>age &gt;= 21</td>
+      <td>Is age greater than or equal to 21?</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So, for example, if the variable <code class="highlighter-rouge">temperature</code> represents the current temperature then</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+if (temperature &lt; 90) {}
+     digitalWrite(led, HIGH); //so turn on the LED
+}
+else
+{
+     digitalWrite(led, LOW);
+}
+
+</code></pre></div></div>
+
+<p>would turn on the led if the temperature was less than 90.</p>
+
+<h3 id="a-puzzler">A puzzler</h3>
+
+<p>Consider the following psuedocode</p>
+
+<p><img src="./Introduction to Arduino Programming _ buttons_files/buttonJournal2.png" alt=""></p>
+
+<p>What happens in the following cases?</p>
+
+<ol>
+  <li>only button1 is pressed</li>
+  <li>only button2 is pressed</li>
+  <li>both button1 and button2 are pressed</li>
+  <li>no buttons are pressed</li>
+</ol>
+
+<p>Take a moment to figure it out. When you are ready compare your intuitions to mine, highlight (select the region with your laptop trackpad) the following seemingly whitespace to reveal the answer.</p>
+
+<p><img src="./Introduction to Arduino Programming _ buttons_files/highlight.png" alt=""></p>
+
+<p style="color:white">I am hoping you are thinking that the led is turned on for case (3), only when both buttons are pressed. If only one of the buttons is pressed the led does not go on.</p>
+
+<p>The code for this puzzler would be</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    void loop() {
+
+        // if button is pressed
+        if ((digitalRead(button1) == LOW) &amp;&amp;
+            (digitalRead(button2) == LOW)){
+            // turn on the LED
+            digitalWrite(led, HIGH);
+        } else {
+            // else
+            // turn off the led
+            digitalWrite(led, LOW);
+        }
+    }
+
+</code></pre></div></div>
+
+<p>As you can see the English <em>and</em> gets translated into computer code as <code class="highlighter-rouge">&amp;&amp;</code> and the expressions that the <code class="highlighter-rouge">&amp;&amp;</code> connects are bounded by parentheses.</p>
+
+<p>Next, consider this version:</p>
+
+<p><img src="./Introduction to Arduino Programming _ buttons_files/journalButton3.png" alt=""></p>
+
+<p>and let’s ask the same questions:
+What happens in the following cases?</p>
+
+<ol>
+  <li>only button1 is pressed</li>
+  <li>only button2 is pressed</li>
+  <li>both button1 and button2 are pressed</li>
+  <li>no buttons are pressed</li>
+</ol>
+
+<p>Again, the answer can be revealed in the whitespace:</p>
+
+<p style="color:white">In this case in cases 1, 2, and 3 the led is on, and in case 4 it is off.</p>
+
+<p>The English <em>or</em> is translated into computer code as <code class="highlighter-rouge">||</code> (we rarely type the vertical bar but it is there on the right of your laptop keyboard).</p>
+
+<p>The code for this example would be</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    void loop() {
+
+        // if button is pressed
+        if ((digitalRead(button1) == LOW) ||
+            (digitalRead(button2) == LOW)){
+            // turn on the LED
+            digitalWrite(led, HIGH);
+        } else {
+            // else
+            // turn off the led
+            digitalWrite(led, LOW);
+        }
+    }
+
+</code></pre></div></div>
+
+<h2 id="how-to-use-logic-like-a-vulcan">How to use Logic like a Vulcan:</h2>
+
+<p>With these building blocks the Arduino Uno can make complex decisions based on the input it is getting. Consider</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    void loop() {
+
+       if ((digitalRead(button1) == LOW) &amp;&amp; (digitalRead(button2) == LOW)){
+            // turn on the LED
+            digitalWrite(redLed, HIGH);
+            digitalWrite(blueLed, LOW);
+            digitalWrite(greenLed, LOW);
+        } else  if (digitalRead(button1) == LOW) {
+            digitalWrite(redLed, LOW);
+            digitalWrite(blueLed, HIGH);
+            digitalWrite(greenLed, LOW);
+         } else {
+            digitalWrite(redLed, LOW);
+            digitalWrite(blueLed, LOW);
+            digitalWrite(greenLed, LOW);
+
+         }
+    }
+
+</code></pre></div></div>
+
+<p>And again, what happens in the following cases?</p>
+
+<ol>
+  <li>only button1 is pressed</li>
+  <li>only button2 is pressed</li>
+  <li>both button1 and button2 are pressed</li>
+  <li>no buttons are pressed</li>
+</ol>
+
+<p>And the answer is ….</p>
+
+<p style="color:white">
+</p><ol>
+<li style="color:white">1.  only the blue LED is on</li>
+<li style="color:white">2.  no LEDs are on</li>
+<li style="color:white">3.  only the red LED is on</li>
+<li style="color:white">4.  no LEDs are on</li>
+</ol>
+<p></p>
+
+<p>Now if at this point, you are slightly confused, or just don’t care about all this, don’t fear we are going to practice so we become a bit more fluent and are able to use Logic Like A Vulcan.</p>
+
+<p>One of the things that makes the Arduino Uno (and any computer) so useful is that it can make complex decisions based on the input it’s getting. For example, you could make a thermostat that turns on a heater if it gets too cold, or a fan if it gets too hot, and it could even water your plants if they get too dry. In order to make such decisions, the programming language provides a set of logic operations that let you build complex “if” statements. They include:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">expression</th>
+      <th style="text-align: center">name</th>
+      <th style="text-align: center">meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">&amp;&amp;</td>
+      <td style="text-align: center">AND</td>
+      <td style="text-align: center">A &amp;&amp; B is true if BOTH A and B are TRUE.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">||</td>
+      <td style="text-align: center">OR</td>
+      <td style="text-align: center">A || B is true if A or B or BOTH are TRUE</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">!</td>
+      <td style="text-align: center">NOT</td>
+      <td style="text-align: center">!A is TRUE if A is FALSE. !A is FALSE if A is TRUE.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can combine these functions to build complex if() statements. For example suppose we want to turn on an led only if the temperature is between 65 and 75 inclusive and the led should be off otherwise. We can do this using the <code class="highlighter-rouge">AND</code> operator <code class="highlighter-rouge">&amp;&amp;</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  if ((temperature &gt;= 65)  &amp;&amp; (temperature) &lt;=75){
+    digitalWrite(led, HIGH); //so turn on the LED
+  }
+  else
+  {
+    digitalWrite(led, LOW);
+  }
+</code></pre></div></div>
+
+<p>Using these logic operators, you can program your Feather HUZZAH board to make intelligent decisions and take control of the world around it!</p>
+
+<h2 id="remixes">Remixes</h2>
+
+<h3 id="twosies">Twosies</h3>
+
+<p>Add another LED and another button. Both LEDs should blink 200ms on and 200ms off only when both buttons are pressed. Otherwise both LEDs will be off.</p>
+
+<h3 id="beyond-twosies">Beyond Twosies</h3>
+
+<ul>
+  <li>When both buttons are pressed both LEDs should blink 200ms on and 200ms off</li>
+  <li>When only button 1 is pressed, LED 1 should be on (steady – no blink)</li>
+  <li>When button 2 is pressed, LED 2 should be on (steady – no blink)</li>
+</ul>
+
+<h3 id="the-beats">The Beats</h3>
+
+<p>We are going to use the patterns we constructed for experiment one: double tap, slow n fast, and Cylon. Here is the behavior of your circuit:</p>
+
+<ol>
+  <li>when no buttons are pressed, no LEDs are on</li>
+  <li>when button1 is pressed, the pattern is double tap</li>
+  <li>when button2 is pressed, the pattern is slow n fast</li>
+  <li>when button3 is pressed, the pattern is Cylon</li>
+</ol>
+
+<p><a name="myfootnote1">1</a>: Tutorials are <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Original page at <a href="https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-for-photon-experiment-guide/experiment-1-hello-world-blink-an-led">Sparkfun Inventor’s Kit for Photon</a>. This slight remix by Ron Zacharski. Button press dashboard image by Todd Treece.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+					
+
+
+
+
+
+					
+						<hr>
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="http://127.0.0.1:4000/arduino/modules/module%20one/video/">
+								Video </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="http://127.0.0.1:4000/arduino/modules/module%20one/Serial-Monitor/"> Serial monitor
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"><img id="cmp-logo" src="./Introduction to Arduino Programming _ buttons_files/inquiryum-logo.png" class="img-responsive"></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov/" class="image-link"><img src="./Introduction to Arduino Programming _ buttons_files/footer2.png" class="img-responsive"></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org/">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org/" class="image-link"><img src="./Introduction to Arduino Programming _ buttons_files/p2pu-logo-2x-white.png" alt="P2PU logo"></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img src="./Introduction to Arduino Programming _ buttons_files/cc-icons.png" alt="CC-BY-SA Icon" class="img-responsive">
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">
+            Creative Commons Attribution Share Alike 4.0</a>
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="./Introduction to Arduino Programming _ buttons_files/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="./Introduction to Arduino Programming _ buttons_files/bootstrap.min.js"></script>
+<script type="text/javascript" src="./Introduction to Arduino Programming _ buttons_files/p2pu_menu_slider.js"></script>
+<script src="./Introduction to Arduino Programming _ buttons_files/init.js"></script>
+<script src="./Introduction to Arduino Programming _ buttons_files/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+
+
+</body></html>

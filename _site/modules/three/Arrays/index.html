@@ -1,0 +1,660 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Arrays</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown  first ">
+						<a href="/arduino/modules/module%20one/Introduction/"
+						   class="dropdown-item">
+							Module One
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/two/Introduction/"
+						   class="dropdown-item">
+							Two
+						</a>
+					</li>
+				
+					
+					<li class="dropdown active  ">
+						<a href="/arduino/modules/three/Introduction/"
+						   class="dropdown-item">
+							Three
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/four/Bias/"
+						   class="dropdown-item">
+							Four
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/resources/community/"
+						   class="dropdown-item">
+							resources
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+		<div class="pagination-section">
+			<div class="title">
+				Previous module:
+			</div>
+			<a rel="prev" class="prev" href="/arduino/modules/two/Introduction/">
+				Two </a>
+		</div>
+		<hr />
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/three/Introduction/">
+					Introduction
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/three/Magic/">
+					Magic
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a
+						href="/arduino/modules/three/Arrays/">
+					Arrays
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/three/Music/">
+					Music
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/three/Chocolate/">
+					Chocolate
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/four/Bias/"> Four
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="experiment-8">Experiment 8:</h2>
+
+<h1 id="the-last-array">The Last Array</h1>
+
+<p><img src="/arduino/img/airbender.jpg" alt="" />
+<sub>Source: Nicko Tumamak/Instagram</sub></p>
+
+<p>Arrays are the last programming concept we will learn in this course. After this experiment we have covered all the essential rudiments of programming. We will spend the rest of the course practicing and gaining expertise in anlyzing a problem, identifying which of these rudiments to use (do we need a <em>for</em>-loop here or an <em>if</em>-statement) and implementing things correctly. Years ago, I took a college course on functional guitar where we learned the <strong>six magic chords</strong>. With those chords you could play a huge number of songs, just be remixing those chords. This differed from a traditional guitar course where you might learn 50 chords. The approach in this Arduino course mirrors the 6 magic chord approach. Instead of covering a wide range of topics, we focus on the essentials. We can remix these essentials to implement a wide range of projects.</p>
+
+<p>With that introduction let’s get started with arrays.</p>
+
+<h3 id="a-silly-example">A silly example</h3>
+
+<p>When we implemented the potentiometer bike light we might have had the following variables:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int led1 = 13;
+int led2 = 11;
+int led3 = 5;
+int led4 = 6;
+int led5 = 0;
+</code></pre></div></div>
+
+<p>This worked fine for the 5 leds, but at some point—maybe if we had 8 leds—this approach is a bit tedious.</p>
+
+<p>And now for my silly example. Suppose, instead of LEDs, I just want to keep track of my friends, and print out their names. I might have something like</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int friend1 = "Ann";
+int friend2 = "Mary";
+int friend3 = "Clara";
+
+void setup(){
+  Serial.begin(9600);
+  Serial.println(friend1);
+  Serial.println(friend2);
+  Serial.println(friend3);
+}
+
+void loop(){
+
+}
+
+</code></pre></div></div>
+
+<p>That works fine. But now suppose I want to keep track of students in a class:</p>
+
+<h4 id="arduino-class">Arduino Class</h4>
+
+<ul>
+  <li>Addie</li>
+  <li>Faith</li>
+  <li>Dylan</li>
+  <li>Erin</li>
+  <li>Maddie</li>
+  <li>Hannah</li>
+  <li>Siobhan</li>
+  <li>Margaret</li>
+  <li>Kaylie</li>
+  <li>Abby</li>
+</ul>
+
+<p>Following the approach above we might have</p>
+
+<p><img src="/arduino/img/classlist1a.png" alt="" />
+<a href="/arduino/img/classlist1a.png">link to larger image</a></p>
+
+<p>which definitely does not seem like the way to go.</p>
+
+<p>When we think of this problem outside of the computer realm, we might think that we would have a class list—<strong>list</strong> being the important word here. So something like</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"Addie", "Faith", "Dylan", "Erin", "Maddie", "Hannah", "Siobhan", "Margaret", "Kaylie", "Abby"};
+</code></pre></div></div>
+
+<p>An <strong>array</strong> is simply a list of values. So the above is an array.</p>
+
+<p>We want to give that array a name …</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>classlist = {"Addie", "Faith", "Dylan", "Erin", "Maddie",
+             "Hannah", "Siobhan", "Margaret", "Kaylie", "Abby"};
+
+</code></pre></div></div>
+
+<p>That is not complete correct since when we create a variable we have to specify what type of thing can be its value — an integer as an example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int redLed = 13;
+</code></pre></div></div>
+
+<p>In our case the value of classlist is an array of strings, so the complete correct form is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String classlist[] = {"Addie", "Faith", "Dylan", "Erin", "Maddie",
+                      "Hannah", "Siobhan", "Margaret", "Kaylie", "Abby"};
+
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">[]</code> after the word <code class="highlighter-rouge">classlist</code> specifies that it is an array and the word <code class="highlighter-rouge">String</code> before <code class="highlighter-rouge">classlist</code> says the array contains strings.</p>
+
+<p>An array of integers could be declared as</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int ages[] = {21, 19, 20, 22, 19, 16, 17, 23, 20, 18};
+</code></pre></div></div>
+
+<h3 id="accessing-members-of-an-array">Accessing members of an array</h3>
+
+<p>Now that we know how to create an array (a list) we would like to get the values of the different people in the list. Say, for example, we want the name of the first person on our class list. The position of an element in a list is called its <em>index</em>. So the person in the following list with index 5 would be Maddie.</p>
+
+<ol>
+  <li>Addie</li>
+  <li>Faith</li>
+  <li>Dylan</li>
+  <li>Erin</li>
+  <li>Maddie</li>
+  <li>Hannah</li>
+  <li>Siobhan</li>
+  <li>Margaret</li>
+  <li>Kaylie</li>
+  <li>Abby</li>
+</ol>
+
+<p>It’s just like saying <em>who is the fifth person on the list</em> or <em>who is the first person on the list</em>. Unfortunately, in nearly every single programming language, arrays don’t start at index 1. This may seem completely bonkers and counterintuitive but arrays start at index 0:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0. Addie
+1. Faith
+2. Dylan
+3. Erin
+4. Maddie
+5. Hannah
+6. Siobhan
+7. Margaret
+8. Kaylie
+9. Abby
+</code></pre></div></div>
+
+<p>(There is actually a good historical reason for this which I will not get into).</p>
+
+<p>So if I wanted the first person in the list I would have to ask <em>Who is at index 0</em> and if I wanted the fifth person in the list I would ask <em>Who is in index 4</em>.</p>
+
+<p>To get the value at that position we use the syntax:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>classlist[0]
+</code></pre></div></div>
+
+<p>with the index we are interested in inside the brackets []. So</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Serial.println(classlist[0]);
+Serial.println(classlist[6]);
+</code></pre></div></div>
+
+<p>Would print</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Addie
+Margaret
+</code></pre></div></div>
+
+<p>So to print the entire class list we might have …</p>
+
+<p><img src="/arduino/img/classlist2b.png" alt="" />
+<a href="/arduino/img/classlist2b.png">link to larger image</a></p>
+
+<p>It sure would be nice if we could somehow automatically go 0, 1, 2, 3, … instead of typing those numbers by hand. Is there anything we previously covered that we can use:</p>
+
+<ul>
+  <li>variables</li>
+  <li><em>if</em> statements</li>
+  <li><em>for</em> loops</li>
+  <li>procedures</li>
+  <li>a procedure with some arguments</li>
+</ul>
+
+<p>A <em>for</em>-loop seems like a great idea. It will start at 0 and go up to but not include 10.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+String classlist[] = {"Addie", "Faith", "Dylan", "Erin",
+                      "Maddie", "Hannah", "Siobhan",
+                      "Margaret", "Kaylie", "Abby"};
+
+void setup() {
+   Serial.begin(9600);
+   for (int i = 0; i &lt; 10; i++){
+      Serial.println(classlist[i]);
+   }
+}
+
+void loop() {
+
+}
+</code></pre></div></div>
+
+<p>That will print out all the names!</p>
+
+<h3 id="remix-1-airbender">Remix 1: Airbender</h3>
+
+<p>Suppose we have a circuit with 4 leds: a red, blue, green, yellow one arranged in that order.</p>
+
+<p>In an array, we represent the pattern we want the leds to blink. Here is the start of our code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String pattern[] = ["red", "blue", "green", "yellow", "green", "blue", "red", "red",
+                    "blue",  "blue", "green", "green", "yellow", "yellow","green", "green", "blue",  "blue"  ]
+
+
+void loop(){
+  play();
+  delay(1000);
+}
+
+</code></pre></div></div>
+
+<p>Each led should blink 200 ms on and 200 off. Can you write the procedure <code class="highlighter-rouge">play()</code> and any others you might need to complete this task?</p>
+
+<h2 id="two-arrays-are-better-than-one">Two arrays are better than one</h2>
+
+<p>Let’s go back to our original example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String classlist[] = {"Addie", "Faith", "Dylan", "Erin", "Maddie",
+                      "Hannah", "Siobhan", "Margaret", "Kaylie", "Abby"};
+
+int ages[] = {21, 19, 20, 22, 19, 16, 17, 23, 20, 18};
+
+</code></pre></div></div>
+
+<p>The names and the ages are aligned meaning the first name, Addie, is the first age, 21. We can print both the name and the associated age with:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String classlist[] = {"Addie", "Faith", "Dylan", "Erin",
+                      "Maddie", "Hannah", "Siobhan",
+                      "Margaret", "Kaylie", "Abby"};
+                     
+int ages[] = {21, 19, 20, 22, 19, 16, 17, 23, 20, 18};
+
+void setup() {
+   Serial.begin(9600);
+   for (int i = 0; i &lt; 10; i++){
+   
+      Serial.print(classlist[i]);
+      Serial.print(" is ");
+      Serial.print(ages[i]);
+      Serial.println(" years old.");
+   }
+}
+
+void loop() {
+
+}
+</code></pre></div></div>
+
+<p>which will print</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Addie is 21 years old.
+Faith is 19 years old.
+Dylan is 20 years old.
+Erin is 22 years old.
+Maddie is 19 years old.
+Hannah is 16 years old.
+Siobhan is 17 years old.
+Margaret is 23 years old.
+Kaylie is 20 years old.
+Abby is 18 years old.
+
+</code></pre></div></div>
+
+<h3 id="remix-2-light-beats">Remix 2: Light Beats</h3>
+
+<p>This is a variation of remix 1. Now we have:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String pattern[] = ["red", "blue", "green", "yellow", "green", "blue", "red", "red",
+                    "blue",  "blue", "green", "green", "yellow", "yellow","green", "green", "blue",  "blue"  ]
+int beats[] = {2, 2, 2, 2, 2, 2, 1, 1,1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+
+void loop(){
+  play();
+  delay(1000);
+}
+
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">beats</code> array represents how long to have the led light on. For example, the first element of the pattern is <em>red</em> for 2 beats. This will be realized as:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>digitalWrite(redLed, HIGH);
+delay(wait * 2);
+digitalWrite(redLed, LOW);
+delay(wait);
+</code></pre></div></div>
+
+<p>The 2 in</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>delay(wait * 2);
+</code></pre></div></div>
+
+<p>is from <code class="highlighter-rouge">beats[0]</code></p>
+
+<p>Have fun coding!</p>
+
+<h3 id="searching">Searching</h3>
+
+<p>Back to our original arrays:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String classlist[] = {"Addie", "Faith", "Dylan", "Erin",
+                      "Maddie", "Hannah", "Siobhan",
+                      "Margaret", "Kaylie", "Abby"};
+                     
+int ages[] = {21, 19, 20, 22, 19, 16, 17, 23, 20, 18};
+</code></pre></div></div>
+
+<p>Suppose we want a procedure, <code class="highlighter-rouge">lookup</code> that is given a name as an argument and returns that person’s age. That would look like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.  void setup() {
+2.     Serial.begin(9600);
+3.     Serial.println(lookup("Erin"));
+4.     Serial.println(lookup("Margaret"));
+5.  }
+6.
+7.  int lookup(String name){
+8.    String classlist[] = {"Addie", "Faith", "Dylan", "Erin",
+9.                          "Maddie", "Hannah", "Siobhan",
+10.                         "Margaret", "Kaylie", "Abby"};
+11.
+12.   int ages[] = {21, 19, 20, 22, 19, 16, 17, 23, 20, 18};
+13.   for (int i = 0; i &lt; 10; i++){
+14.     if (classlist[i] == name){
+15.          return ages[i];
+16.     }
+17.   }
+18.   return -1;
+19. }
+20.
+21. void loop() {
+22.
+23. }
+</code></pre></div></div>
+
+<p>On line 3 we call lookup <code class="highlighter-rouge">lookup("Erin")</code> so we jump to line 7 and name now equals “Erin”. We moved the arrays classlist and ages inside this procedure and made them local variables because we only need them in this procedure. On line 13 we start the <em>for</em> loop.</p>
+
+<ol>
+  <li>initially i is 0.</li>
+  <li>so on line 14, we have <code class="highlighter-rouge">(classlist[0] == name)</code>. `classlist[0] is Addie and name is Erin.</li>
+  <li>They aren’t the same so we skip the if statement.</li>
+  <li>now we are back on line 13, we increment i so now i is 1.</li>
+  <li>so on line 14, we have <code class="highlighter-rouge">(classlist[1] == name)</code>. `classlist[1] is Faith and name is Erin.</li>
+  <li>They aren’t the same so we skip the if statement.</li>
+  <li>now we are back on line 13, we increment i so now i is 2.</li>
+  <li>so on line 14, we have <code class="highlighter-rouge">(classlist[2] == name)</code>. `classlist[2] is Dylan and name is Erin.</li>
+  <li>They aren’t the same so we skip the if statement.</li>
+  <li>now we are back on line 13, we increment i so now i is 3.</li>
+  <li>so on line 14, we have <code class="highlighter-rouge">(classlist[3] == name)</code>. `classlist[3] is Erin and name is Erin.</li>
+  <li>They are the same so we go inside the if</li>
+  <li>Now we execute <code class="highlighter-rouge">return ages[i]</code>. i is 3 and ages[3] is 22 so we return 22.</li>
+  <li>Now we are back on line 3. <code class="highlighter-rouge">lookup("Erin")</code> returned 22, so we have `Serial.println(22) and we print 22.</li>
+</ol>
+
+<p>Understanding this example is important for the next experiment.</p>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/three/Magic/">
+								Magic </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/three/Music/"> Music
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

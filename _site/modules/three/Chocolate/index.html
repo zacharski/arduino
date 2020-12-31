@@ -1,0 +1,594 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Chocolate</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown  first ">
+						<a href="/arduino/modules/module%20one/Introduction/"
+						   class="dropdown-item">
+							Module One
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/two/Introduction/"
+						   class="dropdown-item">
+							Two
+						</a>
+					</li>
+				
+					
+					<li class="dropdown active  ">
+						<a href="/arduino/modules/three/Introduction/"
+						   class="dropdown-item">
+							Three
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/four/Bias/"
+						   class="dropdown-item">
+							Four
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/resources/community/"
+						   class="dropdown-item">
+							resources
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+		<div class="pagination-section">
+			<div class="title">
+				Previous module:
+			</div>
+			<a rel="prev" class="prev" href="/arduino/modules/two/Introduction/">
+				Two </a>
+		</div>
+		<hr />
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/three/Introduction/">
+					Introduction
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/three/Magic/">
+					Magic
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/three/Arrays/">
+					Arrays
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/three/Music/">
+					Music
+				</a>
+			</li>
+		
+			<li class="active  last">
+				<a
+						href="/arduino/modules/three/Chocolate/">
+					Chocolate
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/four/Bias/"> Four
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="experiment-7">Experiment 7:</h2>
+
+<h1 id="a-hersheys-special-dark-chocolate-kisses-dispenser1">A Hershey’s Special Dark Chocolate Kisses Dispenser<sup><a href="#myfootnote1">1</a></sup></h1>
+
+<p><img src="/arduino/img/kisses.png" alt="" /></p>
+
+<p>Today we are going to look at a servo. In particular, we are going to look at how a servo can deliver us chocolate.</p>
+
+<p>To get in the mood (and provided you can tolerate heavy metal music) <a href="https://www.youtube.com/watch?v=WIKqgE4BwAY">Here is a link to my favorite song about chocolate</a>.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WIKqgE4BwAY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>And here are the <a href="https://genius.com/Babymetal-gimme-chocolate-english-translation-lyrics">lyrics</a>)</p>
+
+<h4 id="the-servo">The Servo</h4>
+
+<p><img src="/arduino/img/servo.png" alt="" /></p>
+
+<p>A servo is a motor that can turn a specific number of degrees. For example, we can tell a servo to move exactly 45 degrees and then change direction and move 10 degrees. There are many uses of servos including</p>
+
+<ul>
+  <li>robotics - every joint of a robot might have a servo so an arm, for example, can move in a very precise way.</li>
+  <li>cameras - many cameras have built in servos that enable them to do auto-focusing.</li>
+  <li>satellite-tracking antennas and solar panel movement (both need to track something)</li>
+  <li>the hard disk in your laptop (controls arm movement inside the disk)</li>
+  <li>remote controlled hobby planes, cars, and boats.</li>
+  <li>and many others</li>
+</ul>
+
+<p>We are going to use a servo in its most important role: Delivering M&amp;M candies!</p>
+
+<h3 id="lets-get-started">Let’s get started</h3>
+
+<h4 id="hardware-hookup">Hardware Hookup</h4>
+
+<p><img src="pics/servo_bb.png" alt="" /></p>
+
+<p><a href="pics/servo_bb.png">link to larger picture</a></p>
+
+<p>Before you continue make sure to put an arm on the servo. It just makes it more fun!</p>
+
+<h3 id="the-code">The Code</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;Servo.h&gt;
+Servo myservo;
+int button = 2;
+int servoPin = 16;
+int pos = 0;        //variable to keep track of the servo's position
+bool flag = 1;      //variable to keep track of the button presses
+void setup() {
+  pinMode(button, INPUT_PULLUP);
+  Serial.begin(115200);
+  myservo.attach(servoPin);  //Initialize the servo attached to pin 16
+  myservo.write(180);        //set servo to furthest position
+  delay(500);                //delay to give the servo time to move to its position
+  myservo.detach();          //detach the servo to prevent it from jittering
+
+}
+
+void loop() {
+    if(digitalRead(button) == LOW) //if a button press has been detected...
+    {
+      //This is known a s state machine.
+      //It will move the servo to the opposite end from where it's set currently
+      if(flag == 1)
+        pos = 0;
+      if(flag == 0)
+        pos = 180;
+
+      myservo.attach(servoPin);
+      myservo.write(pos);
+      delay(500);           //debounce and give servo time to move
+      myservo.detach();
+      flag = !flag;         //set flag to the opposite of what it's currently set to
+      Serial.println(pos);  //prints to the serial port to keep track of the position
+    }
+}
+</code></pre></div></div>
+
+<h3 id="what-you-should-see">What You Should See</h3>
+
+<p>When you first upload the code, give it a few seconds, then you should see the motor move to the 180° position. Once there, it will stay until the button is pressed. Press the button to move it to 0°. Press the button again and it will move back to the first position. The purpose of this code it to give you an idea for the full range of motion for the servo motor and to help you plan out your M&amp;M Feeder. The code above is my slightly modified version of code written by the folks at Sparkfun. (<a href="sparkfun.com">Sparkfun</a>, in addition to having super nice people, has a wide assortment of really cool electronic gizmos – check it out). Anyway, the software developer in me never was 100% happy with that code. I don’t like this bit:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      if(flag == 1)
+        pos = 0;
+      if(flag == 0)
+        pos = 180;
+</code></pre></div></div>
+
+<p>So here is my reworked version:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;Servo.h&gt;
+
+Servo myservo;
+int button = 2;
+int servoPin = 16;
+int pos = 0;        //variable to keep track of the servo's position
+int max_position = 360;
+
+void setup() {
+  pinMode(button, INPUT_PULLUP);
+  Serial.begin(115200);
+  myservo.attach(servoPin);  //Initialize the servo attached to pin 16
+  myservo.write(180);        //set servo to furthest position
+  delay(500);                //delay to give the servo time to move to its position
+  myservo.detach();          //detach the servo to prevent it from jittering
+
+}
+
+void loop() {
+    if(digitalRead(button) == LOW) //if a button press has been detected...
+    {
+      myservo.attach(servoPin);
+      myservo.write(pos);
+      delay(500);           //debounce and give servo time to move
+      myservo.detach();
+      Serial.println(pos);  //prints to the serial port to keep track of the position
+      pos = (pos + 180) % max_position;
+    }
+}
+</code></pre></div></div>
+
+<p>Anyone who know me knows I love, love, love the <strong>modulo operator</strong>, <strong>%</strong> that we see in this line:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   pos = (pos + 180) % max_position;
+</code></pre></div></div>
+
+<p>The modulo operator gives us the reminder when we divide the first number by the second (think grade school math). So</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4 % 2
+</code></pre></div></div>
+
+<p>is <code class="highlighter-rouge">0</code> because there is no remainder when we divide 4 by 2.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4 % 3
+</code></pre></div></div>
+
+<p>is 1 because when we divide 4 by 3 we have 1 left over and</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>26 % 5
+</code></pre></div></div>
+
+<p>is also 1 because when we divide 26 by 5 we have a remainder of 1. Finally,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 5 % 25
+</code></pre></div></div>
+
+<p>is 5 because no 25s go into 5 so we have 5 left over.</p>
+
+<p>So far so good.</p>
+
+<p>So look at the code above and see what the values are of</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> pos
+ max_position
+</code></pre></div></div>
+
+<p>Take the time to actually look at the code while I count to 10</p>
+
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li>10</li>
+</ul>
+
+<p>Okay, so</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> pos = 0
+ max_position = 360
+</code></pre></div></div>
+
+<p>One other thing I should mention. The maximum degrees our servo can turn is 180.</p>
+
+<p>So our servo starts at 180 degrees. The first time we press the button we want it to move to 0. The second time we press the button we want it to move to 180. The third time 0, the fourth 180 and so on. <code class="highlighter-rouge">pos</code> is initially zero so</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>myservo.write(pos);
+</code></pre></div></div>
+
+<p>is the same as</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>myservo.write(0);
+</code></pre></div></div>
+
+<p>and the servo moves to position 0. Good so far.</p>
+
+<p>Then we execute my favorite line.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> pos = (pos + 180) % 360;
+</code></pre></div></div>
+
+<p>So since pos is currently 0 this is the same as</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> pos = (0 + 180) % 360;
+</code></pre></div></div>
+
+<p>so that is <code class="highlighter-rouge">180 % 360</code> which is 180.</p>
+
+<p>The next time we press the button and execute:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>myservo.write(pos);
+</code></pre></div></div>
+
+<p>we go to position 180 and then execute our favorite:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> pos = (pos + 180) % 360;
+</code></pre></div></div>
+
+<p>Since our current value of pos is 180 that equals <code class="highlighter-rouge">(180 + 180) % 360</code> which equals 0. There is no remainder when we divide 360 by 360. So this line of our code makes the value of pos alternate between 0 and 180. Cool. Let’s say we want our button presses to do the following</p>
+
+<ul>
+  <li>first press - 0 degrees</li>
+  <li>second press - 45 degrees</li>
+  <li>third press - 90 degrees</li>
+  <li>fourth press - 135 degrees</li>
+  <li>fifth press - 180 degrees</li>
+  <li>sixth press - back to 0 and repeat pattern</li>
+</ul>
+
+<p>So pos is initially zero. Each time we press we don’t want</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pos = (pos + 180) % 360;
+</code></pre></div></div>
+
+<p>We are going to have to change that 180 and, especially important we need to change 360 because the servo can only move to 180 max.</p>
+
+<h2 id="the-super-servo-challenge---25-xp">The Super Servo Challenge. - 25 xp</h2>
+
+<p>Can you implement this?</p>
+
+<p>If you do this (and understand it) you get the <strong>Modulo Merit Badge</strong></p>
+
+<h1 id="mm-dispenser">M&amp;M DIspenser</h1>
+
+<p>For this you need to find a drink cap which you screw onto the arm of your servo.</p>
+
+<p>![] (pics/cap00.png)
+photos by Sparkfun</p>
+
+<p>Now load the original button code (the one that goes from 0 to 180).
+You will need to attach the cap arm assembly to the servo so that in the initial position the cap is upright and can hold an M&amp;M, but when you press the button it dispenses the candy. You will need to alter the code so that when the button is pressed and the M&amp;M delivered it, automatically resets back to the initial upright position.</p>
+
+<p><img src="pics/cap1.png" alt="" />
+<img src="pics/cap2.png" alt="" /></p>
+
+<p>You may want to put the servo assembly at the edge of a table weighed down by a book and test that it dispenses an M&amp;M! Or, for creative xp you can construct a simple M&amp;M delivery device! (this can also be your final project)</p>
+
+<h1 id="deliver-mms-to-you-and-your-friends-through-the-internet---40xp">Deliver M&amp;Ms to You and Your Friends Through the Internet - 40xp</h1>
+
+<h2 id="adafruit-io-setup">Adafruit IO Setup</h2>
+
+<p>Let’s first setup things on the Adafruit IO side. Log into <a href="http://adafruit.io">adafruit.io</a>. You can use an existing dashboard or a new one. Add a new block to your dashboard</p>
+
+<p><img src="pics/AdafruitButton1.png" alt="" /></p>
+
+<p>selecting the Momentary Button Block (the picture with the RESET button). On the Choose Feed panel create a new feed (I called mine MM).</p>
+
+<p><img src="pics/adafruitfeed.png" alt="" /></p>
+
+<p>On the Block Settings panel</p>
+
+<p><img src="pics/AdafruitButton2.png" alt="" />
+Change the button text to something you like (in the above I did “M&amp;M Please”) and change the color to something you like. The end result is:</p>
+
+<p><img src="pics/MMButton.png" alt="" />.</p>
+
+<h2 id="the-code-1">The Code</h2>
+
+<p>The template for your code is in a zip file called <a href="deliverMM_template.zip">deliverMM_template.zip</a>. Then open it up in the Arduino IDE. You first need to change the config file. You need to change</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> #define IO_USERNAME    "Your Username"
+ #define IO_KEY         "Your key"
+ #define WIFI_SSID       "ChangeMe"
+ #define WIFI_PASS       "ChangeMe"
+</code></pre></div></div>
+
+<p>The code as is does the following. When you press the button on your dashboard, the number 1 is printed on the Serial Monitor. When you release the button, the number 0 is printed. Not very exciting. You need to add code to an M&amp;M is dispensed when you press the button!</p>
+
+<h3 id="bonus">Bonus</h3>
+
+<p>Instead of an edge of the table dispenser, can you make a more interesting one? 25xp for some device. 35 more for best dispenser in class, 25 for second, and 15 for third.</p>
+
+<p><a name="myfootnote1">1</a>: Tutorials are <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Original page at <a href="https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-for-photon-experiment-guide/experiment-7-automatic-fish-feeder">Sparkfun Inventor’s Kit for Photon</a>. This chocolate remix by Ron Zacharski</p>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/three/Music/">
+								Music </a>
+						</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

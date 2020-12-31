@@ -1,0 +1,650 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Variables</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown active first ">
+						<a href="/arduino/modules/module%20one/Introduction/"
+						   class="dropdown-item">
+							Module One
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/two/Introduction/"
+						   class="dropdown-item">
+							Two
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/three/Introduction/"
+						   class="dropdown-item">
+							Three
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/four/Bias/"
+						   class="dropdown-item">
+							Four
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/resources/community/"
+						   class="dropdown-item">
+							resources
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/module%20one/Introduction/">
+					Introduction
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/module%20one/Blink/">
+					Blink
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a
+						href="/arduino/modules/module%20one/Variables/">
+					Variables
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/module%20one/video/">
+					Video
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/module%20one/Buttons/">
+					 buttons
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/module%20one/Serial-Monitor/">
+					Serial monitor
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/module%20one/Potentiometers/">
+					Potentiometers
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/two/Introduction/"> Two
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="variables">Variables</h2>
+
+<p>We all are familiar with variable in mathematics. For example,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = 3
+y = 2x + 10
+</code></pre></div></div>
+
+<p>And looking at that we know that <em>y</em> equals 16. Let’s look at another example. Suppose we execute the following statements sequentially.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = 5
+x = x + 1
+</code></pre></div></div>
+
+<p>So now, the value of x is 6. In this case the variable name is <em>x</em> and the value of the variable <em>x</em> is 6. Variable names are not limited to <em>x</em> and <em>y</em></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>weight = 145
+weightKG = weight * .454
+radius = 7
+</code></pre></div></div>
+
+<p>So the name of the first variable is <em>weight</em> and the value of <em>weight</em> is 145.</p>
+
+<h3 id="variables-in-programming">Variables in Programming</h3>
+
+<p>Variables in programming are similar. There are 3 things you can do:</p>
+
+<ol>
+  <li>Declare a new variable</li>
+  <li>Set the value of a variable</li>
+  <li>Use the variable.</li>
+</ol>
+
+<h4 id="declaring-a-new-variable">declaring a new variable</h4>
+
+<p>In the Arduino language, as with most programming languages, we must specify what type of values the variable can take. For example, if the value of the variable <em>x</em> is an integer, we would declare that variable with</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int x;
+</code></pre></div></div>
+
+<p>where <code class="highlighter-rouge">int</code> stands for integer.</p>
+
+<p>We can also declare variables that can contain floating point numbers:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>float pi;
+</code></pre></div></div>
+
+<p>strings of characters:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String  firstname;
+</code></pre></div></div>
+
+<p>and many others.</p>
+
+<p>Almost everything we do in this course will use integer variables.</p>
+
+<p>We can name a variable anything we want:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int redLed;
+int fred;
+int variable1;
+int iHeartMary;
+</code></pre></div></div>
+
+<p>Following our <strong>work to code</strong> bullet, we give names that are meaningful. For example, if we have a red led and a blue led</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int redLed;
+int blueLed;
+</code></pre></div></div>
+
+<p>is a better choice then</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int led1;
+int led2;
+</code></pre></div></div>
+
+<p>and a far better choice than</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int x;
+int y;
+</code></pre></div></div>
+
+<p>Another convention is that variable names start with a lower case letter.</p>
+
+<h4 id="setting-the-value-of-a-variable">setting the value of a variable</h4>
+
+<p>We set the value of a variable by using a single equals sign =</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int redLed;
+redLed = 13;
+</code></pre></div></div>
+
+<p>Alternatively, we can declare and set the value of a variable in one line:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int redLed = 13;
+</code></pre></div></div>
+
+<p>This is the preferred method.</p>
+
+<h4 id="using-a-variable">Using a variable.</h4>
+
+<p>We can get the value of a variable by just using its name, much like the math example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = 5
+y = 2x + 6
+</code></pre></div></div>
+
+<p>On the <em>y</em> line, the <em>x</em> is replaced with its value:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>y = 2 * 5 + 6
+</code></pre></div></div>
+
+<p>and then the expression is evaluated.</p>
+
+<p>Similarly in programming if we had</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.  int redLed = 13;
+2.
+3.  int setup(){
+4.      pinMode(redLed, OUTPUT);
+5.  }
+</code></pre></div></div>
+
+<p>on line 4, <em>redLed</em> is replaced with its value:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pinMode(13, OUTPUT);
+</code></pre></div></div>
+
+<p>and that line is evaluated.</p>
+
+<h3 id="scope">Scope</h3>
+
+<p>There are two major types of variable scope: local and global.</p>
+
+<h4 id="local-variables">Local Variables</h4>
+
+<p>Local variables are those declared inside of a set of braces—{}</p>
+
+<p>For example,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.  void setup(){
+2.        int redLed = 3;
+3.        int blueLed = 4;
+4.        pinMode(redLed, OUTPUT);
+5.        pinMode(blueLed, OUTPUT);
+6.  }
+7.
+8.  void loop(){
+9.      int wait = 200;
+10.     digitalWrite(redLed, HIGH);
+11.     digitalWrite(blueLed, LOW);
+12.     delay(wait);
+13.     digitalWrite(redLed, LOW);
+14.     digitalWrite(blueLed, HIGH);
+15.     delay(wait);
+16. }
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">redLed</code> and <code class="highlighter-rouge">blueLed</code> are local variables because they are defined within the braces of the setup procedure. <code class="highlighter-rouge">wait</code> is also a local variable because it is defined within the braces of the loop procedure. Local variables can only be seen by lines of code within the block where they were declared. This is called the scope of the variable. The scope of <code class="highlighter-rouge">redLed</code> is the block from lines 2 through 6. So when the variable is used in line 4, it can be seen and the line executes correctly. <code class="highlighter-rouge">redLed</code> cannot be seen by line 11, since line 11 is outside of the scope (outside of the braces {}) so this line will result in an error.</p>
+
+<h4 id="global-variables">Global Variables</h4>
+
+<p>Global variables can be seen anywhere in your program. They are declared at the start of your code, outside of <code class="highlighter-rouge">void setup</code> and <code class="highlighter-rouge">void loop</code>. For example,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+1.  int redLed = 3;
+2.  int blueLed = 4;
+3.  int wait = 200;
+4.
+5.  void setup(){
+6.          pinMode(redLed, OUTPUT);
+7.          pinMode(blueLed, OUTPUT);
+8.  }
+9.
+10. void loop(){
+11.       digitalWrite(redLed, HIGH);
+12.       digitalWrite(blueLed, LOW);
+13.       delay(wait);
+14.       digitalWrite(redLed, LOW);
+15.       digitalWrite(blueLed, HIGH);
+16.       delay(wait);
+17. }
+
+</code></pre></div></div>
+
+<p>In this example, <code class="highlighter-rouge">redLed</code>, <code class="highlighter-rouge">blueLed</code>, and <code class="highlighter-rouge">wait</code> are global variables because they are declared outside of setup and loop. As a result, they can be used anywhere in the program. For example, <code class="highlighter-rouge">redLed</code> can be seen both by line 6 and by line 11.</p>
+
+<p>It may seem like local variables are somewhat limited so why not always use globals which are more powerful.</p>
+
+<p>As programs get more complex, there is a growing need to make them more modular. Each module will have a limited set of inputs and outputs.</p>
+
+<p>Here is an analogy that isn’t perfect but may be illustrative. Suppose Sharon and Louis have six children:</p>
+
+<ul>
+  <li>Lisa</li>
+  <li>David</li>
+  <li>Gretchen</li>
+  <li>Amy</li>
+  <li>Tiffany</li>
+  <li>Paul</li>
+</ul>
+
+<p>and they all share an account on the family’s desktop computer. So anyone can do anything with anybody’s files. Paul, the youngest, might accidentally delete something Louis was working on for his job. David might intentionally send email under Amy’s account. This is sort of equivalent to global variables where any line of a large program might change the value of the variable.</p>
+
+<p>The obvious solution is for everyone to have separate accounts. Amy’s files are not accessible to David, as an example. This is the equivalent of local variables.</p>
+
+<p>In this course, we will start with using global variables then introduce local variables later on.</p>
+
+<p><strong>Work to Code</strong> means to use variables whenever possible.</p>
+
+<p>Suppose we have the following code</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    // setup runs exactly once
+    void setup() {
+       pinMode(13, OUTPUT);
+       pinMode(3, OUTPUT);
+    }
+
+    // the loop function runs over and over again forever
+    void loop() {
+        digitalWrite(13, HIGH);
+        digitalWrite(3, HIGH);
+        delay(1000);
+        digitalWrite(13, LOW);
+        digitalWrite(3, LOW);
+        delay(1000);
+        digitalWrite(13, HIGH);
+        delay(1000);
+        digitalWrite(13, LOW);
+        delay(1000);
+        digitalWrite(3, HIGH);
+        delay(1000);
+        digitalWrite(3, LOW);
+        delay(1000);
+
+    }
+</code></pre></div></div>
+
+<p>And let’s say that instead of hooking the leds to pins 13 and 3, we hooked them to pins 0 and 4. Now we would have to change all the 13s to 0s and all the 3s to 4s. If we used variables:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    int led1 = 13;
+    int led2 = 3;
+
+    // setup runs exactly once
+    void setup() {
+       pinMode(led1, OUTPUT);
+       pinMode(led2, OUTPUT);
+    }
+
+    // the loop function runs over and over again forever
+    void loop() {
+        digitalWrite(led1, HIGH);
+        digitalWrite(led2, HIGH);
+        delay(1000);
+        digitalWrite(led1, LOW);
+        digitalWrite(led2, LOW);
+        delay(1000);
+        digitalWrite(led1, HIGH);
+        delay(1000);
+        digitalWrite(led1, LOW);
+        delay(1000);
+        digitalWrite(led2, HIGH);
+        delay(1000);
+        digitalWrite(led2, LOW);
+        delay(1000);
+
+    }
+</code></pre></div></div>
+
+<p>Now if we move the led from pin 13 to pin 0 we only need to change one line:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   int led1 = 0;
+
+</code></pre></div></div>
+
+<p>Now suppose we like the pattern of the above code but would like it to blink faster. That would require changing all the occurrences of 1000 to 200. But if we used a variable, that change would be trivial:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    int led1 = 13;
+    int led2 = 3;
+    int wait = 200;
+
+    // setup runs exactly once
+    void setup() {
+       pinMode(led1, OUTPUT);
+       pinMode(led2, OUTPUT);
+    }
+
+    // the loop function runs over and over again forever
+    void loop() {
+        digitalWrite(led1, HIGH);
+        digitalWrite(led2, HIGH);
+        delay(wait);
+        digitalWrite(led1, LOW);
+        digitalWrite(led2, LOW);
+        delay(wait);
+        digitalWrite(led1, HIGH);
+        delay(wait);
+        digitalWrite(led1, LOW);
+        delay(wait);
+        digitalWrite(led2, HIGH);
+        delay(wait);
+        digitalWrite(led2, LOW);
+        delay(wait);
+
+    }
+</code></pre></div></div>
+
+<p>Finally, there are some things we can do only with using variables for example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    int led1 = 13;
+    int wait = 100;
+
+    // setup runs exactly once
+    void setup() {
+       pinMode(led1, OUTPUT);
+    }
+
+    // the loop function runs over and over again forever
+    void loop() {
+        digitalWrite(led1, HIGH);
+        delay(wait);
+        digitalWrite(led1, LOW);
+        delay(wait);
+        wait = wait + 10;
+
+    }
+</code></pre></div></div>
+
+<p>What do you think the result would be?</p>
+
+<p>The blinking would start off fast and go slower and slower.</p>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/module%20one/Blink/">
+								Blink </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/module%20one/video/"> Video
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

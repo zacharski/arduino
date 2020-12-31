@@ -1,0 +1,759 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Magic</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown  first ">
+						<a href="/arduino/modules/module%20one/Introduction/"
+						   class="dropdown-item">
+							Module One
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/two/Introduction/"
+						   class="dropdown-item">
+							Two
+						</a>
+					</li>
+				
+					
+					<li class="dropdown active  ">
+						<a href="/arduino/modules/three/Introduction/"
+						   class="dropdown-item">
+							Three
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/four/Bias/"
+						   class="dropdown-item">
+							Four
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/resources/community/"
+						   class="dropdown-item">
+							resources
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+		<div class="pagination-section">
+			<div class="title">
+				Previous module:
+			</div>
+			<a rel="prev" class="prev" href="/arduino/modules/two/Introduction/">
+				Two </a>
+		</div>
+		<hr />
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/three/Introduction/">
+					Introduction
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a
+						href="/arduino/modules/three/Magic/">
+					Magic
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/three/Arrays/">
+					Arrays
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/three/Music/">
+					Music
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/three/Chocolate/">
+					Chocolate
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/four/Bias/"> Four
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="experiment-7">Experiment 7</h2>
+
+<h1 id="the-magical-incantation-explained">The Magical Incantation Explained</h1>
+
+<p>When we first introduced procedures we said to treat the <code class="highlighter-rouge">void</code> and <code class="highlighter-rouge">()</code> as a magical incantation to define procedures. And our gloss of something like</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void blink5()
+</code></pre></div></div>
+
+<p>was something like <em>this is how to blink5</em>.</p>
+
+<p>Now it is time to dissect the incantation.</p>
+
+<h2 id="arguments">Arguments</h2>
+
+<p>Suppose we wanted procedures to blink the led a certain number of times. We could have</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int led = 13;
+wait = 200;
+
+void setup(){
+    pinMode(led, OUTPUT);
+}
+
+void blink(){
+    digitalWrite(led, HIGH);
+    delay(wait);
+    digitalWrite(led, LOW);
+    delay(wait);
+}
+
+void blink2(){
+    digitalWrite(led, HIGH);
+    delay(wait);
+    digitalWrite(led, LOW);
+    delay(wait);
+    digitalWrite(led, HIGH);
+    delay(wait);
+    digitalWrite(led, LOW);
+    delay(wait);
+}
+
+void blink3(){
+    digitalWrite(led, HIGH);
+    delay(wait);
+    digitalWrite(led, LOW);
+    delay(wait);
+    digitalWrite(led, HIGH);
+    delay(wait);
+    digitalWrite(led, LOW);
+    delay(wait);
+    digitalWrite(led, HIGH);
+    delay(wait);
+    digitalWrite(led, LOW);
+    delay(wait);
+}
+
+void loop(){
+    blink();
+    delay(wait * 3);
+    blink2();
+    delay(wait * 3);
+    blink3();
+    delay(wait * 3);
+}
+</code></pre></div></div>
+
+<p>We can be a bit clever and shorten that code to:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int led = 13;
+wait = 200;
+
+void setup(){
+    pinMode(led, OUTPUT);
+}
+
+void blink(){
+    digitalWrite(led, HIGH);
+    delay(wait);
+    digitalWrite(led, LOW);
+    delay(wait);
+}
+
+void blink2(){
+    blink();
+    blink();
+}
+
+void blink3(){
+    blink();
+    blink();
+    blink();
+}
+
+void loop(){
+    blink();
+    delay(wait * 3);
+    blink2();
+    delay(wait * 3);
+    blink3();
+    delay(wait * 3);
+}
+</code></pre></div></div>
+
+<p>But wouldn’t it be great if we could just tell <code class="highlighter-rouge">blink</code> how many times to blink instead of having all those specialized blink procedures. For that we can use an argument. Procedures can take zero, one, or more arguments. So far, we have been using procedures with zero arguments. That is what the empty parentheses represent, both when we define a procedure</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void blink(); // define a procedure blink that takes no arguments.
+</code></pre></div></div>
+
+<p>and when we use a procedure:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void loop(){
+    blink();          // call blink with no arguments
+    delay(wait * 3);
+    blink2();         // call blink2 with no arguments;
+    delay(wait * 3);
+    blink3();         // call blink3 with no arguments;
+    delay(wait * 3);
+}
+</code></pre></div></div>
+
+<p>Now we are going to create a function called <code class="highlighter-rouge">blink</code> that will take one argument, which is the number of times to blink. To use it is simple, we just give the number in the parentheses:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void loop(){
+    blink(1);          // call blink with the argument 1
+    delay(wait * 3);
+    blink(2);         // call blink with the argument 2;
+    delay(wait * 3);
+    blink(3);         // call blink with the argument 3;
+    delay(wait * 3);
+}
+</code></pre></div></div>
+
+<p>When we define the procedure <code class="highlighter-rouge">blink</code> we need to specify that it takes an argument that will be an integer. As with variables we can name the argument anything we want. In this case, let’s name it <code class="highlighter-rouge">num</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void blink(int num){
+    ...
+}
+</code></pre></div></div>
+
+<p>Now we can use the argument <code class="highlighter-rouge">num</code> within the procedure just like we can use a variable. Just to keep things simple, let’s just print the number to the serial monitor. Here is the complete program:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+void setup(){
+    Serial.begin(9600);
+
+}
+
+void blink(int num){
+    Serial.print("calling blink with the argument ");
+    Serial.println(num);
+}
+
+void loop(){
+    blink(5);
+    delay(1000);
+    blink(10);
+    delay(1000);
+    blink(3);
+    delay(1000);
+}
+</code></pre></div></div>
+
+<p>When we load that code into the Arduino we will see displayed in the serial monitor</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>calling blink with argument 5
+calling blink with argument 10
+calling blink with argument 3
+</code></pre></div></div>
+
+<p>printed repeatedly.</p>
+
+<p>You may have noticed that we used:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Serial.print("calling blink with the argument ");
+</code></pre></div></div>
+
+<p>instead of</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Serial.println("calling blink with the argument ");
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Serial.print</code> doesn’t move the cursor to the next line so we have the text <em>calling blink with the argument</em> and the number printed on the same line.</p>
+
+<h3 id="remix-1-blink">Remix 1: blink</h3>
+
+<p>That’s all lovely, but what we really wanted blink to do was blink an led a certain number of times. Can you revise it so it blinks the led, <code class="highlighter-rouge">num</code> times?</p>
+
+<h3 id="multiple-arguments">Multiple Arguments</h3>
+
+<p>Let’s say we want a procedure that not only specifies how many times to blink but also which led to blink. So something like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void blinkLed(redLed, 3);
+</code></pre></div></div>
+
+<p>which says to blink the redLed three times. Now we have a procedure with two arguments. We can define it with</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void blinkLed(int led, int num){
+    ...
+}
+</code></pre></div></div>
+
+<p>The full program is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int redLed = 13;
+int blueLed = 3;
+int greenLed = 4;
+
+void setup() {
+  pinMode(redLed, OUTPUT);
+  pinMode(blueLed, OUTPUT);
+  pinMode(greenLed, OUTPUT);
+  Serial.begin(9600);
+}
+
+
+void blinkLed(int led, int num){
+  Serial.print("Blink the led connected to pin ");
+  Serial.print(led);
+  Serial.print(", ");
+  Serial.print(num);
+  Serial.println(" times");
+}
+
+void loop() {
+  blinkLed(redLed, 5);
+  delay(1000);
+  blinkLed(blueLed, 10);
+  delay(1000);
+  blinkLed(greenLed, 3);
+  delay(1000);
+
+}
+</code></pre></div></div>
+
+<p>This prints repeatedly:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Blink the led connected to pin 13, 5 times
+Blink the led connected to pin 3, 10 times
+Blink the led connected to pin 4, 3 times
+</code></pre></div></div>
+
+<h3 id="remix-2-you-guessed-it">Remix 2: You guessed it</h3>
+
+<p>Instead of printing</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Blink the led connected to pin 13, 5 times
+
+</code></pre></div></div>
+
+<p>can you construct a circuit and revise the code so it blinks the correct led the correct number of times?</p>
+
+<h3 id="remix-3-blinker">Remix 3: Blinker</h3>
+
+<p>Now we want a procedure <code class="highlighter-rouge">blinker</code> that takes 3 arguments</p>
+
+<ul>
+  <li>the led to blink</li>
+  <li>how many times</li>
+  <li>the length of the delay</li>
+</ul>
+
+<p>So for example.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+blinker(blueLed, 3, 200);
+blinker(redLed, 2, 400);
+
+</code></pre></div></div>
+
+<p>would blink the blue led three times, 200 milliseconds on and 200 milliseconds off then it would blink the redLed twice at the slower speed of 400 ms on and 400 off.</p>
+
+<h4 id="congratulations">Congratulations</h4>
+
+<p>You have now written procedures that take arguments. There is only one mystery left in our magical incantation.</p>
+
+<h2 id="returning-a-value">Returning a value</h2>
+
+<p>Sometimes we want a procedure to return a value. For example, suppose we want a procedure to add two numbers:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add(2,3);
+add(10,5);
+</code></pre></div></div>
+
+<p>and we would like add to return the sum. The <code class="highlighter-rouge">void</code> in the incantation</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void blink5(){
+    ...
+}
+</code></pre></div></div>
+
+<p>specifies that the procedure does not return a value. If we want the procedure <code class="highlighter-rouge">add</code> to return the sum, we would specify that it returns an integer:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int add(int num1, int num2){
+    ...
+}
+</code></pre></div></div>
+
+<p>Within the procedure we need to specify what to return:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int add(int num1, int num2){
+    int sum = num1 + num2;
+    return(sum);
+}
+</code></pre></div></div>
+
+<p>A complete program might be:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void setup(){
+    Serial.begin(9600);
+}
+
+int add(int num1, int num2){
+    int sum = num1 + num2;
+    return(sum);
+}
+
+void loop(){
+    int sum1 = add(3, 4);
+    int sum2 = add(5, 5);
+    // for fun let's multiple those together and print the result
+    Serial.println(sum1 * sum2);
+    delay(1000);
+}
+</code></pre></div></div>
+
+<p>which should print 70 repeatedly.</p>
+
+<p>Let’s say we only want to print the result exactly once. We know <code class="highlighter-rouge">loop</code> runs repeatedly so we need to move our code somewhere that only runs once.</p>
+
+<p><code class="highlighter-rouge">setup</code> runs only once so let’s move it there:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void setup(){
+    Serial.begin(9600);
+    int sum1 = add(3, 4);
+    int sum2 = add(5, 5);
+    // for fun let's multiple those together and print the result
+    Serial.println(sum1 * sum2);
+    delay(1000);
+}
+
+int add(int num1, int num2){
+    int sum = num1 + num2;
+    return(sum);
+}
+
+void loop(){
+
+}
+</code></pre></div></div>
+
+<p>Sweet! That may come in handy later.</p>
+
+<h3 id="remix-4-blinkest">Remix 4: blinkest</h3>
+
+<p>Suppose we want to do something like the following:</p>
+
+<p>`</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int redLed = 13;
+int blueLed = 3;
+int wait = 200;
+
+void setup() {
+  pinMode(redLed, OUTPUT);
+  pinMode(blueLed, OUTPUT);
+  Serial.begin(9600);
+}
+
+ // TBD
+
+
+void loop() {
+  blinka("red");
+  blinka("red");
+  blinka("blue");
+  blinka("blue");
+}
+</code></pre></div></div>
+
+<p>In this version, instead of the variable names <code class="highlighter-rouge">redLed</code> and <code class="highlighter-rouge">blueLed</code> we have a String representing the color. “red” for example. In this case we might want a procedure to match the string “red” to the correct pin and return that value. Let’s call that function <code class="highlighter-rouge">lookup</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int lookup(String color){
+    if (color == "red"){
+        return redLed;
+    }
+    else { //it must be blue
+        return blueLed;
+    }
+}
+</code></pre></div></div>
+
+<p>The complete program might look like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int redLed = 13;
+int blueLed = 3;
+int wait = 200;
+
+void setup() {
+  pinMode(redLed, OUTPUT);
+  pinMode(blueLed, OUTPUT);
+  Serial.begin(9600);
+}
+
+ int lookup(String color){
+    if (color == "red"){
+        return redLed;
+    }
+    else { //it must be blue
+        return blueLed;
+    }
+}
+
+void blinka(String theColor){
+    int led = lookup(theColor);
+    digitalWrite(led, HIGH);
+    delay(wait);
+    digitalWrite(led, LOW);
+    delay(wait);
+}
+
+void loop() {
+  blinka("red");
+  blinka("red");
+  blinka("blue");
+  blinka("blue");
+}
+</code></pre></div></div>
+
+<p>Can you write code for <code class="highlighter-rouge">blinkest</code> that specifies a string representing a color (red, blue, or green) and how many times to blink that led. For example,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void loop() {
+  blinkest("red", 1);
+  blinkest("blue", 2);
+  blinkest("green", 3);
+}
+</code></pre></div></div>
+
+<p>Should</p>
+
+<ul>
+  <li>blink the red led once (200 ms on and 200 off) then wait one second.</li>
+  <li>blink the blue led twice (200 ms on and 200 off) then wait one second.</li>
+  <li>blink the green led three times (200 ms on and 200 off) then wait one second.</li>
+</ul>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/three/Introduction/">
+								Introduction </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/three/Arrays/"> Arrays
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

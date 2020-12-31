@@ -1,0 +1,674 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Procedures</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown  first ">
+						<a href="/arduino/modules/module%20one/Introduction/"
+						   class="dropdown-item">
+							Module One
+						</a>
+					</li>
+				
+					
+					<li class="dropdown active  ">
+						<a href="/arduino/modules/two/Introduction/"
+						   class="dropdown-item">
+							Two
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/three/Introduction/"
+						   class="dropdown-item">
+							Three
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/four/Bias/"
+						   class="dropdown-item">
+							Four
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/resources/community/"
+						   class="dropdown-item">
+							resources
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+		<div class="pagination-section">
+			<div class="title">
+				Previous module:
+			</div>
+			<a rel="prev" class="prev" href="/arduino/modules/module%20one/Introduction/">
+				Module One </a>
+		</div>
+		<hr />
+	
+	<ul>
+		
+			<li class=" first ">
+				<a
+						href="/arduino/modules/two/Introduction/">
+					Introduction
+				</a>
+			</li>
+		
+			<li class="active  ">
+				<a
+						href="/arduino/modules/two/Procedures/">
+					Procedures
+				</a>
+			</li>
+		
+			<li class="  ">
+				<a
+						href="/arduino/modules/two/Multicolor/">
+					Multicolor
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/two/Light-Sensor/">
+					Light Sensor
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/three/Introduction/"> Three
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h2 id="experiment-4">Experiment 4:</h2>
+
+<h1 id="procedures">Procedures</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>In this experiment, no additional hardware is introduced. Instead, we focus on an important software concept: <strong>procedures</strong>. The common definition of the word procedure is a series of actions conducted in a certain order. In this sense of the word we already have been writing procedures. In everyday life, there are all sorts of procedures. For example, <a href="https://www.bridgestonetire.com/tread-and-trend/drivers-ed/how-to-change-a-flat-tire">Bridgestone Tires</a> offers an 18 step procedure to change a car tire:</p>
+
+<ol>
+  <li>find a safe location</li>
+  <li>turn on your hazard lights</li>
+  <li>apply the parking brake</li>
+  <li>apply wheel wedges</li>
+  <li>remove the hubcap</li>
+  <li>loosen lug nuts
+…</li>
+</ol>
+
+<p>The cool thing is that we have internalized many procedures, meaning someone can just tell us the name of the procedure and we know how to do it.</p>
+
+<p>When someone says <em>mow the lawn</em> we know the steps involved. Perhaps the first step is to walk around the yard looking for and removing dog toys, branches and other obstacles. Then we might check the lawn mower for gas. If a friend tells us to <em>come over to their house</em> we know the procedure for that: the roads to take and the turns to make. Perhaps the first time we visited our friend told us how to get there:</p>
+
+<h4 id="here-is-how-to-get-to-my-house">Here is how to get to my house</h4>
+
+<ol>
+  <li>get on NM-599 South</li>
+  <li>continue on NM-599 South</li>
+  <li>take the onramp to I-25 South to Albuquerque.</li>
+  <li>Take exit 149</li>
+  <li>…</li>
+</ol>
+
+<p>Once we learn that procedure, our friend can just say <em>come over</em> and we know how to do that.</p>
+
+<p>Wouldn’t it be great if we could just tell the computer <em>this is how you blink the red led</em> and give it instructions like</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>digitalWrite(red, HIGH);
+delay(wait);
+digitalWrite(red, LOW);
+delay(wait);
+</code></pre></div></div>
+
+<p>and after the computer learns that, we can tell it to <em>blink red</em> instead of repeating those instructions?</p>
+
+<p>The good news is that we can. We can give a sequence of instructions a name, and then use that name when we want to execute those instructions. The magical incantation to do that is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void blinkRed(){
+
+}
+</code></pre></div></div>
+
+<p>And my English gloss of that is <em>this is how to <strong>blinkRed</strong></em>. I am calling it a magical incantation because at this point I am not going to explain what <code class="highlighter-rouge">void</code> does or what can go inside the parentheses. That will be a later experiment.</p>
+
+<p>Let’s look at a complete example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int redLed = 3;
+int blueLed = 4;
+int wait = 200;
+
+void setup(){
+  pinMode(redLed, OUTPUT);
+  pinMode(blueLed, OUTPUT);
+}
+
+void blinkRed(){
+  digitalWrite(redLed, HIGH);
+  delay(wait);
+  digitalWrite(redLed, LOW);
+  delay(wait);
+}
+
+
+void blinkBlue(){
+  digitalWrite(blueLed, HIGH);
+  delay(wait);
+  digitalWrite(blueLed, LOW);
+  delay(wait);
+}
+
+void loop(){
+  blinkRed();
+  blinkRed();
+  blinkBlue();
+  blinkBlue();
+}
+</code></pre></div></div>
+
+<p>The procedures <code class="highlighter-rouge">setup</code> and <code class="highlighter-rouge">loop</code> are required for any Arduino program.</p>
+
+<h4 id="setup">setup</h4>
+
+<p>I gloss <code class="highlighter-rouge">void setup()</code> as <em>this is how to setup</em> and then in the setup procedure we set the pinMode of the red and blue led pins to OUTPUT.</p>
+
+<h4 id="blinkred">blinkRed</h4>
+
+<p><code class="highlighter-rouge">void blinkRed()</code> tells the computer how to blinkRed. Namely, execute the four instructions (turn on the red led, wait a while, turn off the red led and wait some more)</p>
+
+<h4 id="blinkblue">blinkBlue</h4>
+
+<p><code class="highlighter-rouge">void blinkBlue()</code> tells the computer the set of instructions for the blinkBlue procedure</p>
+
+<h4 id="loop">loop</h4>
+
+<p><code class="highlighter-rouge">void loop()</code> describes the required loop procedure. In it we tell the computer to execute the <code class="highlighter-rouge">blinkRed()</code> procedure which we defined earlier in the program. And then blink it again. And then execute <code class="highlighter-rouge">blinkBlue()</code> twice.</p>
+
+<p>Notice that we define a procedure with</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void blinkBlueAndRed()
+</code></pre></div></div>
+
+<p>and after we define it, the syntax for using it is:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blinkBlueAndRed()
+</code></pre></div></div>
+
+<p>without the <code class="highlighter-rouge">void</code>.</p>
+
+<p>As with variable names, we can name procedures pretty much anything we want. There is nothing special about the names <code class="highlighter-rouge">blinkRed</code> and <code class="highlighter-rouge">blinkBlue</code></p>
+
+<p>The following program would execute identically to the one above:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int banana = 3;
+int apple = 4;
+int blueberry = 200;
+
+void setup(){
+  pinMode(banana, OUTPUT);
+  pinMode(apple, OUTPUT);
+}
+
+void ann(){
+  digitalWrite(banana, HIGH);
+  delay(blueberry);
+  digitalWrite(banana, LOW);
+  delay(blueberry);
+}
+
+
+void mary(){
+  digitalWrite(apple, HIGH);
+  delay(blueberry);
+  digitalWrite(apple, LOW);
+  delay(blueberry);
+}
+
+void loop(){
+  ann();
+  ann();
+  mary();
+  mary();
+}
+</code></pre></div></div>
+
+<p>They execute the same, but this one is much harder for us to read. <code class="highlighter-rouge">blinkRed</code> describes what the procedure does while <code class="highlighter-rouge">ann</code> does not.</p>
+
+<h3 id="procedures-can-be-nested">Procedures can be nested</h3>
+
+<p>Notice that the procedure <code class="highlighter-rouge">blinkRed</code> in the above is nested inside the <code class="highlighter-rouge">loop</code> procedure. Suppose we want to blink Morse Code messages. The fundamental units of Morse code are dots and dashes. Here are the rules:</p>
+
+<ol>
+  <li>a dot is one time unit long</li>
+  <li>a dash is three time units long (i.e., 3 dots)</li>
+  <li>the space between a dot or dash within a letter is one time unit long</li>
+  <li>the space between letters is three time units long</li>
+  <li>the space between words is seven time units long</li>
+</ol>
+
+<p>With that we can start our program:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int led = 13;
+int unit = 200;
+
+void setup(){
+  pinMode(led, OUTPUT);
+}
+</code></pre></div></div>
+
+<p>Next, we define the procedures for dot and dash:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void dot(){
+  // a dot is one time unit long
+  digitalWrite(led, HIGH);
+  delay(unit);
+  // the space between a dot or dash within a
+  // letter is one time unit long
+  digitalWrite(led, LOW);
+  delay(unit);
+}
+
+void dash(){
+  // a dash is three time units long (i.e., 3 dots)
+  digitalWrite(led, HIGH);
+  delay(unit * 3);
+  digitalWrite(led, LOW);
+  delay(unit);
+
+}
+</code></pre></div></div>
+
+<p>Now with dots and dashes defined, we can define a few letters.</p>
+
+<p><img src="/arduino/img/morse.png" alt="" /></p>
+
+<p>Let’s say we want to send out an SOS. So we need the letters S (three dots) and O (three dashes):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void S(){
+  dot();
+  dot();
+  dot();
+  // since the space between letters is three
+  // time units long, we need to add two more
+  delay(unit * 2);
+}
+
+void O(){
+  dash();
+  dash();
+  dash();
+  delay(unit * 2);
+}
+</code></pre></div></div>
+
+<p>Finally, we can write the SOS procedure:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void SOS(){
+  S();
+  O();
+  S();
+  delay(unit * 4);
+}
+
+void loop(){
+  SOS();
+}
+</code></pre></div></div>
+
+<h3 id="advantages-of-using-procedures">Advantages of Using Procedures</h3>
+
+<h4 id="readability-and-debugability">Readability and Debugability</h4>
+
+<p>Code that uses procedures is highly organized. The lines of your code that do one particular thing are within their own procedure. This often results in programs that are shorter. All this makes your code easier to debug. Notice how much easier it is to read something like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+...
+
+void when(){
+w();
+h());
+e();
+n();
+delay(unit\*4);
+}
+...
+void chapter1(){
+when();
+I();
+wrote();
+the();
+following()
+pages();
+or();
+rather();
+the()
+bulk();
+of();
+them();
+}
+...
+void loop(){
+chapter1();
+chapter2();
+chapter3();
+}
+
+</code></pre></div></div>
+
+<p>then something like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+void loop(){
+digitalWrite(led, HIGH);
+delay(unit);
+digitalWrite(led, LOW);
+delay(unit);
+digitalWrite(led, HIGH);
+delay(unit _ 3);
+digitalWrite(led, LOW);
+delay(unit);
+digitalWrite(led, HIGH);
+delay(unit _ 3);
+digitalWrite(led, LOW);
+delay(unit \* 3);
+digitalWrite(led, HIGH);
+delay(unit);
+digitalWrite(led, LOW);
+delay(unit);
+digitalWrite(led, HIGH);
+delay(unit);
+digitalWrite(led, LOW);
+delay(unit);
+digitalWrite(led, HIGH);
+delay(unit);
+digitalWrite(led, LOW);
+delay(unit);
+...
+
+}
+
+</code></pre></div></div>
+
+<p>which is Morse code for only <em>wh</em>. You can see where this would be hard to debug.</p>
+
+<h4 id="ability-to-reuse-code">Ability to reuse code</h4>
+
+<p>You can reuse code in different parts of your program without copying the lines. In our SOS program we used the S procedure twice.</p>
+
+<h3 id="the-remixes">The Remixes</h3>
+
+<h4 id="remix-1-morse-code-phrase">Remix 1: Morse Code Phrase</h4>
+
+<p>Construct a circuit with two LEDs. Using the SOS example above as an example write and upload code that will blink the Leds to display a 2 or 3 word message. For example,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+void loop(){
+work();
+to();
+code()
+delay(unit \* 5);
+}
+
+</code></pre></div></div>
+
+<h4 id="remix-2-the-beats-version-3">Remix 2: The Beats version 3</h4>
+
+<p>This is a remix of the beats from the button experiment:</p>
+
+<p>We are going to use the patterns we constructed for experiment one: double tap, slow n fast, and Cylon. Here is the behavior of your circuit:</p>
+
+<ol>
+  <li>when no buttons are pressed, no LEDs are on</li>
+  <li>when button1 is pressed, the pattern is double tap</li>
+  <li>when button2 is pressed, the pattern is slow n fast</li>
+  <li>when button3 is pressed, the pattern is Cylon</li>
+</ol>
+
+<p>You will need to construct four procedures:</p>
+
+<ul>
+  <li>allOff</li>
+  <li>doubleTap</li>
+  <li>slowNfast</li>
+  <li>cylon</li>
+</ul>
+
+<p>and then use them with the <em>if</em>-statements inside the loop procedure.</p>
+
+<h4 id="remix-3-procedural-bike-light">Remix 3: Procedural Bike Light</h4>
+
+<p>This is a remix of the bike light from the potentiometer experiment. As with the remix above, you will need to construct procedures for each of your patterns. For example,</p>
+
+<ul>
+  <li>allOff</li>
+  <li>allOn</li>
+  <li>chaser</li>
+  <li>etc.</li>
+</ul>
+
+<p>Then, use these procedures inside the <em>if</em>-statements in the loop function.</p>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+						<div class="pagination-section pull-left">
+							<div class="title">
+								Previous section:
+							</div>
+							<a rel="prev" class="prev" href="/arduino/modules/two/Introduction/">
+								Introduction </a>
+						</div>
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/two/Multicolor/"> Multicolor
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

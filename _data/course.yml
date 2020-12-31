@@ -2,4 +2,4 @@ title: Introduction to Arduino Programming
 description: Arduino  Programming
  Fundamentals
 modules: [tutorial, resources, references, session]
-modules: ["basics", "buttons", "deep learning", "bias"]
+modules: ["Module One", "Two", "Three", "Four", "resources"]
