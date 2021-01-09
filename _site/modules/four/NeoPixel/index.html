@@ -1,0 +1,843 @@
+<!doctype html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">var _sf_startpt = (new Date()).getTime()</script>
+	<meta charset="utf-8">
+	<!--[if IE]><meta content='IE=8' http-equiv='X-UA-Compatible' /><![endif]-->
+
+	<title>Introduction to Arduino Programming | Neopixel</title>
+  <meta name="description" content="Arduino  Programming Fundamentals">
+  <meta name="author" content="">
+
+  <meta property="og:title" content="Introduction to Arduino Programming" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<link rel="apple-touch-icon" href="/arduino/img/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="/arduino/css/p2pustrap-custom.css" />
+	<link rel="stylesheet" href="/arduino/css/site.css" />
+  
+
+	<link rel="shortcut icon" href="/arduino/img/favicon.ico">
+	<script type="text/javascript" src="/arduino/js/modernizr-2.6.2.min.js"></script>
+</head>
+<body 
+      class="">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#p2pu-menu">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="container">
+		<div class="collapse navbar-collapse" id="p2pu-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/arduino/"><i class="fa fa-home"></i></a>
+				</li>
+				
+					
+					<li class="dropdown  first ">
+						<a href="/arduino/modules/module%20one/Introduction/"
+						   class="dropdown-item">
+							Module One
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/two/Introduction/"
+						   class="dropdown-item">
+							Two
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   ">
+						<a href="/arduino/modules/three/Introduction/"
+						   class="dropdown-item">
+							Three
+						</a>
+					</li>
+				
+					
+					<li class="dropdown active  ">
+						<a href="/arduino/modules/four/NeoPixel/"
+						   class="dropdown-item">
+							Four
+						</a>
+					</li>
+				
+					
+					<li class="dropdown   last">
+						<a href="/arduino/modules/resources/community/"
+						   class="dropdown-item">
+							resources
+						</a>
+					</li>
+				
+				
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!-- End Navigation -->
+
+
+
+<div class="clearfix">
+	<div class="sidebar col-md-3">
+	
+
+
+
+
+
+
+
+	
+		<div class="pagination-section">
+			<div class="title">
+				Previous module:
+			</div>
+			<a rel="prev" class="prev" href="/arduino/modules/three/Introduction/">
+				Three </a>
+		</div>
+		<hr />
+	
+	<ul>
+		
+			<li class="active first ">
+				<a
+						href="/arduino/modules/four/NeoPixel/">
+					Neopixel
+				</a>
+			</li>
+		
+			<li class="  last">
+				<a
+						href="/arduino/modules/four/LCD/">
+					Lcd
+				</a>
+			</li>
+		
+	</ul>
+	
+		<hr />
+		<div class="pagination-section">
+			<div class="title">
+				Next module:
+			</div>
+			<a rel="next" class="next" href="/arduino/modules/resources/community/"> resources
+			</a>
+		</div>
+	
+</div>
+	<div class="col-md-9 background-white">
+		<div class="col-md-8 col-md-offset-1">
+			<div class="row">
+				<div class="content col-lg-12">
+					<h1 id="experiment-11-neopixel">Experiment 11: NeoPixel</h1>
+
+<p><img src="/arduino/img/neopixel.png" alt="" />
+The above is a picture of the neopixel we will be using. NeoPixels come in a variety of shapes and sizes:</p>
+
+<p><img src="/arduino/img/pixelCollection.png" alt="" /></p>
+
+<p>Each NeoPixel contains a number of multicolor LED lights – each of which is called a <strong>pixel</strong>. The collection of pixels on a NeoPixel is called a <strong>strip</strong>. This terminology will become important when we start coding.</p>
+
+<p>When I teach this course in person, the first step we do is solder wires to the NeoPixel. In the online version of the course, this is not practical but fortunately there is a way to use the NeoPixel without soldering.</p>
+
+<p>First look at the back of your NeoPixel (shown here on the left)</p>
+
+<p><img src="/arduino/img/neopixelFrontBack.png" alt="" />
+<a href="/arduino/img/neopixelFrontBack.png">link to larger image</a></p>
+
+<p>You will need to connect three jumper wires to the NeoPixel:</p>
+
+<ul>
+  <li>one to one of the power 5V holes</li>
+  <li>one to one of the power signal ground holes</li>
+  <li>one to Data Input</li>
+</ul>
+
+<p>If you turn your neopixel rightside up, you will see these marked as V+, G, and IN.</p>
+
+<p>It is possible to connect wires to the neopixel by simply passing a jumper wire through these holes into the breadboard. In this case the breadboard is just holding the wires in place:</p>
+
+<p><img src="/arduino/img/neoWires.png" alt="" />
+<a href="/arduino/img/neoWires.png">link to larger image</a></p>
+
+<h3 id="hardware-hookup">Hardware Hookup</h3>
+
+<p><img src="/arduino/img/neopixel_bb.png" alt="" /></p>
+
+<p><a href="/arduino/img/neopixel_bb.png">link to larger picture</a></p>
+
+<h3 id="libraries">Libraries</h3>
+
+<p>Let me start by repeated a paragraph we encountered in the Servo experiment which explained the line</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;Servo.h&gt;
+</code></pre></div></div>
+
+<p>Instead of writing all of the code themselves, software developers rely on code written by others. For example, if I wrote some code for an Arduino to control a Roomba vacuum cleaner: <code class="highlighter-rouge">roomba.TurnLeft(45)</code>, <code class="highlighter-rouge">roomba.TurnRight(90)</code>, <code class="highlighter-rouge">roomba.Forward(10)</code>, I might share that code with others. This collection of shared procedures is called a <strong>library</strong>. Before you can use the procedures in a library you need load the library into your code. This is done with the include statement. So</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;Servo.h&gt;
+</code></pre></div></div>
+
+<p>instructs the Arduino IDE to include the Servo library and this allows us to use procedures like <code class="highlighter-rouge">attach</code>,<code class="highlighter-rouge">detach</code>, and <code class="highlighter-rouge">write</code>. The Arduino IDE comes with a set of standard libraries we can use, including the Servo library. We can also install and use libraries written by others. For example, people might download and install my Roomba library and include it in their code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;Roomba.h&gt;
+</code></pre></div></div>
+
+<h4 id="the-neopixel-library">The NeoPixel Library</h4>
+
+<p>The company that makes the NeoPixel, Adafruit, has created a library that abstracts away some of the complexity of the NeoPixel and makes it easy for us to program it. We will need to download and install the library, and then include it in our code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;Adafruit_NeoPixel.h&gt;
+</code></pre></div></div>
+
+<h5 id="download-the-library">Download the library</h5>
+
+<p>First you will need to download <a href="https://github.com/adafruit/Adafruit_NeoPixel">the NeoPixel library</a>. When you go to that page you should see a green download button on the right (a downward facing arrow followed by the word <em>Code</em>):</p>
+
+<p><img src="/arduino/img/githubNeo.png" alt="" /></p>
+
+<p>When you click that button you should see the popup:</p>
+
+<p><img src="/arduino/img/neoGithub2.png" alt="" /></p>
+
+<p>Select “Download ZIP”.</p>
+
+<h5 id="install-the-library">Install the library</h5>
+
+<p>After you download the file you will need to unzip it. This will create a folder called Adafruit_NeoPixel-master.</p>
+
+<ul>
+  <li>Rename the folder Adafruit_NeoPixel (removing the -master suffix)</li>
+  <li>move the folder to your Arduino/libraries folder. The Arduino folder is typically in your Documents directory</li>
+</ul>
+
+<h2 id="the-basic-code">The Basic Code</h2>
+
+<p>Here is the basic code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;Adafruit_NeoPixel.h&gt;
+
+int neo = 3;
+
+// in the line following these comments we define the neopixel strip
+// Parameter 1 = number of pixels in strip - in this case 16
+// Parameter 2 = Arduino pin number (most are valid) - in this case the neo variable above
+// Parameter 3 = pixel type flags, add together as needed:
+
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(16, neo, NEO_GRB + NEO_KHZ800);
+
+void setup() {
+  strip.begin();
+  strip.show(); // Initialize all pixels to 'off'
+}
+
+void loop() {
+  // Some example procedures showing how to display to the pixels:
+  colorWipe(strip.Color(255, 0, 0), 50); // Red
+  colorWipe(strip.Color(0, 255, 0), 50); // Green
+  colorWipe(strip.Color(0, 0, 255), 50); // Blue
+}
+
+// Fill the dots one after the other with a color
+void colorWipe(uint32_t c, int wait) {
+  for(int i=0; i &lt; strip.numPixels(); i++) {
+    strip.setPixelColor(i, c);
+    strip.show();
+    delay(wait);
+  }
+}
+</code></pre></div></div>
+
+<p>Running this code should give you a cool effect.</p>
+
+<h3 id="read-this-some-important-lines-in-the-above">READ THIS. Some important lines in the above.</h3>
+
+<p>We have worked with a multicolor LED before. This one works differently. Here is the scoop. As with our original multicolor work, we specify values for red, green, and blue, but this time <strong>0 means no color and 255 is the max color.</strong> To turn a particular pixel, a particular color is a 2 step process: first we must create the color using</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strip.Color(r, g, b)
+</code></pre></div></div>
+
+<p>where <code class="highlighter-rouge">r, g, b</code> are integers between 0 and 255 indicating the intensity of the red, green, and blue components, respectively. So, if we wanted to create the color red we would do</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strip.Color(255, 0, 0)
+</code></pre></div></div>
+
+<p>That’s 255 for red and 0 for both green and blue</p>
+
+<p>and if we wanted blue:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strip.Color(0, 0, 255)
+</code></pre></div></div>
+
+<p>and if we wanted purple we might do:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strip.Color(150, 0, 150)
+</code></pre></div></div>
+
+<p>Now we can set a particular pixel to a particular color using</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strip.setPixelColor(i, c);
+</code></pre></div></div>
+
+<p>where <code class="highlighter-rouge">i</code> is the number of the pixel and <code class="highlighter-rouge">c</code> is a color. So if we want to set the first pixel to red we would do:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strip.setPixelColor(0, strip.Color(255, 0, 0));
+</code></pre></div></div>
+
+<p>and if we wanted to set the next pixel to blue we would do</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strip.setPixelColor(1, strip.Color(0, 0, 255));
+</code></pre></div></div>
+
+<p>This command doesn’t actually turn on the pixel, which might seem screwy. It works like this. Suppose we have 16 people each with a variety of colored huge poster boards. We go down the line of people saying things like <em>Person 1, when I say show, you hold up the red board, Person 2, the blue board</em> and so on. We’ve instructed everyone what they are going to do and then we say:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    strip.show();
+    delay(wait);
+</code></pre></div></div>
+
+<p>and those people hold up those boards. It’s the same with these lights.</p>
+
+<p>Again,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    strip.setPixelColor(1, strip.Color(0, 0, 255));
+
+</code></pre></div></div>
+
+<p>sets one of the pixels on the NeoPixel to blue. How would we set all 16 pixels to blue? Hopefully you are thinking a for loop. If we want to turn all the pixel to blue all at the same time we would do:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      // make a blue color
+      uint32_t blue = strip.Color(0, 0, 255);
+      for(int i=0; i &lt; strip.numPixels(); i++) {
+        strip.setPixelColor(i, c);
+      }
+      strip.show();
+      delay(wait);
+</code></pre></div></div>
+
+<p>So we first set all the pixels to blue and then, after that is done, we <em>show</em> them.</p>
+
+<p>If we wanted them to turn blue one after another around the circle we would do:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      // make a blue color
+      uint32_t blue = strip.Color(0, 0, 255);
+      for(int i=0; i &lt; strip.numPixels(); i++) {
+        strip.setPixelColor(i, c);
+        strip.show();
+        delay(wait);
+      }
+
+</code></pre></div></div>
+
+<h4 id="unit32_t">unit32_t</h4>
+
+<p>Remember in one of the first experiments we talked about binary numbers? And we could safely forget about them until now. A color ranges from 0 to 255. That is 256 distinct values. To represent that we would need</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">128s column</th>
+      <th style="text-align: left">64s column</th>
+      <th style="text-align: left">32s column</th>
+      <th style="text-align: left">16s column</th>
+      <th style="text-align: left">8s column</th>
+      <th style="text-align: left">4s column</th>
+      <th style="text-align: left">2s column</th>
+      <th style="text-align: left">1s column</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So that is 8 bits needed to represent the value of red, and 8 for green, and another 8 for blue. That is a total of 24 bits to represent a RGB number.</p>
+
+<p>In the Arduino Uno, when we use an integer:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int led1 = 3;
+</code></pre></div></div>
+
+<p>The size limit of the integer is 16 bits which can represent numbers from -32,768 to 32,767. So an integer is 16 bits but we need 24 bits to represent an RGB value. An <code class="highlighter-rouge">int</code> is just too small.</p>
+
+<p>Another data type that the Arduino has goes by the name of <code class="highlighter-rouge">uint32_t</code>. <code class="highlighter-rouge">uint</code> is short for <em>unsigned integer</em>, which means it can only represent postive integers. That is fine for our case since we can’t have a negative number for a color value. The 32 in <code class="highlighter-rouge">uint32_t</code> denotes how many bits there are—32. That is more than enough to hold the RGB value and that is why we have things like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void colorWipe(uint32_t c, int wait) {
+</code></pre></div></div>
+
+<h3 id="remix-1-extrawipes-easy">Remix 1. ExtraWipes (easy)</h3>
+
+<p>Can you modify the loop function so it wipes red, then wipes violet, then wipes blue, then wipes violet.</p>
+
+<h3 id="remix-2-red-and-blue-passing-in-the-night-medium">Remix 2. Red and Blue Passing in the Night (medium)</h3>
+
+<p>Can you create a function:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> void redBluePassing(){
+ }
+</code></pre></div></div>
+
+<p>which changes the pixels from red to blue and back again. To test, change the loop function to:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> void loop() {
+         redBluePassing();
+ }
+</code></pre></div></div>
+
+<p>It should look like</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0baJ5xgS0Pk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h3 id="remix-3-theaterchase-hard">Remix 3. TheaterChase (hard)</h3>
+
+<p>We are going to write a function that initially looks like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void theaterChase(uint32_t c, int wait) {
+
+ }
+</code></pre></div></div>
+
+<p>The argument <code class="highlighter-rouge">c</code> is the color, and <code class="highlighter-rouge">wait</code> is the wait time.
+We are going to code that function in steps.</p>
+
+<h4 id="step-1-blink-every-third-light">Step 1. blink every third light.</h4>
+
+<p>write two loops in <code class="highlighter-rouge">theaterChase</code> that will blink every third light on and then off for the <code class="highlighter-rouge">wait</code> time. One loop turns every third pixel on. Outside the loop we will</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      strip.show();
+      delay(wait);
+</code></pre></div></div>
+
+<p>Then we will have another loop that turns them off and then after the loop, we have a <code class="highlighter-rouge">show</code> and <code class="highlighter-rouge">delay</code>.</p>
+
+<p>For testing, replace the loop function with this one:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void loop() {
+  theaterChase(strip.Color(255, 0, 0), 500); // Red
+  theaterChase(strip.Color(0, 255, 0), 500); // Green
+  theaterChase(strip.Color(0, 0, 255), 500); // Blue
+}
+</code></pre></div></div>
+
+<p>It should look like</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_APIlvMNVLM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<p>Notice that 2 adjacent pixels blink – that’s fine.</p>
+
+<h4 id="step-2-blink-every-third-light-10-times">Step 2. blink every third light 10 times</h4>
+
+<p>Okay. So now inside the function <code class="highlighter-rouge">theaterChase</code> you have 2 loops. One loop turns on every third led, the other loop turns them off. Enclose those two loops (as a unit) inside a larger loop that repeats the blinking ten times. The psuedo code is</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Our code from the previous step looked something like
+
+    repeat 10 times:
+         for every third pixel:
+              turn it on
+              end for loop
+         strip show
+         delay
+         for every third pixel:
+              turn it on
+              end for loop
+         strip show
+         delay
+         end repeat
+
+</code></pre></div></div>
+
+<p>It should look like the second part of the previous video.</p>
+
+<h4 id="step-3-the-challenging-bit">Step 3. The challenging bit.</h4>
+
+<p>To illustrate this part let’s make a little table explaining what we did.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">step</th>
+      <th style="text-align: center">0</th>
+      <th style="text-align: center">1</th>
+      <th style="text-align: center">2</th>
+      <th style="text-align: center">3</th>
+      <th style="text-align: center">4</th>
+      <th style="text-align: center">5</th>
+      <th style="text-align: center">6</th>
+      <th style="text-align: center">7</th>
+      <th style="text-align: center">8</th>
+      <th style="text-align: center">9</th>
+      <th style="text-align: center">10</th>
+      <th style="text-align: center">11</th>
+      <th style="text-align: center">12</th>
+      <th style="text-align: center">13</th>
+      <th style="text-align: center">14</th>
+      <th style="text-align: center">15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Here we’ve number the lights 0 through 15 and we indicate which lights we are blinking with asterisks. And we repeat this one step 10 times. What we want to do is repeat 3 steps, 10 times. That is, step 1, step 2, step 3, step 1, step 2, step3 and so on. And we want the steps to look like:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">step</th>
+      <th style="text-align: center">0</th>
+      <th style="text-align: center">1</th>
+      <th style="text-align: center">2</th>
+      <th style="text-align: center">3</th>
+      <th style="text-align: center">4</th>
+      <th style="text-align: center">5</th>
+      <th style="text-align: center">6</th>
+      <th style="text-align: center">7</th>
+      <th style="text-align: center">8</th>
+      <th style="text-align: center">9</th>
+      <th style="text-align: center">10</th>
+      <th style="text-align: center">11</th>
+      <th style="text-align: center">12</th>
+      <th style="text-align: center">13</th>
+      <th style="text-align: center">14</th>
+      <th style="text-align: center">15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">*</td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>or the same idea represented by a picture:</p>
+
+<p><img src="/arduino/img/p3pixel.png" alt="" /></p>
+
+<p>Our code from the previous step looked something like</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>repeat 10 times:
+     for every third pixel:
+          turn it on
+          end for loop
+     strip show
+     delay
+     for every third pixel:
+          turn it on
+          end for loop
+     strip show
+     delay
+     end repeat
+</code></pre></div></div>
+
+<p>Let’s alter this in substeps.</p>
+
+<h4 id="substep-1">substep 1</h4>
+
+<p>Between the repeat and for add a loop three times line. For example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>repeat 10 times:
+  for p = 0, 1, and 2:
+     for every third pixel:
+          turn it on
+          end for loop
+     strip show
+     delay
+     for every third pixel:
+          turn it on
+          end for loop
+     strip show
+     delay
+     end for p
+  end repeat 10 times
+</code></pre></div></div>
+
+<p>Note that we added a <code class="highlighter-rouge">for</code> loop but didn’t do anything substantive yet.</p>
+
+<h4 id="substep-2">substep 2</h4>
+
+<p>Remove the</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     strip show
+     delay
+</code></pre></div></div>
+
+<p>lines just before the end of the <code class="highlighter-rouge">for p</code> loop.</p>
+
+<h4 id="substep-3">substep 3</h4>
+
+<p>Change the 500s in the loop function to 50s:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void loop() {
+  theaterChase(strip.Color(127, 127, 127), 50); // White
+  theaterChase(strip.Color(127, 0, 0), 50); // Red
+  theaterChase(strip.Color(0, 0, 127), 50); // Blue
+}
+</code></pre></div></div>
+
+<h4 id="substep-4">substep 4</h4>
+
+<p>In the turning pixels on loop you probably have something like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	strip.setPixelColor(i, c);
+</code></pre></div></div>
+
+<p>and something similar in the turn off loop Add plus <code class="highlighter-rouge">p</code> to both lines:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      strip.setPixelColor(i+p, c);
+</code></pre></div></div>
+
+<h4 id="substep-5-test-your-code-it-should-be-awesome">substep 5 Test your code. It should be awesome</h4>
+
+<h4 id="substep-6-add-more-colors-it-should-be-most-awesome">substep 6 Add more colors. It should be most awesome</h4>
+
+<p>Add at least 3 more <code class="highlighter-rouge">theaterChase</code> lines to the loop function to display different colors.</p>
+
+<h4 id="remix-4-red-and-blue-chasing-each-other-in-the-night-medium">Remix 4. Red and Blue Chasing Each Other in the Night (medium)</h4>
+
+<p>For this remix we are going to combine your red and blue passing in the night function with the <code class="highlighter-rouge">theaterChase</code> one. Let’s call it:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void redAndBlueChasing(int wait){
+}
+</code></pre></div></div>
+
+<p>So we want a chase pattern but the pixels will gradually change from red to blue and back again. It’s easier than you’d think! Seriously, it is – don’t laugh.</p>
+
+<p>Recall that in <code class="highlighter-rouge">theaterChase</code> the outer loop repeated the chase 10 times. To convert the function to go red to blue is pretty easy. You are going to change the outer loop to repeat 256 times – from 0 to 255 and then use the loop variable to set the color of the pixels. Easy peasy.</p>
+
+<h5 id="now-you-have-code-that-chases-from-red-to-blue">now you have code that chases from red to blue</h5>
+
+<p>To go back again (from blue to red) here is what you do. Let’s call that big blog of code that repeats 256 times (including the first line with the for loop to the } ending the loop), <strong>the big for loop that repeats 256 times</strong>. Let’s copy <strong>the big for loop that repeats 256 times</strong> and paste it immediately after <strong>the big for loop that repeats 256 times</strong>. Now we have 2 <strong>the big for loop that repeats 256 times</strong> – one right after the other. In the second one you need to change a line so it goes blue to red.</p>
+
+					
+
+
+
+
+
+					
+						<hr />
+					
+					
+					
+						<div class="pagination-section pull-right">
+							<div class="title">
+								Next section:
+							</div>
+							<a rel="next" class="next" href="/arduino/modules/four/LCD/"> Lcd
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer class="p2pu-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-3">
+        <a href="https://inquiryum.com/" class="image-link"
+          ><img
+            id="cmp-logo"
+            src="/arduino/img/inquiryum-logo.png"
+            class="img-responsive"
+        /></a>
+      </div>
+
+      <div class="col-sm-3">
+        <a href="https://www.imls.gov" class="image-link"
+          ><img src="/arduino/img/footer2.png" class="img-responsive"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" id="p2pu-content">
+        <p>
+          Built using <a href="http://howto.p2pu.org">Course in a Box</a>, a
+          project of
+        </p>
+        <a href="https://www.p2pu.org" class="image-link"
+          ><img
+            src="/arduino/img/p2pu-logo-2x-white.png"
+            alt="P2PU logo"
+        /></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 cc-by-sa">
+        <img
+          src="/arduino/img/cc-icons.png"
+          alt="CC-BY-SA Icon"
+          class="img-responsive"
+        />
+        <p>
+          Unless otherwise noted, all the materials on this site are licensed
+          under a
+          <a
+            target="_blank"
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+          >
+            Creative Commons Attribution Share Alike 4.0</a
+          >
+          Unported license.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="/arduino/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+        src="//s3.amazonaws.com/p2pu-navigation-widget/p2pu_menu_slider.js"></script>
+<script src="/arduino/js/init.js"></script>
+<script src="/arduino/js/gh_link_helper.js"></script>
+
+
+
+<script>
+	P2PU.ciab.init();
+</script>
+
+
+
+<!-- Google Analytics -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+    ga('create', 'UA-5757664-19', 'auto');
+  
+  
+    ga('create', 'UA-55722824-1', 'auto', {'name': 'p2puTracker'} );
+  
+  
+    ga('send', 'pageview');
+  
+  
+    ga('p2puTracker.send', 'pageview');
+  
+</script>
+
+
+
+</body>
+</html>

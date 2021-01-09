@@ -77,7 +77,7 @@
 				
 					
 					<li class="dropdown   ">
-						<a href="/arduino/modules/four/Bias/"
+						<a href="/arduino/modules/four/NeoPixel/"
 						   class="dropdown-item">
 							Four
 						</a>
@@ -165,7 +165,7 @@
 			<div class="title">
 				Next module:
 			</div>
-			<a rel="next" class="next" href="/arduino/modules/four/Bias/"> Four
+			<a rel="next" class="next" href="/arduino/modules/four/NeoPixel/"> Four
 			</a>
 		</div>
 	
@@ -174,7 +174,7 @@
 		<div class="col-md-8 col-md-offset-1">
 			<div class="row">
 				<div class="content col-lg-12">
-					<h2 id="experiment-7">Experiment 7:</h2>
+					<h2 id="experiment-10">Experiment 10:</h2>
 
 <h1 id="a-hersheys-special-dark-chocolate-kisses-dispenser1">A Hershey’s Special Dark Chocolate Kisses Dispenser<sup><a href="#myfootnote1">1</a></sup></h1>
 
@@ -251,6 +251,25 @@ void loop() {
 <h3 id="what-you-should-see">What You Should See</h3>
 
 <p>When you first upload the code, give it a few seconds, then you should see the motor move to the 180° position. Once there, it will stay until the button is pressed. Press the button to move it to 0°. Press the button again and it will move back to the first position. The purpose of this code it to give you an idea for the full range of motion for the servo motor and to help you plan out your Hershey’s Special Dark Kisses Dispenser.</p>
+
+<h3 id="libraries">Libraries</h3>
+
+<p>Explaining the line</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;Servo.h&gt;
+</code></pre></div></div>
+
+<p>Instead of writing all of the code themselves, software developers rely on code written by others. For example, if I wrote some code for an Arduino to control a Roomba vacuum cleaner: <code class="highlighter-rouge">roomba.TurnLeft(45)</code>, <code class="highlighter-rouge">roomba.TurnRight(90)</code>, <code class="highlighter-rouge">roomba.Forward(10)</code>, I might share that code with others. This collection of shared procedures is called a <strong>library</strong>. Before you can use the procedures in a library you need load the library into your code. This is done with the include statement. So</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;Servo.h&gt;
+</code></pre></div></div>
+
+<p>instructs the Arduino IDE to include the Servo library and this allows us to use procedures like <code class="highlighter-rouge">attach</code>,<code class="highlighter-rouge">detach</code>, and <code class="highlighter-rouge">write</code>. The Arduino IDE comes with a set of standard libraries we can use, including the Servo library. We can also install and use libraries written by others. For example, people might download and install my Roomba library and include it in their code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;Roomba.h&gt;
+</code></pre></div></div>
+
+<h3 id="modulo">Modulo</h3>
 
 <p>Anyone who know me knows I love, love, love the <strong>modulo operator</strong>, <strong>%</strong> that we see in this line:</p>
 

@@ -1,4 +1,4 @@
-## Experiment 7:
+## Experiment 10:
 
 # A Hershey's Special Dark Chocolate Kisses Dispenser<sup>[1](#myfootnote1)</sup>
 
@@ -72,6 +72,28 @@ Before you continue make sure to put an arm on the servo. It just makes it more 
 ### What You Should See
 
 When you first upload the code, give it a few seconds, then you should see the motor move to the 180° position. Once there, it will stay until the button is pressed. Press the button to move it to 0°. Press the button again and it will move back to the first position. The purpose of this code it to give you an idea for the full range of motion for the servo motor and to help you plan out your Hershey's Special Dark Kisses Dispenser.
+
+### Libraries
+
+Explaining the line
+
+```
+#include <Servo.h>
+```
+
+Instead of writing all of the code themselves, software developers rely on code written by others. For example, if I wrote some code for an Arduino to control a Roomba vacuum cleaner: `roomba.TurnLeft(45)`, `roomba.TurnRight(90)`, `roomba.Forward(10)`, I might share that code with others. This collection of shared procedures is called a **library**. Before you can use the procedures in a library you need load the library into your code. This is done with the include statement. So
+
+```
+#include <Servo.h>
+```
+
+instructs the Arduino IDE to include the Servo library and this allows us to use procedures like `attach`,`detach`, and `write`. The Arduino IDE comes with a set of standard libraries we can use, including the Servo library. We can also install and use libraries written by others. For example, people might download and install my Roomba library and include it in their code:
+
+```
+#include <Roomba.h>
+```
+
+### Modulo
 
 Anyone who know me knows I love, love, love the **modulo operator**, **%** that we see in this line:
 
