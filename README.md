@@ -8,14 +8,18 @@
 |   \# | resource                                                     |
 | ---: | :----------------------------------------------------------- |
 |    1 | [The current version of this syllabus](https://github.com/zacharski/arduino/blob/gh-pages/README.md) |
-|    2 | [Welcome Video](https://youtu.be/WSYTu3fCc1Q)                |
-|    3 | [What should you do the first week](https://github.com/zacharski/database-course/tree/master/jumpstart) |
-|    4 | Instructor: Ron Zacharski ron.zacharski@gmail.com, 575.680.4041 |
-|    5 | [Inquiryum arduino course](http://inquiryum.com/arduino)     |
-|    6 | [Experience Point Sheet](https://docs.google.com/spreadsheets/d/1FSACQV1LFH7vYup034vMFtbIONfQo-DB4SVu3adLoho/edit?usp=sharing) |
-|    7 | The [UMW Database Slack Workspace](https://umwdatabaseclass.slack.com/) |
+|    2 | Instructor: Ron Zacharski ron.zacharski@gmail.com, 575.680.4041 |
+|    3 | [Inquiryum arduino course](http://inquiryum.com/arduino)     |
+|    4 | [Experience Point Sheet](https://docs.google.com/spreadsheets/d/1FSACQV1LFH7vYup034vMFtbIONfQo-DB4SVu3adLoho/edit?usp=sharing) |
+|    5 | The [Arduino Programming Fundamentals Discord Server](https://discord.com/channels/802602209769816084/802602209769816087) |
 
+##### Here is what you should accomplish in the first week
 
+1. Read this syllabus
+2. Complete the [course signup form](https://docs.google.com/forms/d/e/1FAIpQLSfL3hvgenYxJroLwKCuU0aXEuyP8gk7eM4WYN0r7QZmklCeBA/viewform?usp=sf_link)
+3. Join the [Arduino Programming Fundamentals Discord Server](https://discord.gg/VVcd4kDt) and write a "hi" post.
+4. Watch the initial videos on [the Inquiryum Arduino website.](http://www.inquiryum.com/arduino)
+5. Get an LED light to blink following the course videos.
 
 #### Description
 
@@ -101,7 +105,7 @@ The only way you gain XP is by demonstrating projects to either the instructor o
 
 #### Activities
 
-The sole thing you will be doing is building and programming devices.  There will be approximately a dozen core experiments and each experiments has a number of remixes you can do to earn XP. For example, the first task we will do is to build a device that blinks an LED light. The remixes of that task including blinking two LED lights and blinking 2 LED lights in a particular pattern. You gain XP for each of those remixes.
+The sole thing you will be doing is building and programming devices.  There will be approximately a dozen core experiments and each experiments has a number of remixes you can do to earn XP.  For example, the first task we will do is to build a device that blinks an LED light. The remixes of that task including blinking two LED lights and blinking 2 LED lights in a particular pattern. You gain XP for each of those remixes. The exact XP for each remix is shown in the experience point spreadsheet. 
 
 The final activity is a creative project, which will be explained mid-semester.
 
@@ -117,7 +121,7 @@ Here’s the scoop with the grading system. You don’t need to be a computer ge
 
 [Avatar Submission Link](https://docs.google.com/forms/d/e/1FAIpQLSdbFrbHs-Z-uk06Z5fC3EuvBFLfMxi6xPt3l8Q1IUd1_wjneA/viewform?usp=sf_link)
 
-During the first week of class I will ask you for your avatar name, pseudonym, whatever. This is the name that will appear on the Experience Point Google Spreadsheet that will be viewable by everyone in the class. If you wish to remain anonymous, don’t share your avatar name with anyone. On the other hand, if you would like recognition for achieving level 10 as an example (“a big shout out to tera miner for achieving level 10″), you can share your name. The decision is yours. To further protect the anonymity of those who wish to remain anonymous, the spreadsheet will also be populated by fictitious avatar names.
+On the course signup form you will be asked for your avatar name. This is the name that will appear on the Experience Point Google Spreadsheet that will be viewable by everyone in the class. If you wish to remain anonymous, don’t share your avatar name with anyone. On the other hand, if you would like recognition for achieving level 10 as an example (“a big shout out to tera miner for achieving level 10″), you can share your name. The decision is yours. To further protect the anonymity of those who wish to remain anonymous, the spreadsheet will also be populated by fictitious avatar names.
 
 #### Do I need to be a math wiz or computer geek to succeed in this class?
 
