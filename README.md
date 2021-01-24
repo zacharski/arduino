@@ -119,7 +119,7 @@ Here’s the scoop with the grading system. You don’t need to be a computer ge
 
 #### Avatar names, pseudonyms, noms de plume
 
-[Avatar Submission Link](https://docs.google.com/forms/d/e/1FAIpQLSdbFrbHs-Z-uk06Z5fC3EuvBFLfMxi6xPt3l8Q1IUd1_wjneA/viewform?usp=sf_link)
+The [course signup form](https://docs.google.com/forms/d/e/1FAIpQLSfL3hvgenYxJroLwKCuU0aXEuyP8gk7eM4WYN0r7QZmklCeBA/viewform?usp=sf_link).  
 
 On the course signup form you will be asked for your avatar name. This is the name that will appear on the Experience Point Google Spreadsheet that will be viewable by everyone in the class. If you wish to remain anonymous, don’t share your avatar name with anyone. On the other hand, if you would like recognition for achieving level 10 as an example (“a big shout out to tera miner for achieving level 10″), you can share your name. The decision is yours. To further protect the anonymity of those who wish to remain anonymous, the spreadsheet will also be populated by fictitious avatar names.
 
