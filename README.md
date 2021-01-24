@@ -14,7 +14,7 @@
 
 1. Read this syllabus
 2. Complete the [course signup form](https://docs.google.com/forms/d/e/1FAIpQLSfL3hvgenYxJroLwKCuU0aXEuyP8gk7eM4WYN0r7QZmklCeBA/viewform?usp=sf_link)
-3. Join the [Arduino Programming Fundamentals Discord Server](https://discord.gg/9YyJsJUK) and write a "hi" post.
+3. Join the [Arduino Programming Fundamentals Discord Server](https://discord.gg/QbY85qUwTz) and write a "hi" post.
 4. Watch the initial videos on [the Inquiryum Arduino website.](http://www.inquiryum.com/arduino)
 5. Get an LED light to blink following the course videos.
 
