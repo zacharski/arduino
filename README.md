@@ -1,23 +1,20 @@
 ## CPSC110H: Honors Introduction to Computer Science
 
-
-
 #### essentials
 
-
-|   \# | resource                                                     |
-| ---: | :----------------------------------------------------------- |
-|    1 | [The current version of this syllabus](https://github.com/zacharski/arduino/blob/gh-pages/README.md) |
-|    2 | Instructor: Ron Zacharski ron.zacharski@gmail.com, 575.680.4041 |
-|    3 | [Inquiryum arduino course](http://inquiryum.com/arduino)     |
-|    4 | [Experience Point Sheet](https://docs.google.com/spreadsheets/d/1FSACQV1LFH7vYup034vMFtbIONfQo-DB4SVu3adLoho/edit?usp=sharing) |
-|    5 | The [Arduino Programming Fundamentals Discord Server](https://discord.com/channels/802602209769816084/802602209769816087) |
+|  \# | resource                                                                                                                       |
+| --: | :----------------------------------------------------------------------------------------------------------------------------- |
+|   1 | [The current version of this syllabus](https://github.com/zacharski/arduino/blob/gh-pages/README.md)                           |
+|   2 | Instructor: Ron Zacharski ron.zacharski@gmail.com, 575.680.4041                                                                |
+|   3 | [Inquiryum arduino course](http://inquiryum.com/arduino)                                                                       |
+|   4 | [Experience Point Sheet](https://docs.google.com/spreadsheets/d/1FSACQV1LFH7vYup034vMFtbIONfQo-DB4SVu3adLoho/edit?usp=sharing) |
+|   5 | The [Arduino Programming Fundamentals Discord Server](https://discord.com/channels/802602209769816084/802602209769816087)      |
 
 ##### Here is what you should accomplish in the first week
 
 1. Read this syllabus
 2. Complete the [course signup form](https://docs.google.com/forms/d/e/1FAIpQLSfL3hvgenYxJroLwKCuU0aXEuyP8gk7eM4WYN0r7QZmklCeBA/viewform?usp=sf_link)
-3. Join the [Arduino Programming Fundamentals Discord Server](https://discord.gg/VVcd4kDt) and write a "hi" post.
+3. Join the [Arduino Programming Fundamentals Discord Server](https://discord.gg/9YyJsJUK) and write a "hi" post.
 4. Watch the initial videos on [the Inquiryum Arduino website.](http://www.inquiryum.com/arduino)
 5. Get an LED light to blink following the course videos.
 
@@ -32,8 +29,6 @@ These objectives are true of **all sections** of cs110 – Intro to CS.
 - Gain a conceptual understanding of computers, computing, and issues with technology through breadth-first topics.
 - Develop skills in algorithmic problem-solving, expressed in a programming language.
 - Represent and manipulate information in a program that executes on a computer.
-
-
 
 #### Honor Program Learning Outcome
 
@@ -54,7 +49,7 @@ The goal of this section is to acquire programming skills. In addition to the co
 
 #### Format - an asynchronous online class
 
-This class is asynchronous meaning that you will be working through the  [Inquiryum Arduino Programming Fundamentals Course](http://inquiryum.com/arduino/). You can watch the videos anytime you want. You can play them at a faster speed, you can rewatch them or pause them. You can work on the course material in 20 minute blocks throughout a day, or devote a large contiguous block of time once per week. The advantages of this approach is that it allows you great flexibility in when you want to work on the material and for how long. And, as described below under mastery learning, it allows you to work at your own pace.
+This class is asynchronous meaning that you will be working through the [Inquiryum Arduino Programming Fundamentals Course](http://inquiryum.com/arduino/). You can watch the videos anytime you want. You can play them at a faster speed, you can rewatch them or pause them. You can work on the course material in 20 minute blocks throughout a day, or devote a large contiguous block of time once per week. The advantages of this approach is that it allows you great flexibility in when you want to work on the material and for how long. And, as described below under mastery learning, it allows you to work at your own pace.
 
 ### Required Zoom Study Groups
 
@@ -64,14 +59,14 @@ The class will be divided into 4 study groups that will meet via zoom twice per 
 
 ##### Textbook
 
-There is no textbook for the course. 
+There is no textbook for the course.
 
 ##### Electronics Kit
 
 The required electronics kit is available from the bookstore. You can also get the kit from Amazon. You need
 
-* [ELEGOO UNO Project Super Starter Kit ](https://www.amazon.com/gp/product/B01D8KOZF4/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&psc=1)    ($36 as of this writing)       
-* [Adafruit NeoPixel Ring - 16](https://www.amazon.com/Adafruit-NeoPixel-Ring-Integrated-Drivers/dp/B00KBXT9I0/ref=sr_1_3?dchild=1&keywords=neopixel+led+16&qid=1605843011&s=industrial&sr=1-3) ($12 as of this writing) 
+- [ELEGOO UNO Project Super Starter Kit ](https://www.amazon.com/gp/product/B01D8KOZF4/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&psc=1) (\$36 as of this writing)
+- [Adafruit NeoPixel Ring - 16](https://www.amazon.com/Adafruit-NeoPixel-Ring-Integrated-Drivers/dp/B00KBXT9I0/ref=sr_1_3?dchild=1&keywords=neopixel+led+16&qid=1605843011&s=industrial&sr=1-3) (\$12 as of this writing)
 
 ##### Laptops
 
@@ -81,23 +76,21 @@ You will need a laptop (or desktop) for the course running either Microsoft Wind
 
 Grading is based on a method developed by Professor Lee Sheldon at Indiana University. It is based on obtaining experience points (XP). The number of XP determines what level you are at. You start the class at Level Zero and with 0 XP. The level you obtain at the end of the semester determines your final grade. Here is the chart:
 
-| Level |  XP  | Grade |
-| :---: | :--: | :---: |
-| Zero  |  0   |   F   |
-|  One  | 200  |   D   |
-|  Two  | 230  |  D+   |
-| Three | 270  |  C-   |
-| Four  | 300  |   C   |
-| Five  | 330  |  C+   |
-|  Six  | 370  |  B-   |
-| Seven | 400  |   B   |
-| Eight | 430  |  B+   |
-| Nine  | 470  |  A-   |
-|  Ten  | 500  |   A   |
+| Level | XP  | Grade |
+| :---: | :-: | :---: |
+| Zero  |  0  |   F   |
+|  One  | 200 |   D   |
+|  Two  | 230 |  D+   |
+| Three | 270 |  C-   |
+| Four  | 300 |   C   |
+| Five  | 330 |  C+   |
+|  Six  | 370 |  B-   |
+| Seven | 400 |   B   |
+| Eight | 430 |  B+   |
+| Nine  | 470 |  A-   |
+|  Ten  | 500 |   A   |
 
 Here are the ways of earning XP:
-
-
 
 #### Demos
 
@@ -105,29 +98,25 @@ The only way you gain XP is by demonstrating projects to either the instructor o
 
 #### Activities
 
-The sole thing you will be doing is building and programming devices.  There will be approximately a dozen core experiments and each experiments has a number of remixes you can do to earn XP.  For example, the first task we will do is to build a device that blinks an LED light. The remixes of that task including blinking two LED lights and blinking 2 LED lights in a particular pattern. You gain XP for each of those remixes. The exact XP for each remix is shown in the experience point spreadsheet. 
+The sole thing you will be doing is building and programming devices. There will be approximately a dozen core experiments and each experiments has a number of remixes you can do to earn XP. For example, the first task we will do is to build a device that blinks an LED light. The remixes of that task including blinking two LED lights and blinking 2 LED lights in a particular pattern. You gain XP for each of those remixes. The exact XP for each remix is shown in the experience point spreadsheet.
 
 The final activity is a creative project, which will be explained mid-semester.
 
-
-
-
-
 #### What an A means.
 
-Here’s the scoop with the grading system. You don’t need to be a computer geek or math wiz to get an A in the class. It doesn’t matter what your skills are nor what your interests are, you can get an A. In last 2 years in this class 50% of the people received an A. An A means that you have mastered some rudimentary programming skills. It does not mean that you will do well as a computer science major and continue to get A’s in computer science courses.  Typically  25-30% of the people taking the next course in the computer science sequence fail. If you are interested in majoring in computer science please talk to me sometime during the semester so I can help you determine if majoring in computer science is the right choice for you.
+Here’s the scoop with the grading system. You don’t need to be a computer geek or math wiz to get an A in the class. It doesn’t matter what your skills are nor what your interests are, you can get an A. In last 2 years in this class 50% of the people received an A. An A means that you have mastered some rudimentary programming skills. It does not mean that you will do well as a computer science major and continue to get A’s in computer science courses. Typically 25-30% of the people taking the next course in the computer science sequence fail. If you are interested in majoring in computer science please talk to me sometime during the semester so I can help you determine if majoring in computer science is the right choice for you.
 
 #### Avatar names, pseudonyms, noms de plume
 
-The [course signup form](https://docs.google.com/forms/d/e/1FAIpQLSfL3hvgenYxJroLwKCuU0aXEuyP8gk7eM4WYN0r7QZmklCeBA/viewform?usp=sf_link).  
+The [course signup form](https://docs.google.com/forms/d/e/1FAIpQLSfL3hvgenYxJroLwKCuU0aXEuyP8gk7eM4WYN0r7QZmklCeBA/viewform?usp=sf_link).
 
 On the course signup form you will be asked for your avatar name. This is the name that will appear on the Experience Point Google Spreadsheet that will be viewable by everyone in the class. If you wish to remain anonymous, don’t share your avatar name with anyone. On the other hand, if you would like recognition for achieving level 10 as an example (“a big shout out to tera miner for achieving level 10″), you can share your name. The decision is yours. To further protect the anonymity of those who wish to remain anonymous, the spreadsheet will also be populated by fictitious avatar names.
 
 #### Do I need to be a math wiz or computer geek to succeed in this class?
 
-I am hoping that there will be some of you who look over the above list of activities and think, wow! that’s exactly what I want to do. I expect some of you will look at that list and panic. Programming in front of a teacher–that seems scary and high stress. You may hate math and feel you have no talent there.  You may feel that you are not computer geeky enough to take the class.  Rest assured, this is not the case. I designed this course to enable people from a variety of backgrounds to succeed.  You’ll be doing the majority of your programming in class and much of that time will be working with other students. If you have problems we will solve them quickly.  The computer language we will be using is easy to learn but yet very expressive.
+I am hoping that there will be some of you who look over the above list of activities and think, wow! that’s exactly what I want to do. I expect some of you will look at that list and panic. Programming in front of a teacher–that seems scary and high stress. You may hate math and feel you have no talent there. You may feel that you are not computer geeky enough to take the class. Rest assured, this is not the case. I designed this course to enable people from a variety of backgrounds to succeed. You’ll be doing the majority of your programming in class and much of that time will be working with other students. If you have problems we will solve them quickly. The computer language we will be using is easy to learn but yet very expressive.
 
-I figure if I can program chances are good that you can program. I have a Bachelor of Fine Arts in music performance. I took zero math classes in college. Zero. Maybe you think, yeah, but you were probably a math wiz in high school. Nope.  I went to an all boys trade high school with basically zero math.  Regardless of your background, if you are interested in learning to program you can do it.
+I figure if I can program chances are good that you can program. I have a Bachelor of Fine Arts in music performance. I took zero math classes in college. Zero. Maybe you think, yeah, but you were probably a math wiz in high school. Nope. I went to an all boys trade high school with basically zero math. Regardless of your background, if you are interested in learning to program you can do it.
 
 If you have any questions or would like more information about the course please contact me.
 
@@ -158,7 +147,7 @@ mthomson@umw.edu
 
 #### Confidential Resources
 
-*On Campus*
+_On Campus_
 
 Talley Center for Counselling Services
 Lee Hall 106
@@ -166,7 +155,7 @@ Lee Hall 106
 Student Health Center
 Lee Hall 112
 
-*Off-Campus*
+_Off-Campus_
 
 Empowerhouse
 540-373-9373
@@ -174,7 +163,7 @@ Empowerhouse
 RCASA
 540-371-1666
 
-##  
+##
 
 #### Recording Policy
 
@@ -192,9 +181,7 @@ Plagiarism means presenting some other person’s work as your own. This can mea
 
 Collusion is unauthorized collaboration that produces work which is then presented as work completed independently by the student. Collusion includes participating in group discussions that develop solutions which everyone copies. Collusion will result in a negative score for that work.
 
-
-
-####  General Education Student Learning Outcomes
+#### General Education Student Learning Outcomes
 
 - Students will demonstrate an ability to interpret quantitative/symbolic information. For example, students should be able to examine an algorithm or source code and state in English the behavior of that code.
 - Students will have the ability to convert relevant information into various mathematical/analytical forms. For examples, students should be able to take a problem description and produce a working computer program.
