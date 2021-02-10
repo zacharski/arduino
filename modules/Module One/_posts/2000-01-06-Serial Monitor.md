@@ -2,6 +2,8 @@
 
 # Debugging
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-JVU6ogOTdw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Debugging is the process of finding and fixing errors in computer hardware and software.
 
 ## Origin of the term _bug_ - an aside
