@@ -2,6 +2,8 @@
 
 # Turning the Knob: Potentiometers<sup>[1](#myfootnote1)</sup>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yGTD1f-BRtc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Analog and Digital.
 
 We are all familiar with the term _digital_
