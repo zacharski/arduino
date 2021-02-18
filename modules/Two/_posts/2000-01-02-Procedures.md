@@ -2,6 +2,8 @@
 
 # Procedures
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rLi2wXxPTYk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Introduction
 
 In this experiment, no additional hardware is introduced. Instead, we focus on an important software concept: **procedures**. The common definition of the word procedure is a series of actions conducted in a certain order. In this sense of the word we already have been writing procedures. In everyday life, there are all sorts of procedures. For example, [Bridgestone Tires](https://www.bridgestonetire.com/tread-and-trend/drivers-ed/how-to-change-a-flat-tire) offers an 18 step procedure to change a car tire:
