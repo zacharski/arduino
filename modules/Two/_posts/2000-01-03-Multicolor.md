@@ -2,6 +2,15 @@
 
 # The Magical Multicolor LED<sup>[1](#myfootnote1)</sup>
 
+### RED LED Countdown timers are scary
+
+#### An introduction to _for_-loops
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RUN0R7sBnuA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- main content begins at around the 4 minute mark
+- a challenge begins at 14:40
+
 ## Part 1: I have in my hand a plain, ordinary LED
 
 ## Introduction
@@ -430,7 +439,257 @@ That program spends twice as long on brightness 255 as it does the others. **The
 # Part 2 The Magical Mysterious World of the Multicolor LED
 
 ![](/arduino/img/rgb.png)
-In this part of the lab we are going to be working with what is called an RGB LED (RGB stands for Red, Green, Blue). There are 4 wires sticking out of this LED. The one we have in our kit is called a Common-Anode type, which simply means that we connect the long leg to 3V. (The other type is the Common-Cathode type where we connect the long leg to ground) Here is a picture that may help:
+In this part of the lab we are going to be working with what is called an RGB LED (RGB stands for Red, Green, Blue). There are 4 wires sticking out of this LED. The one we have in our kit is called a Common-Cathode type, which simply means that we connect the long leg to ground. (The other type is the Common-Anode type where we connect the long leg to 5V). Here is a picture that may help:
+
+![](/arduino/img/rgb-led.png)
+
+### Let's pause and look at the common-cathode in that picture
+
+- We are going to connect the - pin to ground on our Arduino Uno
+- On one side of the longest leg is a single leg. That leg (R) is connected to the red component of the led. To the other side of the longest leg are two legs. The leg closest to the long leg is the green (G) leg, and the next is the blue (B)
+- The R (red) pin we will connected through a resistor to an i/o pin on the Uno (pin 9 for example)
+- The G (green) pin will be similarly connected
+- The B (blue) pin will also be connected in that way.
+- And to make things easier we will define a variable to the pins that each are connected to (`int red = 9` for example)
+
+### Common Cathode RGB LEDs are easy.
+
+Once we make those connections the common cathode RGB LED works like other LEDs we have worked with.
+
+We can turn on the red component with:
+
+    digitalWrite(red, HIGH);
+
+or
+
+    analogWrite(red, 255);
+
+and turn off red with
+
+    digitalWrite(red, LOW);
+
+or
+
+    analogWrite(red, 0);
+
+## Fiddling with colors
+
+In this single LED we can fiddle with the brightness of **R**ed, **G**reen, and **B**lue. For any color we would specify values for each of these. For example, if we wanted solid blue we might have:
+
+    analogWrite(red, 0);
+    analogWrite(green, 0);
+    analogWrite(blue, 255);
+
+Magenta (aka Fushia) is an equal mix of red and blue so if we wanted a bright magenta we might have:
+![](pics/magenta.png)
+
+    analogWrite(red, 255);
+    analogWrite(green, 0);
+    analogWrite(blue, 255);
+
+If you wanted a dimmer magenta you could do:
+
+    analogWrite(red, 127);
+    analogWrite(green, 0);
+    analogWrite(blue, 127);
+
+Pink is mostly red with some green and blue:
+
+    analogWrite(red, 255);
+    analogWrite(green, 127);
+    analogWrite(blue, 127);
+
+**Let's get to work!**
+
+## Hardware hookup
+
+![](/arduino/img/rgb_bb2.png)
+
+[link to larger picture](/arduino/img/rgb_bb2.png)
+
+## The code
+
+And here is code that will display 8 colors just using digitalWrite:
+
+```
+
+int RED_PIN = 9;
+int GREEN_PIN = 10;
+int BLUE_PIN = 11;
+
+
+int DISPLAY_TIME = 100;  // In milliseconds
+
+
+void setup()
+{
+  pinMode(RED_PIN, OUTPUT);
+  pinMode(GREEN_PIN, OUTPUT);
+  pinMode(BLUE_PIN, OUTPUT);
+}
+
+
+void loop()
+{
+
+  mainColors();
+}
+
+
+// Here's the mainColors() procedure we've written.
+
+// This procedure displays the eight "main" colors that the RGB LED
+// can produce.
+
+void mainColors()
+{
+  // Off (all LEDs off):
+
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(GREEN_PIN, LOW);
+  digitalWrite(BLUE_PIN, LOW);
+
+  delay(5000);
+
+  // Red (turn just the red LED on):
+
+  digitalWrite(RED_PIN, HIGH);
+  digitalWrite(GREEN_PIN, LOW);
+  digitalWrite(BLUE_PIN, LOW);
+
+  delay(1000);
+
+  // Green (turn just the green LED on):
+
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(GREEN_PIN, HIGH);
+  digitalWrite(BLUE_PIN, LOW);
+
+  delay(1000);
+
+  // Blue (turn just the blue LED on):
+
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(GREEN_PIN, LOW);
+  digitalWrite(BLUE_PIN, HIGH);
+
+  delay(1000);
+
+  // Yellow (turn red and green on):
+
+  digitalWrite(RED_PIN, HIGH);
+  digitalWrite(GREEN_PIN, HIGH);
+  digitalWrite(BLUE_PIN, LOW);
+
+  delay(1000);
+
+  // Cyan (turn green and blue on):
+
+  digitalWrite(RED_PIN, LOW);
+  digitalWrite(GREEN_PIN, HIGH);
+  digitalWrite(BLUE_PIN, HIGH);
+
+  delay(1000);
+
+  // Purple (turn red and blue on):
+
+  digitalWrite(RED_PIN, HIGH);
+  digitalWrite(GREEN_PIN, LOW);
+  digitalWrite(BLUE_PIN, HIGH);
+
+  delay(1000);
+
+  // White (turn all the LEDs on):
+
+  digitalWrite(RED_PIN, HIGH);
+  digitalWrite(GREEN_PIN, HIGH);
+  digitalWrite(BLUE_PIN, HIGH);
+
+  delay(1000);
+}
+
+```
+
+#### What you should see.
+
+After a 5 second delay, you should should see red for a second, followed by green, blue, yellow, cyan, and purple. Then it repeats after a 5 second delay. If you don't see red after the 5 second delay then:
+
+1. if you see either green or blue check your wiring.
+2. if you see a whitish color you may have a common-anode RGB LED. Check out the appendix below.
+
+### Dimmer Red
+
+Here is some code that pulses the red part of the multicolor LED (and introduces the `for` loop):
+
+    	int redLed = 9;
+    	int greenLed =10;
+    	int blueLed = 11;
+    	int display_time = 2; //in milliseconds
+    	int redColor = 0;
+    	int blueColor = 0;
+    	int greenColor = 0;
+
+    	void setup() {
+    	  pinMode(redLed, OUTPUT);
+    	  pinMode(greenLed, OUTPUT);
+    	  pinMode(blueLed, OUTPUT);
+
+    	}
+
+    	void dimmerRed(){
+    	  // first turn off the green and blue LEDs
+    	  analogWrite(greenLed, 0);
+    	  analogWrite(blueLed, 0);
+
+
+    	  // now make red dimmer and dimmer
+    	  for (int i = 255; i >= 0; i--){
+    	    analogWrite(redLed, i);
+    	    delay(display_time);
+    	  }
+    	}
+
+    	void loop(){
+    	  dimmerRed();
+    	}
+
+As you can see, the red light starts at its brightness (value 255) and quickly dims (goes to 0).
+
+Let's look at the code for the procedure `dimmerRed`.
+
+- The first things we do is turn off green and blue by using `analogWrite(greenLed, 0)` and `analogWrite(blueLed, 0)`
+- Now we start our `for` loop. The first time through the loop `i` is 255, the next time it is 254, then 253 until `i` equals -1 and then the loop stops.
+- Next we have `analogWrite(redLed, i);` Initially i is 255 so we set the redLed to brightness 255. The next time through the loop i is 254 so we set the brightness to 254 and so on.
+
+## Red and Blue Passing in the Night
+
+### Redmix 5: redToBlue-
+
+Can you write a procedure `redToBlue` so that as the red dims the blue increases in brightness? The format of the procedure is similar to that for `dimmerRed`. Once you've written that procedure change the loop procedure to:
+
+    	void loop(){
+    	  redToBlue();
+    	}
+
+to test it.
+
+### Remix 6: red and blue passing in the night
+
+Ok. Part 1 had you move from red to blue and then there was a sudden jump back to red. Can you modify the code so that the light gradually goes from red to blue and then gradually back again? This may involve writing another procedure.
+
+### Remix 7: Roy G Biv - 10-20xp
+
+[Roy G Biv - They Might Be Giants](https://www.youtube.com/watch?v=uRP1KcSfg5A)
+
+Now we want the multicolor led to go gradually from red to green then green to blue and then blue to red? Think about how you would break this problem down into simple procedures. 10xp for a solution that works, 20xp for code that breaks this task down into simpler subtasks.
+
+### Remix 8: Roy G Biv R Vib G Yor
+
+This is a puzzle. What do we want to see?
+
+## Appendix: If you have a common-anode RGB LED
+
+If the above examples are not working correctly you may have a common anode RGB LED. Unfortunately, they look the same. Here is a picture that may help:
 
 ![](/arduino/img/common_anode.png)
 
@@ -471,211 +730,3 @@ would be off and
     digitalWrite(green, LOW);
 
 would be on.
-
-## Fiddling with colors
-
-In this single LED we can fiddle with the brightness of **R**ed, **G**reen, and **B**lue. For any color we would specify values for each of these. For example, if we wanted solid blue we might have:
-
-    analogWrite(red, 255);
-    analogWrite(green, 255);
-    analogWrite(blue, 0);
-
-Magenta (aka Fushia) is an equal mix of red and blue so if we wanted a bright magenta we might have:
-![](pics/magenta.png)
-
-    analogWrite(red, 0);
-    analogWrite(green, 255);
-    analogWrite(blue, 0);
-
-If you wanted a dimmer magenta you could do:
-
-    analogWrite(red, 127);
-    analogWrite(green, 256);
-    analogWrite(blue, 127);
-
-Pink is mostly red with some green and blue:
-
-    analogWrite(red, 255);
-    analogWrite(green, 127);
-    analogWrite(blue, 127);
-
-**Let's get to work!**
-
-## Hardware hookup
-
-![](/arduino/img/rgb_bb.png)
-
-[link to larger picture](/arduino/img/rgb_bb.png)
-
-## The code
-
-And here is code that will display 8 colors just using digitalWrite:
-
-    int RED_PIN = 9;
-    int GREEN_PIN = 10;
-    int BLUE_PIN = 11;
-
-
-    int DISPLAY_TIME = 100;  // In milliseconds
-
-
-    void setup()
-    {
-      pinMode(RED_PIN, OUTPUT);
-      pinMode(GREEN_PIN, OUTPUT);
-      pinMode(BLUE_PIN, OUTPUT);
-    }
-
-
-    void loop()
-    {
-
-      mainColors();
-    }
-
-
-    // Here's the mainColors() procedure we've written.
-
-    // This procedure displays the eight "main" colors that the RGB LED
-    // can produce.
-
-    void mainColors()
-    {
-      // Off (all LEDs off):
-
-      digitalWrite(RED_PIN, HIGH);
-      digitalWrite(GREEN_PIN, HIGH);
-      digitalWrite(BLUE_PIN, HIGH);
-
-      delay(1000);
-
-      // Red (turn just the red LED on):
-
-      digitalWrite(RED_PIN, LOW);
-      digitalWrite(GREEN_PIN, HIGH);
-      digitalWrite(BLUE_PIN, HIGH);
-
-      delay(1000);
-
-      // Green (turn just the green LED on):
-
-      digitalWrite(RED_PIN, HIGH);
-      digitalWrite(GREEN_PIN, LOW);
-      digitalWrite(BLUE_PIN, HIGH);
-
-      delay(1000);
-
-      // Blue (turn just the blue LED on):
-
-      digitalWrite(RED_PIN, HIGH);
-      digitalWrite(GREEN_PIN, HIGH);
-      digitalWrite(BLUE_PIN, LOW);
-
-      delay(1000);
-
-      // Yellow (turn red and green on):
-
-      digitalWrite(RED_PIN, LOW);
-      digitalWrite(GREEN_PIN, LOW);
-      digitalWrite(BLUE_PIN, HIGH);
-
-      delay(1000);
-
-      // Cyan (turn green and blue on):
-
-      digitalWrite(RED_PIN, HIGH);
-      digitalWrite(GREEN_PIN, LOW);
-      digitalWrite(BLUE_PIN, LOW);
-
-      delay(1000);
-
-      // Purple (turn red and blue on):
-
-      digitalWrite(RED_PIN, LOW);
-      digitalWrite(GREEN_PIN, HIGH);
-      digitalWrite(BLUE_PIN, LOW);
-
-      delay(1000);
-
-      // White (turn all the LEDs on):
-
-      digitalWrite(RED_PIN, LOW);
-      digitalWrite(GREEN_PIN, LOW);
-      digitalWrite(BLUE_PIN, LOW);
-
-      delay(1000);
-    }
-
-### Dimmer Red
-
-Here is some code that pulses the red part of the multicolor LED (and introduces the `for` loop):
-
-    	int redLed = 9;
-    	int greenLed =10;
-    	int blueLed = 11;
-    	int display_time = 2; //in milliseconds
-    	int redColor = 0;
-    	int blueColor = 0;
-    	int greenColor = 0;
-
-    	void setup() {
-    	  pinMode(redLed, OUTPUT);
-    	  pinMode(greenLed, OUTPUT);
-    	  pinMode(blueLed, OUTPUT);
-
-    	}
-
-    	void dimmerRed(){
-    	  // first turn off the green and blue LEDs
-    	  analogWrite(greenLed, 255);
-    	  analogWrite(blueLed, 255);
-
-    	  // set the base value of the red led
-    	  // it should be at its brightest - so 0
-    	  redColor = 0;
-
-    	  // now make red dimmer and dimmer
-    	  for (int i = 0; i < 256; i += 1){
-    	    analogWrite(redLed, redColor + i);
-    	    delay(display_time);
-    	  }
-    	}
-
-    	void loop(){
-    	  dimmerRed();
-    	}
-
-As you can see, the red light starts at its brightness (value 0) and quickly dims (goes to 255).
-
-Let's look at the code for the procedure `dimmerRed`.
-
-- The first things we do is turn off green and blue by using `analogWrite(greenLed, 255)` and `analogWrite(blueLed, 255)`
-- Since we want the red part of the led to start at its brightest, we set the variable `redColor` initially to zero.
-- Now we start our `for` loop. The first time through the loop `i` is 0, the next time it is 1, then 2 until `i` equals 256 and then the loop stops.
-- Next we have `analogWrite(redLed, redColor + i);` Initially redColor is 0 and i is 0 so we set the redLed to brightness 0. The next time through the loop i is 1 so we set the brightness to 1 and so on.
-
-## Red and Blue Passing in the Night
-
-### Redmix 5: redToBlue-
-
-Can you write a procedure `redToBlue` so that as the red dims the blue increases in brightness? The format of the procedure is similar to that for `dimmerRed`. Once you've written that procedure change the loop procedure to:
-
-    	void loop(){
-    	  redToBlue();
-    	}
-
-to test it.
-
-### Remix 6: red and blue passing in the night
-
-Ok. Part 1 had you move from red to blue and then there was a sudden jump back to red. Can you modify the code so that the light gradually goes from red to blue and then gradually back again? This may involve writing another procedure.
-
-### Remix 7: Roy G Biv - 10-20xp
-
-[Roy G Biv - They Might Be Giants](https://www.youtube.com/watch?v=uRP1KcSfg5A)
-
-Now we want the multicolor led to go gradually from red to green then green to blue and then blue to red? Think about how you would break this problem down into simple procedures. 10xp for a solution that works, 20xp for code that breaks this task down into simpler subtasks.
-
-### Remix 8: Roy G Biv R Vib G Yor
-
-This is a puzzle. What do we want to see?
