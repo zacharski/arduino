@@ -32,7 +32,6 @@ Again, if you have your RGB hooked up, leave it and ignore the LED in this diagr
         int sensor = A0;
 
     	void setup() {
-    	  pinMode(sensor, OUTPUT);
     	  Serial.begin(9600);
     	}
 
