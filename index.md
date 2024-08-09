@@ -46,3 +46,7 @@ The best we can do is find something in the present moment that brings us joy an
 #### Tom Sachs - Focus on What you Love
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oP45EdNznOY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Other Programming Resources
+
+Check out [Coding Websites and Apps for Students]([Coding Websites for Apps and Students - LoadView](https://www.loadview-testing.com/education/coding-websites-for-apps-and-students/)). (Thanks to Ethan Pruitt for this suggestion and contratulations to him for earning his Boy Scout Programming Merit Badge.)
