@@ -49,4 +49,4 @@ The best we can do is find something in the present moment that brings us joy an
 
 ## Other Programming Resources
 
-Check out [Coding Websites and Apps for Students]([Coding Websites for Apps and Students - LoadView](https://www.loadview-testing.com/education/coding-websites-for-apps-and-students/)). (Thanks to Ethan Pruitt for this suggestion and contratulations to him for earning his Boy Scout Programming Merit Badge.)
+Check out [Coding Websites and Apps for Students]([Coding Websites for Apps and Students - LoadView](https://www.loadview-testing.com/education/coding-websites-for-apps-and-students/)). (Thanks to Ethan Pruitt for this suggestion and congratulations to him for earning his Boy Scout Programming Merit Badge.)
